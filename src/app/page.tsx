@@ -10,19 +10,22 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
         <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            SQL Events
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            SQL Events Nigeria
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Transform your vision into unforgettable experiences. We craft
-            moments that matter.
+          <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed font-light">
+            Passion. Innovation. Technology in Events Management
+          </p>
+          <p className="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Leading corporate events and conference management company in
+            Nigeria
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-slate-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
-              Start Planning
+              Plan Your Event
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-slate-900 transition-colors duration-300">
-              View Portfolio
+              View Our Work
             </button>
           </div>
         </div>
@@ -45,68 +48,163 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 px-6 bg-gray-50">
+      {/* Key Services Section */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              What We Do
+              Our Core Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From intimate gatherings to grand celebrations, we handle every
-              detail with precision and creativity.
+              Comprehensive event management solutions for corporate Nigeria
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Corporate Events",
-                description:
-                  "Conferences, product launches, and team building experiences that inspire and engage.",
-                icon: "🏢",
-              },
-              {
-                title: "Weddings",
-                description:
-                  "Your special day, perfectly orchestrated with attention to every romantic detail.",
-                icon: "💒",
-              },
-              {
-                title: "Special Celebrations",
-                description:
-                  "Birthdays, anniversaries, and milestone events that create lasting memories.",
-                icon: "🎉",
-              },
-              {
                 title: "Conferences",
-                description:
-                  "Professional gatherings that connect, educate, and inspire your audience.",
                 icon: "🎤",
+                description: "Professional conference management",
+              },
+              {
+                title: "AGMs",
+                icon: "🏢",
+                description: "Annual General Meetings",
+              },
+              {
+                title: "Exhibitions",
+                icon: "🎪",
+                description: "Exhibition & trade show management",
               },
               {
                 title: "Product Launches",
-                description:
-                  "Launch events that generate buzz and create unforgettable brand moments.",
                 icon: "🚀",
+                description: "Brand & product launch events",
+              },
+              {
+                title: "Training",
+                icon: "📚",
+                description: "Corporate training & workshops",
               },
               {
                 title: "Team Building",
-                description:
-                  "Experiences that strengthen bonds and boost team morale and productivity.",
                 icon: "🤝",
+                description: "Team building & retreats",
+              },
+              {
+                title: "Fundraisers",
+                icon: "💝",
+                description: "Charity & fundraising events",
+              },
+              {
+                title: "Seminars",
+                icon: "🎓",
+                description: "Educational seminars & workshops",
               },
             ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
+              <div key={index} className="text-center group">
+                <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-6 mb-4 group-hover:scale-105 transition-transform duration-300">
+                  <div className="text-4xl mb-3">{service.icon}</div>
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">
                   {service.title}
                 </h3>
+                <p className="text-gray-600 text-sm">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Notable Clients Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Trusted by Leading Organizations
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We've successfully managed events for prestigious institutions
+              across Nigeria
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {[
+              {
+                name: "NBA",
+                logo: "⚖️",
+                description: "Nigerian Bar Association",
+              },
+              {
+                name: "COREN",
+                logo: "🏗️",
+                description: "Council for Regulation of Engineering",
+              },
+              {
+                name: "Rivers State",
+                logo: "🌊",
+                description: "Rivers State Government",
+              },
+              {
+                name: "Corporate Nigeria",
+                logo: "🏢",
+                description: "Leading Corporations",
+              },
+            ].map((client, index) => (
+              <div key={index} className="text-center">
+                <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                  <div className="text-4xl mb-3">{client.logo}</div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-1">
+                    {client.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{client.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Why Choose SQL Events Nigeria?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Technology-Driven",
+                description:
+                  "Cutting-edge solutions for modern event management",
+                icon: "💻",
+              },
+              {
+                title: "Experienced Team",
+                description: "Professionals with years of industry expertise",
+                icon: "👥",
+              },
+              {
+                title: "Large Clientele Base",
+                description:
+                  "Trusted by hundreds of organizations across Nigeria",
+                icon: "🏢",
+              },
+            ].map((feature, index) => (
+              <div key={index} className="text-center">
+                <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-8 mb-6">
+                  <div className="text-5xl mb-4">{feature.icon}</div>
+                </div>
+                <h3 className="text-2xl font-semibold text-slate-900 mb-4">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {service.description}
+                  {feature.description}
                 </p>
               </div>
             ))}
@@ -114,108 +212,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                Crafting Experiences That Matter
-              </h2>
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                At SQL Events, we believe that every event tells a story. Our
-                team of passionate professionals works tirelessly to ensure that
-                your story is told beautifully, from the initial concept to the
-                final moment.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                With years of experience in event planning and management, we've
-                mastered the art of creating seamless, memorable experiences
-                that exceed expectations and leave lasting impressions.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">500+</div>
-                  <div className="text-gray-600">Events Planned</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">98%</div>
-                  <div className="text-gray-600">Client Satisfaction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">5+</div>
-                  <div className="text-gray-600">Years Experience</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-8 h-96 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <div className="text-6xl mb-4">📸</div>
-                  <p className="text-lg">Event Gallery</p>
-                  <p className="text-sm">Beautiful moments captured</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 px-6 bg-gray-50">
+      {/* Testimonials Section */}
+      <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Our Work
+              What Our Clients Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Take a look at some of our recent events and see how we bring
-              visions to life.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Tech Conference 2024",
-                category: "Corporate",
-                image: "🎯",
+                quote:
+                  "SQL Events delivered an exceptional NBA conference that exceeded all expectations.",
+                author: "Nigerian Bar Association",
+                role: "Annual Conference",
               },
               {
-                title: "Sarah & Mike's Wedding",
-                category: "Wedding",
-                image: "💕",
+                quote:
+                  "Professional, efficient, and technology-driven approach to event management.",
+                author: "COREN",
+                role: "Engineering Assembly",
               },
               {
-                title: "Product Launch Event",
-                category: "Launch",
-                image: "🚀",
+                quote:
+                  "The Rivers State Education Summit was flawlessly executed with cutting-edge technology.",
+                author: "Rivers State Government",
+                role: "Education Summit",
               },
-              {
-                title: "Annual Gala Dinner",
-                category: "Celebration",
-                image: "✨",
-              },
-              { title: "Team Retreat", category: "Corporate", image: "🏔️" },
-              { title: "Birthday Bash", category: "Celebration", image: "🎂" },
-            ].map((project, index) => (
+            ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
-                  <div className="text-6xl">{project.image}</div>
-                </div>
-                <div className="p-6">
-                  <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full mb-3">
-                    {project.category}
-                  </span>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    A stunning event that exceeded all expectations.
+                <div className="text-4xl mb-4">💬</div>
+                <p className="text-gray-600 mb-6 italic">
+                  "{testimonial.quote}"
+                </p>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    {testimonial.author}
                   </p>
+                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -227,48 +266,19 @@ export default function Home() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Create Something Amazing?
+            Ready to Transform Your Event?
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            Let's discuss your vision and turn it into an unforgettable reality.
+            Let's discuss how we can bring your vision to life with our
+            technology-driven approach.
           </p>
-          <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
-            Get Started Today
-          </button>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let's Connect
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to start planning your next event? We'd love to hear from
-              you.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl mb-4">📧</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-              <p className="text-gray-300">hello@sqlevents.com</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-4">📱</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Phone</h3>
-              <p className="text-gray-300">+1 (555) 123-4567</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-4">📍</div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Location
-              </h3>
-              <p className="text-gray-300">San Francisco, CA</p>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
+              Get a Quote
+            </button>
+            <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors duration-300">
+              Contact Us
+            </button>
           </div>
         </div>
       </section>
@@ -276,23 +286,26 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-6 bg-black text-white">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="text-2xl font-bold mb-4">SQL Events</div>
+          <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>
           <p className="text-gray-400 mb-6">
-            Creating moments that matter, one event at a time.
+            Passion. Innovation. Technology in Events Management.
           </p>
-          <div className="flex justify-center space-x-6 text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">
-              Instagram
-            </a>
+          <div className="flex justify-center space-x-6 text-gray-400 mb-6">
             <a href="#" className="hover:text-white transition-colors">
               LinkedIn
             </a>
             <a href="#" className="hover:text-white transition-colors">
               Twitter
             </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Instagram
+            </a>
+          </div>
+          <div className="text-gray-500 text-sm">
+            <p>Lagos, Nigeria | +234 XXX XXX XXXX | hello@sqlevents.ng</p>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
-            <p>&copy; 2024 SQL Events. All rights reserved.</p>
+            <p>&copy; 2024 SQL Events Nigeria. All rights reserved.</p>
           </div>
         </div>
       </footer>

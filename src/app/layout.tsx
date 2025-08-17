@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SQL Events - Premium Event Planning & Management",
+  title: "SQL Events Nigeria - Corporate Events & Conference Management",
   description:
-    "Transform your vision into unforgettable experiences. SQL Events specializes in corporate events, weddings, conferences, and special celebrations with meticulous attention to detail.",
+    "Leading corporate events and conference management company in Nigeria. Specializing in conferences, AGMs, exhibitions, product launches, and technology-driven event solutions.",
 };
 
 export default function RootLayout({

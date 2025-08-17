@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,25 +26,25 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <a
-              href="#"
+            <Link
+              href="/"
               className={`text-2xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-slate-900" : "text-white"
               }`}
             >
-              SQL Events
-            </a>
+              SQL Events Nigeria
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {[
-              { name: "Services", href: "#services" },
-              { name: "About", href: "#about" },
-              { name: "Portfolio", href: "#portfolio" },
-              { name: "Contact", href: "#contact" },
+              { name: "Services", href: "/services" },
+              { name: "About", href: "/about" },
+              { name: "Portfolio", href: "/portfolio" },
+              { name: "Contact", href: "/contact" },
             ].map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className={`font-medium transition-colors duration-300 hover:text-purple-600 ${
@@ -51,9 +52,10 @@ export default function Navigation() {
                 }`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <button
+            <Link
+              href="/contact"
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 isScrolled
                   ? "bg-purple-600 text-white hover:bg-purple-700"
@@ -61,7 +63,7 @@ export default function Navigation() {
               }`}
             >
               Get Quote
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -99,23 +101,26 @@ export default function Navigation() {
           <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <div className="px-6 py-4 space-y-4">
               {[
-                { name: "Services", href: "#services" },
-                { name: "About", href: "#about" },
-                { name: "Portfolio", href: "#portfolio" },
-                { name: "Contact", href: "#contact" },
+                { name: "Services", href: "/services" },
+                { name: "About", href: "/about" },
+                { name: "Portfolio", href: "/portfolio" },
+                { name: "Contact", href: "/contact" },
               ].map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="block text-slate-700 font-medium hover:text-purple-600 transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <button className="w-full px-6 py-2 rounded-full font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors duration-300">
+              <Link
+                href="/contact"
+                className="w-full px-6 py-2 rounded-full font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors duration-300 text-center block"
+              >
                 Get Quote
-              </button>
+              </Link>
             </div>
           </div>
         )}
