@@ -19,17 +19,17 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <div className="flex items-center">
             <Link
               href="/"
               className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? "text-slate-900" : "text-white"
+                isScrolled ? "text-black" : "text-white"
               }`}
             >
               SQL Events Nigeria
@@ -37,18 +37,20 @@ export default function Navigation() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             {[
               { name: "Services", href: "/services" },
+              { name: "Work", href: "/portfolio" },
               { name: "About", href: "/about" },
-              { name: "Portfolio", href: "/portfolio" },
+              { name: "Team", href: "/team" },
+              { name: "Press", href: "/press" },
               { name: "Contact", href: "/contact" },
             ].map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`font-medium transition-colors duration-300 hover:text-purple-600 ${
-                  isScrolled ? "text-slate-700" : "text-white"
+                className={`font-medium transition-colors duration-300 hover:opacity-70 ${
+                  isScrolled ? "text-gray-700" : "text-white"
                 }`}
               >
                 {item.name}
@@ -56,13 +58,13 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 border-2 font-medium transition-all duration-300 ${
                 isScrolled
-                  ? "bg-purple-600 text-white hover:bg-purple-700"
-                  : "bg-white text-slate-900 hover:bg-gray-100"
+                  ? "border-black text-black hover:bg-black hover:text-white"
+                  : "border-white text-white hover:bg-white hover:text-black"
               }`}
             >
-              Get Quote
+              Contact
             </Link>
           </div>
 
@@ -72,44 +74,28 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
-            <div
-              className={`w-6 h-0.5 bg-current transition-all duration-300 ${
-                isScrolled ? "text-slate-900" : "text-white"
-              }`}
-            >
-              <div
-                className={`transform transition-all duration-300 ${
-                  isMobileMenuOpen ? "rotate-45 translate-y-1" : ""
-                }`}
-              ></div>
-              <div
-                className={`w-6 h-0.5 bg-current mt-1.5 transition-all duration-300 ${
-                  isScrolled ? "text-slate-900" : "text-white"
-                } ${isMobileMenuOpen ? "opacity-0" : ""}`}
-              ></div>
-              <div
-                className={`w-6 h-0.5 bg-current mt-1.5 transition-all duration-300 ${
-                  isScrolled ? "text-slate-900" : "text-white"
-                } ${isMobileMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
-              ></div>
-            </div>
+            <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-current"></div>
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
-            <div className="px-6 py-4 space-y-4">
+            <div className="px-6 py-8 space-y-6">
               {[
                 { name: "Services", href: "/services" },
+                { name: "Work", href: "/portfolio" },
                 { name: "About", href: "/about" },
-                { name: "Portfolio", href: "/portfolio" },
+                { name: "Team", href: "/team" },
+                { name: "Press", href: "/press" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block text-slate-700 font-medium hover:text-purple-600 transition-colors duration-300"
+                  className="block text-gray-700 font-medium hover:opacity-70 transition-opacity text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -117,9 +103,10 @@ export default function Navigation() {
               ))}
               <Link
                 href="/contact"
-                className="w-full px-6 py-2 rounded-full font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors duration-300 text-center block"
+                className="inline-block px-6 py-3 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                Get Quote
+                Contact
               </Link>
             </div>
           </div>
