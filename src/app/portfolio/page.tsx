@@ -35,7 +35,7 @@ export default function Portfolio() {
                 year: "2024",
                 city: "Lagos",
                 description:
-                  "The Nigerian Bar Association's flagship annual conference, featuring over 5,000 legal professionals from across Nigeria and beyond.",
+                  "The Nigerian Bar Association&apos;s flagship annual conference, featuring over 5,000 legal professionals from across Nigeria and beyond.",
                 highlights: [
                   "5,000+ Attendees",
                   "3-Day Conference",
@@ -253,7 +253,7 @@ export default function Portfolio() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Testimonials from organizations we've had the privilege to serve
+              Testimonials from organizations we&apos;ve had the privilege to serve
             </p>
           </div>
 
@@ -287,7 +287,7 @@ export default function Portfolio() {
               >
                 <div className="text-4xl mb-4">{testimonial.logo}</div>
                 <p className="text-gray-600 mb-6 italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div>
                   <p className="font-semibold text-slate-900">

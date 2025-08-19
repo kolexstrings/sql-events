@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function Partners() {
+export default function Clients() {
   const partners = [
     {
       name: "FOX",
@@ -90,9 +90,13 @@ export default function Partners() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-4">
-            {`{ Partners & Clients }`}
-          </h2>
+          <div className="flex items-center mb-12">
+            <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+            <h2 className="text-lg font-medium text-muted-foreground">
+              Clients
+            </h2>
+            <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+          </div>
         </motion.div>
 
         <motion.div

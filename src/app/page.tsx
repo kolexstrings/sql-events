@@ -6,7 +6,8 @@ import Hero from "./components/Hero";
 import WhoWeAre from "./components/WhoWeAre";
 import HorizontalScrollSection from "./components/HorizontalScrollSection";
 import WhatWeDo from "./components/WhatWeDo";
-import Partners from "./components/Partners";
+import Clients from "./components/Clients";
+
 import CaseStudies from "./components/CaseStudies";
 import Testimonials from "./components/Testimonials";
 import ContactCTA from "./components/ContactCTA";
@@ -25,7 +26,7 @@ export default function Home() {
       <WhoWeAre />
       <HorizontalScrollSection />
       <WhatWeDo />
-      <Partners />
+      <Clients />
       <CaseStudies />
       <Testimonials />
       <ContactCTA />
