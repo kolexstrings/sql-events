@@ -1,289 +1,799 @@
+"use client";
+
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Navigation from "./components/Navigation";
+import {
+  initSmoothScroll,
+  heroAnimations,
+  textReveal,
+  cardAnimations,
+} from "./lib/animations";
 
 export default function Home() {
+  useEffect(() => {
+    initSmoothScroll();
+    heroAnimations();
+    textReveal();
+    cardAnimations();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
-        <div className="container text-center">
-          <div className="max-w-5xl mx-auto">
-            <h1 className="text-balance mb-8 fade-in stagger-1">
-              IDEAS WORTH RALLYING AROUND®
-            </h1>
-            <div className="w-24 h-1 bg-white mx-auto mb-12 fade-in stagger-2"></div>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed fade-in stagger-3">
-              SQL Events Nigeria is a brand and design firm that partners with
-              bold and brave leaders to create ideas worth rallying around. We
-              believe in the power of ideas to transform businesses, inspire
-              movements, and shape culture.
-            </p>
-            <div className="fade-in stagger-4">
-              <button className="btn bg-white text-black hover:bg-gray-100">
-                Let's Brand Your Future
-              </button>
-            </div>
-          </div>
+      {/* Hero Section - Professional GSAP Style */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-card overflow-hidden">
+        {/* Animated background grid */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0)`,
+              backgroundSize: "50px 50px",
+            }}
+          ></div>
         </div>
-      </section>
 
-      {/* Visual Storytelling Section */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="grid-2 items-center">
-            <div className="space-y-8">
-              <h2 className="text-balance">LET'S BRAND YOUR FUTURE</h2>
-              <p className="text-lg">
-                Great brands are more than famous names, they're Ideas Worth
-                Rallying Around®.
-              </p>
-              <p>
-                We partner with visionary leaders to build brands that inspire
-                action, create connection, and drive meaningful change. Our
-                approach combines strategic thinking with creative excellence to
-                deliver results that matter.
-              </p>
-              <div className="space-y-4">
-                <a
-                  href="#"
-                  className="block text-black font-semibold hover:opacity-70 transition-opacity"
-                >
-                  Explore our method →
-                </a>
-                <a
-                  href="#"
-                  className="block text-black font-semibold hover:opacity-70 transition-opacity"
-                >
-                  See our case studies →
-                </a>
-                <a
-                  href="#"
-                  className="block text-black font-semibold hover:opacity-70 transition-opacity"
-                >
-                  Understand our methodology →
-                </a>
-              </div>
-            </div>
-            <div className="bg-gray-100 h-96 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500 text-lg">
-                Visual Content Placeholder
+        {/* Floating geometric shapes */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-20 w-32 h-32 border border-primary/20 rounded-full"
+            animate={{
+              rotate: 360,
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute top-40 right-32 w-24 h-24 border border-secondary/20 rotate-45"
+            animate={{
+              rotate: -360,
+              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.4, 0.1],
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute bottom-32 left-1/3 w-40 h-40 border border-accent/20 rounded-full"
+            animate={{
+              rotate: 360,
+              scale: [1.2, 1, 1.2],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+
+        {/* Main content */}
+        <div className="container relative z-10 text-center py-20">
+          <div className="max-w-7xl mx-auto">
+            {/* Pre-headline accent */}
+            <motion.div
+              className="flex items-center justify-center mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+              <span className="px-4 text-sm font-medium text-primary uppercase tracking-widest">
+                Event Management
               </span>
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            </motion.div>
+
+            {/* Main headline */}
+            <motion.h1
+              className="hero-headline text-7xl md:text-8xl lg:text-9xl font-black leading-none mb-8 text-balance"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            >
+              <span className="block">SQL</span>
+              <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                EVENTS
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              className="hero-description text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground font-light"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            >
+              Passion. Innovation. Technology in Events Management.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            >
+              <motion.button
+                className="group relative px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-primary/25 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">Get Started</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.button>
+
+              <motion.button
+                className="group relative px-10 py-5 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-300 overflow-hidden"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">Learn More</span>
+                <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </motion.button>
+            </motion.div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              className="flex flex-col items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              <motion.div
+                className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center"
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <motion.div
+                  className="w-1 h-3 bg-muted-foreground rounded-full mt-2"
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </motion.div>
+              <span className="text-sm text-muted-foreground mt-2 uppercase tracking-widest">
+                Scroll
+              </span>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="py-24 bg-card text-card-foreground">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+                Who We Are
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                SQL Events Nigeria is a leading corporate events and conference
+                management company, delivering exceptional experiences through
+                cutting-edge technology and innovative solutions.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                  Our Story
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Founded with a vision to transform the events industry in
+                  Nigeria, we combine traditional hospitality excellence with
+                  modern technological innovation. Our team brings together
+                  decades of experience in corporate events, conferences, and
+                  exhibition management.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We believe that every event should tell a story, create
+                  lasting impressions, and deliver measurable results for our
+                  clients.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary mb-2">
+                        500+
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Events Managed
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-secondary mb-2">
+                        50+
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Corporate Clients
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent mb-2">
+                        98%
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Client Satisfaction
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-brand-orange mb-2">
+                        5+
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Years Experience
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Client Logos Section */}
-      <section className="section-sm bg-gray-50">
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-background text-foreground">
         <div className="container">
-          <div className="text-center mb-16">
-            <h3 className="text-2xl font-bold mb-4">
-              Trusted by Leading Organizations
-            </h3>
-          </div>
-          <div className="grid-4 items-center">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              Why Choose Us
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We stand out in the events industry through our unique combination
+              of expertise, technology, and unwavering commitment to excellence.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { name: "NBA", description: "Nigerian Bar Association" },
               {
-                name: "COREN",
-                description: "Council for Regulation of Engineering",
+                icon: "🎯",
+                title: "Strategic Approach",
+                description:
+                  "Every event is planned with clear objectives and measurable outcomes in mind.",
+                color: "primary",
               },
-              { name: "Rivers State", description: "Rivers State Government" },
               {
-                name: "Corporate Nigeria",
-                description: "Leading Corporations",
+                icon: "💡",
+                title: "Innovation First",
+                description:
+                  "We leverage cutting-edge technology to create memorable experiences.",
+                color: "secondary",
               },
-            ].map((client, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">
-                    {client.name}
-                  </div>
-                  <p className="text-sm text-gray-600">{client.description}</p>
+              {
+                icon: "🤝",
+                title: "Partnership Focus",
+                description:
+                  "We work as an extension of your team, ensuring seamless collaboration.",
+                color: "accent",
+              },
+              {
+                icon: "📊",
+                title: "Data-Driven",
+                description:
+                  "Our decisions are backed by analytics and industry insights.",
+                color: "brand-orange",
+              },
+              {
+                icon: "🌍",
+                title: "Local Expertise",
+                description:
+                  "Deep understanding of Nigerian business culture and regulations.",
+                color: "brand-purple",
+              },
+              {
+                icon: "⚡",
+                title: "Agile Execution",
+                description:
+                  "Quick adaptation to changes while maintaining quality standards.",
+                color: "brand-green",
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                className="card group bg-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/40"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${feature.color}/20 to-${feature.color}/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <span className="text-3xl">{feature.icon}</span>
                 </div>
-              </div>
+                <h3 className="text-xl font-bold mb-4 text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Selected Work Section */}
-      <section className="section bg-white">
+      {/* What We Do Section */}
+      <section className="py-24 bg-card text-card-foreground">
         <div className="container">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-balance">SELECTED WORK</h2>
-            <a
-              href="#"
-              className="text-black hover:opacity-70 transition-opacity"
-            >
-              See all of our work →
-            </a>
-          </div>
-          <div className="grid-2 gap-8">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              What We Do
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive event management solutions designed for the modern
+              corporate world
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Unlock Insights",
+                icon: "🎤",
+                title: "Conference Management",
+                description:
+                  "Professional conference planning and execution with cutting-edge technology",
+                color: "primary",
+              },
+              {
+                icon: "🏢",
+                title: "Corporate Events",
+                description:
+                  "AGMs, product launches, and corporate gatherings that make an impact",
+                color: "secondary",
+              },
+              {
+                icon: "🎪",
+                title: "Exhibition Management",
+                description:
+                  "Trade shows and exhibitions that showcase your brand effectively",
+                color: "accent",
+              },
+              {
+                icon: "💻",
+                title: "Technology Integration",
+                description:
+                  "State-of-the-art tech solutions for seamless event experiences",
+                color: "brand-orange",
+              },
+              {
+                icon: "🤝",
+                title: "Team Building",
+                description:
+                  "Engaging team building activities that strengthen collaboration",
+                color: "brand-purple",
+              },
+              {
+                icon: "📚",
+                title: "Training & Workshops",
+                description:
+                  "Professional development sessions that drive growth",
+                color: "brand-green",
+              },
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                className="card group bg-background p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/40"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${service.color}/20 to-${service.color}/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <span className="text-3xl">{service.icon}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-foreground">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies (Portfolio) Section */}
+      <section className="py-24 bg-background text-foreground">
+        <div className="container">
+          <div className="flex justify-between items-end mb-16">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-balance"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Case Studies
+            </motion.h2>
+            <motion.a
+              href="/portfolio"
+              className="text-primary hover:text-primary/80 transition-colors duration-300 font-semibold"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              View All Work →
+            </motion.a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "NBA Annual Conference",
                 category: "Conference Management",
-                image: "bg-gray-200",
+                year: "2024",
+                gradient: "from-primary/20 to-accent/20",
               },
               {
-                title: "Digital Transformation",
+                title: "COREN Engineering Assembly",
+                category: "Corporate Events",
+                year: "2024",
+                gradient: "from-accent/20 to-secondary/20",
+              },
+              {
+                title: "Rivers State Education Summit",
+                category: "Government Events",
+                year: "2024",
+                gradient: "from-secondary/20 to-primary/20",
+              },
+              {
+                title: "Tech Innovation Forum",
                 category: "Technology Events",
-                image: "bg-blue-100",
-              },
-              {
-                title: "Where Digital Meets Personal",
-                category: "Brand Experience",
-                image: "bg-green-100",
-              },
-              {
-                title: "DevOps: A New Perspective",
-                category: "Tech Conferences",
-                image: "bg-purple-100",
+                year: "2024",
+                gradient: "from-primary/20 to-secondary/20",
               },
             ].map((project, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`${project.image} h-80 rounded-lg p-8 flex flex-col justify-between group hover-lift`}
+                className={`bg-gradient-to-br ${project.gradient} h-80 rounded-2xl p-8 flex flex-col justify-between group cursor-pointer`}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 <div className="text-right">
-                  <span className="text-sm text-gray-600">Original</span>
+                  <span className="text-sm text-muted-foreground">
+                    {project.year}
+                  </span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-600">{project.category}</p>
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground">{project.category}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Press Insights Section */}
-      <section className="section bg-gray-50">
+      {/* Testimonials Section */}
+      <section className="py-24 bg-card text-card-foreground">
         <div className="container">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-balance">PRESS INSIGHTS</h2>
-            <a
-              href="#"
-              className="text-black hover:opacity-70 transition-opacity"
-            >
-              Read the latest →
-            </a>
-          </div>
-          <div className="grid-3 gap-8">
-            {[
-              {
-                title: "Excellence in Event Management",
-                publication: "Event Management Today",
-                date: "2024",
-              },
-              {
-                title: "Innovation in Corporate Events",
-                publication: "Business Events Nigeria",
-                date: "2024",
-              },
-              {
-                title: "The Future of Event Technology",
-                publication: "Tech Events Weekly",
-                date: "2024",
-              },
-            ].map((article, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg hover-lift">
-                <h3 className="text-xl font-bold mb-4">{article.title}</h3>
-                <p className="text-gray-600 mb-2">{article.publication}</p>
-                <p className="text-sm text-gray-500">{article.date}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Clients Section */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-balance">FEATURED CLIENTS</h2>
-            <a
-              href="#"
-              className="text-black hover:opacity-70 transition-opacity"
-            >
-              See all clients →
-            </a>
-          </div>
-          <div className="grid-4 gap-8">
-            {[
-              "Nigerian Bar Association",
-              "Council for Regulation of Engineering",
-              "Rivers State Government",
-              "Leading Corporations",
-              "Financial Institutions",
-              "Educational Organizations",
-              "Healthcare Providers",
-              "Technology Companies",
-            ].map((client, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition-colors">
-                  <h3 className="font-semibold text-gray-800">{client}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section bg-black text-white">
-        <div className="container text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-balance mb-8">
-              Ready to Transform Your Event?
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              What Our Clients Say
             </h2>
-            <p className="text-xl mb-12 text-gray-300">
-              Let's discuss how we can bring your vision to life with our
-              innovative approach to event management.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Don&apos;t just take our word for it. Here&apos;s what our clients
+              have to say about their experience.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn bg-white text-black hover:bg-gray-100">
-                Get Started
-              </button>
-              <button className="btn btn-outline border-white text-white hover:bg-white hover:text-black">
-                Learn More
-              </button>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                quote:
+                  "SQL Events transformed our annual conference into an unforgettable experience. Their attention to detail and innovative approach exceeded our expectations.",
+                author: "Dr. Sarah Johnson",
+                position: "CEO, TechCorp Nigeria",
+                company: "TechCorp Nigeria",
+              },
+              {
+                quote:
+                  "The team at SQL Events is professional, creative, and incredibly reliable. They made our product launch a huge success with their strategic planning.",
+                author: "Michael Adebayo",
+                position: "Marketing Director",
+                company: "Innovate Solutions",
+              },
+              {
+                quote:
+                  "Working with SQL Events was seamless from start to finish. Their technology integration capabilities gave our event a competitive edge.",
+                author: "Chioma Okonkwo",
+                position: "Events Manager",
+                company: "Global Industries Ltd",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="bg-background p-8 rounded-2xl shadow-lg border border-border"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-primary text-4xl mb-4">"</div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {testimonial.quote}
+                </p>
+                <div>
+                  <div className="font-semibold text-foreground">
+                    {testimonial.author}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {testimonial.position}
+                  </div>
+                  <div className="text-sm text-primary font-medium">
+                    {testimonial.company}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA/Form Section */}
+      <section className="py-24 bg-primary text-primary-foreground">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-balance">
+                Ready to Transform Your Event?
+              </h2>
+              <p className="text-xl mb-12 opacity-90">
+                Let&apos;s discuss how we can bring your vision to life with our
+                innovative approach to event management.
+              </p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Contact Form */}
+              <motion.div
+                className="bg-background text-foreground p-8 rounded-2xl shadow-xl"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                        placeholder="Your first name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                        placeholder="Your last name"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                      placeholder="your.email@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                      placeholder="Your company name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Event Type
+                    </label>
+                    <select className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                      <option>Select event type</option>
+                      <option>Conference</option>
+                      <option>Corporate Event</option>
+                      <option>Exhibition</option>
+                      <option>Team Building</option>
+                      <option>Training/Workshop</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      rows={4}
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                      placeholder="Tell us about your event requirements..."
+                    ></textarea>
+                  </div>
+                  <motion.button
+                    type="submit"
+                    className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Send Message
+                  </motion.button>
+                </form>
+              </motion.div>
+
+              {/* Contact Information */}
+              <motion.div
+                className="space-y-8"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">
+                    Contact Information
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xl">📍</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold">Office Address</div>
+                        <div className="text-white/80">
+                          Victoria Island, Lagos, Nigeria
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xl">📞</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold">Phone</div>
+                        <div className="text-white/80">+234 XXX XXX XXXX</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xl">✉️</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold">Email</div>
+                        <div className="text-white/80">hello@sqlevents.ng</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Quick Response</h3>
+                  <p className="text-white/80 mb-6">
+                    We typically respond to all inquiries within 24 hours during
+                    business days.
+                  </p>
+                  <motion.button
+                    className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Schedule a Call
+                  </motion.button>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-6 bg-black text-white">
+      <footer className="py-16 bg-card text-card-foreground border-t border-border">
         <div className="container">
-          <div className="grid-2">
+          <div className="grid md:grid-cols-2 gap-12">
             <div>
               <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Passion. Innovation. Technology in Events Management.
               </p>
-              <div className="flex space-x-6 text-gray-400">
-                <a href="#" className="hover:text-white transition-colors">
+              <div className="flex space-x-6 text-muted-foreground">
+                <a href="#" className="hover:text-foreground transition-colors">
                   LinkedIn
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Twitter
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#" className="hover:text-foreground transition-colors">
                   Instagram
                 </a>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-gray-400 mb-2">Lagos, Nigeria</p>
-              <p className="text-gray-400 mb-2">+234 XXX XXX XXXX</p>
-              <p className="text-gray-400">hello@sqlevents.ng</p>
+              <p className="text-muted-foreground mb-2">Lagos, Nigeria</p>
+              <p className="text-muted-foreground mb-2">+234 XXX XXX XXXX</p>
+              <p className="text-muted-foreground">hello@sqlevents.ng</p>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+          <div className="mt-12 pt-8 border-t border-border text-center text-muted-foreground">
             <p>&copy; 2024 SQL Events Nigeria. All rights reserved.</p>
           </div>
         </div>

@@ -1,36 +1,237 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SQL Events Nigeria - Modern Event Management Website
 
-## Getting Started
+A sophisticated, GSAP-powered website with dual light/dark themes, smooth animations, and modern design inspired by premium brands like GSAP and Motto.
 
-First, run the development server:
+## ✨ Features
+
+### 🎨 **Dual Theme System**
+
+- **Light Theme**: Clean, professional white background with dark text
+- **Dark Theme**: Sophisticated dark background with light text
+- **Smooth Transitions**: Seamless theme switching with CSS transitions
+- **Persistent Storage**: Remembers user's theme preference
+
+### 🚀 **Advanced Animations**
+
+- **GSAP Integration**: Professional-grade animations and interactions
+- **Smooth Scrolling**: Lenis-powered smooth scrolling experience
+- **Scroll Triggers**: Animations triggered by scroll position
+- **Micro-interactions**: Hover effects, parallax, and more
+
+### 🎯 **Modern Design**
+
+- **Baskerville Typography**: Elegant serif fonts for headings
+- **Responsive Layout**: Mobile-first design approach
+- **Professional UI**: Clean, minimalist aesthetic
+- **Interactive Elements**: Hover effects and smooth transitions
+
+## 🛠️ Tech Stack
+
+### **Core Technologies**
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+
+### **Animation & Interaction**
+
+- **GSAP (GreenSock)** - Professional animation library
+- **Framer Motion** - React animation library
+- **Lenis** - Smooth scrolling library
+- **Three.js** - 3D graphics support
+
+### **UI Components**
+
+- **Headless UI** - Accessible UI components
+- **Heroicons** - Beautiful SVG icons
+- **Lucide React** - Modern icon library
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+
+- Node.js 18+
+- npm or yarn
+
+### **Installation**
 
 ```bash
+# Clone the repository
+git clone [your-repo-url]
+cd sql-events
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Environment Setup**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Create environment file
+cp .env.example .env.local
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Add your configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-## Learn More
+## 🎨 Theme System
 
-To learn more about Next.js, take a look at the following resources:
+### **Theme Toggle**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The website includes a beautiful theme toggle button that:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Switches between light and dark themes
+- Saves preference to localStorage
+- Provides smooth transitions
+- Includes hover animations
 
-## Deploy on Vercel
+### **CSS Variables**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Both themes use CSS custom properties for consistent styling:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```css
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #3b82f6;
+  /* ... more variables */
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  /* ... dark theme variables */
+}
+```
+
+## 🎬 Animation System
+
+### **GSAP Animations**
+
+- **Hero Animations**: Smooth text reveals and transitions
+- **Scroll Triggers**: Animations based on scroll position
+- **Parallax Effects**: Depth and movement on scroll
+- **Hover Interactions**: Micro-animations on user interaction
+
+### **Animation Functions**
+
+```typescript
+import { heroAnimations, textReveal, cardAnimations } from "@/lib/animations";
+
+// Use in components
+useEffect(() => {
+  heroAnimations();
+  textReveal(".text-element");
+  cardAnimations();
+}, []);
+```
+
+## 📱 Responsive Design
+
+### **Breakpoints**
+
+- **Mobile**: 320px - 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: 1024px+
+
+### **Mobile-First Approach**
+
+- Responsive navigation with mobile menu
+- Optimized touch interactions
+- Adaptive layouts for all screen sizes
+
+## 🎯 Customization
+
+### **Colors**
+
+Update the color scheme in `tailwind.config.ts`:
+
+```typescript
+colors: {
+  primary: { /* your colors */ },
+  accent: { /* your colors */ },
+  brand: { /* your brand colors */ }
+}
+```
+
+### **Typography**
+
+Modify fonts in the same config file:
+
+```typescript
+fontFamily: {
+  display: ['Your Font', 'serif'],
+  sans: ['Your Sans Font', 'sans-serif']
+}
+```
+
+### **Animations**
+
+Customize animations in `src/lib/animations.ts`:
+
+```typescript
+export const customAnimation = () => {
+  gsap.to(".element", {
+    // your animation properties
+  });
+};
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── components/          # Reusable components
+│   │   ├── Navigation.tsx   # Main navigation
+│   │   └── ThemeToggle.tsx  # Theme switcher
+│   ├── contexts/            # React contexts
+│   │   └── ThemeContext.tsx # Theme management
+│   ├── lib/                 # Utility libraries
+│   │   └── animations.ts    # GSAP animations
+│   ├── globals.css          # Global styles
+│   └── layout.tsx           # Root layout
+├── public/                  # Static assets
+└── tailwind.config.ts       # Tailwind configuration
+```
+
+## 🚀 Deployment
+
+### **Build for Production**
+
+```bash
+npm run build
+npm start
+```
+
+### **Environment Variables**
+
+Ensure these are set in production:
+
+- `NEXT_PUBLIC_SITE_URL` - Your domain
+- `NODE_ENV` - Set to 'production'
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🎨 Design Inspiration
+
+- **GSAP Website**: Animation techniques and interaction design
+- **Motto Website**: Clean typography and layout principles
+- **Modern Web Standards**: Accessibility and performance best practices
+
+---
+
+**Built with ❤️ for SQL Events Nigeria**

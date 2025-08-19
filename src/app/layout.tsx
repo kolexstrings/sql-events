@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import SmoothScroll from "./components/SmoothScroll";
 
-const geistSans = Geist({
+const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -13,9 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SQL Events Nigeria - Corporate Events & Conference Management",
+  title:
+    "SQL Events Nigeria - Passion. Innovation. Technology in Events Management",
   description:
-    "Leading corporate events and conference management company in Nigeria. Specializing in conferences, AGMs, exhibitions, product launches, and technology-driven event solutions.",
+    "Leading corporate events and conference management company in Nigeria, delivering exceptional experiences through cutting-edge technology and innovative solutions.",
 };
 
 export default function RootLayout({
@@ -24,11 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geist.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
-        {children}
+        <ThemeProvider>
+          <SmoothScroll />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
