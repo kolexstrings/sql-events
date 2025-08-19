@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     initSmoothScroll();
     heroAnimations();
-    textReveal();
+    textReveal(".text-reveal");
     cardAnimations();
   }, []);
 
@@ -22,157 +22,150 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      {/* Hero Section - Professional GSAP Style */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-card overflow-hidden">
-        {/* Animated background grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0)`,
-              backgroundSize: "50px 50px",
-            }}
-          ></div>
+      {/* Hero Section - GSAP Style */}
+      <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+        {/* Main Hero Content */}
+        <div className="container--ultra-wide relative z-10 text-center py-20 mt-20">
+          <div className="max-w-none mx-auto">
+            {/* Hero Headline */}
+            <motion.div
+              className="relative mb-12"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            >
+              {/* Animated flower-like element above "Innovation" */}
+              <motion.div
+                className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-16 h-16"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="relative w-full h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full opacity-60 transform rotate-45"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-orange-400 rounded-full opacity-40 transform rotate-90"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-20 transform rotate-135"></div>
+                </div>
+              </motion.div>
+
+              <h1 className="hero-headline text-8xl md:text-9xl lg:text-[12rem] font-black leading-none text-balance font-display">
+                <span className="block">Passion and</span>
+                <span className="block relative">
+                  <span className="block">Innovation</span>
+                  {/* Animated dot for the 'i' */}
+                  <motion.span
+                    className="absolute inline-block w-4 h-4 bg-pink-500 rounded-full"
+                    style={{ top: "0.1em", right: "-0.1em" }}
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.8, 1, 0.8],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  ></motion.span>
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Hero Description in Curly Braces */}
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between">
+                {/* Left side - Description with Curly Braces */}
+                <div className="flex items-center">
+                  {/* Left Curly Brace */}
+                  <div className="text-4xl text-lime-400 font-bold mr-4">
+                    {"{"}
+                  </div>
+
+                  {/* Description Text */}
+                  <p className="text-base md:text-lg max-w-3xl leading-relaxed text-gray-300 font-light">
+                    SQL Events - A wildly innovative events management company
+                    built for the modern Nigerian corporate world
+                  </p>
+
+                  {/* Right Curly Brace */}
+                  <div className="text-4xl text-lime-400 font-bold ml-4">
+                    {"}"}
+                  </div>
+                </div>
+
+                {/* Right side - Get Started Button */}
+                <motion.button
+                  className="group relative px-12 py-6 bg-lime-400 text-black font-bold text-lg rounded-full hover:bg-lime-300 transition-all duration-300 shadow-2xl hover:shadow-lime-400/25"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="flex items-center space-x-2">
+                    <span>Get Started</span>
+                    <motion.span
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      ↓
+                    </motion.span>
+                  </span>
+                </motion.button>
+              </div>
+            </motion.div>
+
+            {/* CTA Button - Bottom Right Style */}
+            {/* Removed - now integrated with description text */}
+          </div>
         </div>
 
-        {/* Floating geometric shapes */}
+        {/* Side Label - Site of the Day Style */}
+        <motion.div
+          className="absolute left-8 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-400 writing-mode-vertical"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          <div className="text-center">
+            <div className="text-lime-400 font-bold">SQL</div>
+            <div className="text-xs">Events</div>
+            <div className="text-xs">Nigeria</div>
+          </div>
+        </motion.div>
+
+        {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            className="absolute top-20 left-20 w-32 h-32 border border-primary/20 rounded-full"
+            className="absolute top-1/4 right-1/4 w-32 h-32 border border-lime-400/20 rounded-full"
             animate={{
               rotate: 360,
               scale: [1, 1.2, 1],
               opacity: [0.1, 0.3, 0.1],
             }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
-            className="absolute top-40 right-32 w-24 h-24 border border-secondary/20 rotate-45"
+            className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-pink-500/20 rotate-45"
             animate={{
               rotate: -360,
               scale: [1, 1.3, 1],
               opacity: [0.1, 0.4, 0.1],
             }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            className="absolute bottom-32 left-1/3 w-40 h-40 border border-accent/20 rounded-full"
-            animate={{
-              rotate: 360,
-              scale: [1.2, 1, 1.2],
-              opacity: [0.1, 0.2, 0.1],
-            }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           />
         </div>
-
-        {/* Main content */}
-        <div className="container relative z-10 text-center py-20">
-          <div className="max-w-7xl mx-auto">
-            {/* Pre-headline accent */}
-            <motion.div
-              className="flex items-center justify-center mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-              <span className="px-4 text-sm font-medium text-primary uppercase tracking-widest">
-                Event Management
-              </span>
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-            </motion.div>
-
-            {/* Main headline */}
-            <motion.h1
-              className="hero-headline text-7xl md:text-8xl lg:text-9xl font-black leading-none mb-8 text-balance"
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            >
-              <span className="block">SQL</span>
-              <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                EVENTS
-              </span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              className="hero-description text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed text-muted-foreground font-light"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            >
-              Passion. Innovation. Technology in Events Management.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            >
-              <motion.button
-                className="group relative px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-primary/25 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
-
-              <motion.button
-                className="group relative px-10 py-5 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-300 overflow-hidden"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">Learn More</span>
-                <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </motion.button>
-            </motion.div>
-
-            {/* Scroll indicator */}
-            <motion.div
-              className="flex flex-col items-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              <motion.div
-                className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center"
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <motion.div
-                  className="w-1 h-3 bg-muted-foreground rounded-full mt-2"
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </motion.div>
-              <span className="text-sm text-muted-foreground mt-2 uppercase tracking-widest">
-                Scroll
-              </span>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
       </section>
 
       {/* Who We Are Section */}
       <section className="py-24 bg-card text-card-foreground">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
+        <div className="container--wide">
+          <div className="max-w-none mx-auto">
             <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 50 }}
@@ -183,14 +176,14 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 Who We Are
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
                 SQL Events Nigeria is a leading corporate events and conference
                 management company, delivering exceptional experiences through
                 cutting-edge technology and innovative solutions.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -265,7 +258,7 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="py-24 bg-background text-foreground">
-        <div className="container">
+        <div className="container--wide">
           <motion.div
             className="text-center mb-20"
             initial={{ opacity: 0, y: 50 }}
@@ -276,13 +269,13 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
               Why Choose Us
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
               We stand out in the events industry through our unique combination
               of expertise, technology, and unwavering commitment to excellence.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-none mx-auto">
             {[
               {
                 icon: "🎯",
@@ -355,7 +348,7 @@ export default function Home() {
 
       {/* What We Do Section */}
       <section className="py-24 bg-card text-card-foreground">
-        <div className="container">
+        <div className="container--wide">
           <motion.div
             className="text-center mb-20"
             initial={{ opacity: 0, y: 50 }}
@@ -366,13 +359,13 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
               What We Do
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
               Comprehensive event management solutions designed for the modern
               corporate world
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-none mx-auto">
             {[
               {
                 icon: "🎤",
@@ -445,7 +438,7 @@ export default function Home() {
 
       {/* Case Studies (Portfolio) Section */}
       <section className="py-24 bg-background text-foreground">
-        <div className="container">
+        <div className="container--wide">
           <div className="flex justify-between items-end mb-16">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-balance"
@@ -468,7 +461,7 @@ export default function Home() {
             </motion.a>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 max-w-none mx-auto">
             {[
               {
                 title: "NBA Annual Conference",
@@ -523,7 +516,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-24 bg-card text-card-foreground">
-        <div className="container">
+        <div className="container--wide">
           <motion.div
             className="text-center mb-20"
             initial={{ opacity: 0, y: 50 }}
@@ -540,7 +533,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-none mx-auto">
             {[
               {
                 quote:
@@ -595,7 +588,7 @@ export default function Home() {
 
       {/* Contact CTA/Form Section */}
       <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container">
+        <div className="container px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
               className="text-center mb-16"
@@ -768,7 +761,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-16 bg-card text-card-foreground border-t border-border">
-        <div className="container">
+        <div className="container px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>

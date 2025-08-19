@@ -30,28 +30,28 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-28">
           {/* Logo - Left Side */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <div
-                className={`w-14 h-14 mr-4 transition-all duration-300 ${
-                  isScrolled ? "opacity-100" : "opacity-90"
-                }`}
-              >
-                <Image
-                  src="/logo.png"
+            <a className="flex items-center" href="/">
+              <div className="w-14 h-14 mr-2 transition-all duration-300 opacity-90">
+                <img
                   alt="SQL Events Nigeria Logo"
-                  width={56}
-                  height={56}
+                  loading="lazy"
+                  width="56"
+                  height="56"
+                  decoding="async"
+                  data-nimg="1"
                   className="w-full h-full object-contain"
+                  style={{ color: "transparent" }}
+                  src="/logo.png"
                 />
               </div>
               <span
-                className={`text-2xl font-bold transition-colors duration-300 ${
-                  isScrolled ? "text-gray-900 dark:text-white" : "text-white"
+                className={`text-2xl font-bold transition-all duration-300 font-display logo-text ${
+                  isScrolled ? "brand-gradient-text" : "brand-gradient-text"
                 }`}
               >
-                SQL Events Nigeria
+                SQL Events
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Centralized Navigation Menu */}
