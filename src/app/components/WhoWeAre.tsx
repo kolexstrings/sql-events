@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function WhoWeAre() {
   return (
-    <section className="py-32 bg-card text-card-foreground">
+    <section className="py-24 bg-card text-card-foreground">
       <div className="container--wide">
         <div className="max-w-none mx-auto">
           {/* Section Title with Curly Braces */}

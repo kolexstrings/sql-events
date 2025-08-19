@@ -45,7 +45,7 @@ export const initHorizontalScrollSection = () => {
     const content = item.querySelector(".item-content");
 
     // SVG animations
-    svgs.forEach((svg, svgIndex) => {
+    svgs.forEach((svg) => {
       const paths = svg.querySelectorAll(
         "path, circle, rect, polygon, line, text"
       );

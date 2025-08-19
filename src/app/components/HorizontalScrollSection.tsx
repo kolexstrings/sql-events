@@ -353,7 +353,7 @@ export default function HorizontalScrollSection() {
               <p className="text-2xl md:text-3xl text-foreground/80 leading-relaxed font-light max-w-xl">
                 Trusted by{" "}
                 <span className="text-accent font-semibold">
-                  Nigeria's leading
+                  Nigeria&apos;s leading
                 </span>{" "}
                 corporations, government agencies, and international
                 organizations spanning

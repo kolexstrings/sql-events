@@ -165,7 +165,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="py-32 bg-card text-card-foreground relative overflow-hidden">
+    <section className="py-24 bg-card text-card-foreground relative overflow-hidden">
       <div className="container--wide">
         <motion.div
           className="mb-20 text-center"
@@ -174,16 +174,16 @@ export default function WhatWeDo() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-4">
-            {`{ What We Do }`}
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-            Comprehensive event management solutions designed for the modern
-            corporate world
-          </p>
+          <div className="flex items-center mb-12">
+            <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+            <h2 className="text-lg font-medium text-muted-foreground">
+              What We Do
+            </h2>
+            <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+          </div>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-10">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -205,10 +205,12 @@ export default function WhatWeDo() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="text-4xl font-bold mb-6 text-foreground">
+                <h3
+                  className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
+                >
                   {service.title}
                 </h3>
-                <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+                <p className=" text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-relaxed mb-8 max-w-3xl">
                   {service.description}
                 </p>
                 <button className="px-8 py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-lg">

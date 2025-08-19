@@ -56,7 +56,7 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-primary text-4xl mb-4">"</div>
+              <div className="text-primary text-4xl mb-4">&quot;</div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {testimonial.quote}
               </p>

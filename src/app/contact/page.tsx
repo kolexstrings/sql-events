@@ -10,8 +10,8 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Ready to start planning your next event? Let's connect and bring
-            your vision to life.
+            Ready to start planning your next event? Let&apos;s connect and
+            bring your vision to life.
           </p>
         </div>
       </section>
@@ -98,7 +98,8 @@ export default function Contact() {
               Send Us a Message
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Fill out the form below and we'll get back to you within 24 hours
+              Fill out the form below and we&apos;ll get back to you within 24
+              hours
             </p>
           </div>
 
@@ -332,7 +333,8 @@ export default function Contact() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            Don't wait - let's start planning your next successful event today.
+            Don&apos;t wait - let&apos;s start planning your next successful
+            event today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">

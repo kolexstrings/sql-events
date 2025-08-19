@@ -19,33 +19,29 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container--wide">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Left Side */}
+          {/* Left Side - Logo */}
           <div className="flex items-center">
-            <a className="flex items-center" href="/">
-              <div className="w-14 h-14 mr-2 transition-all duration-300 opacity-90">
-                <img
-                  alt="SQL Events Nigeria Logo"
-                  loading="lazy"
-                  width="56"
-                  height="56"
-                  decoding="async"
-                  data-nimg="1"
-                  className="w-full h-full object-contain"
-                  style={{ color: "transparent" }}
-                  src="/logo.png"
-                />
-              </div>
-              <span
-                className={`text-2xl font-bold transition-all duration-300 font-display logo-text ${
-                  isScrolled ? "brand-gradient-text" : "brand-gradient-text"
-                }`}
-              >
+            <Link href="/" className="flex items-center space-x-3">
+              <Image
+                src="/logo.png"
+                alt="SQL Events Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+              <span className="text-xl font-bold text-foreground">
                 SQL Events
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Centralized Navigation Menu */}
@@ -90,23 +86,38 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-3"
+            className="lg:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
           >
-            <div className="w-7 h-0.5 bg-current mb-2 transition-all duration-300"></div>
-            <div className="w-7 h-0.5 bg-current mb-2 transition-all duration-300"></div>
-            <div className="w-7 h-0.5 bg-current transition-all duration-300"></div>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border">
-            <div className="px-6 py-12 space-y-8">
-              <div className="flex justify-center mb-6">
-                <ThemeToggle />
-              </div>
+          <div className="lg:hidden py-4 border-t border-border">
+            <div className="flex flex-col space-y-4">
               {[
                 { name: "Services", href: "/services" },
                 { name: "Work", href: "/portfolio" },
@@ -118,7 +129,7 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block text-foreground font-medium hover:opacity-70 transition-opacity text-2xl"
+                  className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}

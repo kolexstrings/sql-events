@@ -225,8 +225,8 @@ export default function About() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            Let's discuss how we can bring your event vision to life with our
-            innovative approach.
+            Let&apos;s discuss how we can bring your event vision to life with
+            our innovative approach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-background text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary-foreground/90 transition-colors duration-300">

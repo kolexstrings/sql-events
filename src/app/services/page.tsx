@@ -343,7 +343,7 @@ export default function Services() {
               Additional Services
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive support services to ensure your event's success
+              Comprehensive support services to ensure your event&apos;s success
             </p>
           </div>
 
@@ -410,7 +410,7 @@ export default function Services() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            Let's discuss how our services can transform your next event.
+            Let&apos;s discuss how our services can transform your next event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-background text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary-foreground/90 transition-colors duration-300">

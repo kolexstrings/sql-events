@@ -10,8 +10,8 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Showcasing successful events that have shaped Nigeria's corporate
-            landscape
+            Showcasing successful events that have shaped Nigeria&apos;s
+            corporate landscape
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function Portfolio() {
               Past Events
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive showcase of events we've successfully managed
+              A comprehensive showcase of events we&apos;ve successfully managed
               across various sectors
             </p>
           </div>
@@ -308,8 +308,8 @@ export default function Portfolio() {
             Ready to Join Our Success Stories?
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            Let's create the next remarkable event together and add it to our
-            growing portfolio.
+            Let&apos;s create the next remarkable event together and add it to
+            our growing portfolio.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
