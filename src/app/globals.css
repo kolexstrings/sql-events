@@ -156,7 +156,7 @@ a {
   color: var(--primary-foreground);
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: var(--radius);
+  border-radius: 9999px;
 }
 
 .btn:hover {

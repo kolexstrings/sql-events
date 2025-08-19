@@ -80,7 +80,7 @@ export default function Navigation() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className={`group relative px-8 py-4 border-2 font-semibold text-lg transition-all duration-300 overflow-hidden border-foreground text-foreground hover:bg-foreground hover:text-background`}
+              className={`group relative px-8 py-4 border-2 font-semibold text-lg transition-all duration-300 overflow-hidden border-foreground text-foreground hover:bg-foreground hover:text-background rounded-full`}
             >
               <span className="relative z-10">Contact</span>
               {/* Button hover effect */}

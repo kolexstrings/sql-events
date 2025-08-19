@@ -82,7 +82,7 @@ export default function Portfolio() {
                   {event.highlights.map((highlight, highlightIndex) => (
                     <div
                       key={highlightIndex}
-                      className="bg-white px-3 py-2 rounded-lg text-sm text-gray-700 text-center"
+                      className="bg-white px-3 py-2 rounded-full text-sm text-gray-700 text-center"
                     >
                       {highlight}
                     </div>

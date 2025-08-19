@@ -116,7 +116,7 @@ export default function Contact() {
                   id="firstName"
                   name="firstName"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
                   placeholder="Enter your first name"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                   id="lastName"
                   name="lastName"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
                   placeholder="Enter your last name"
                 />
               </div>
@@ -151,7 +151,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -166,7 +166,7 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
                   placeholder="Enter your phone number"
                 />
               </div>
@@ -183,7 +183,7 @@ export default function Contact() {
                 type="text"
                 id="company"
                 name="company"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
                 placeholder="Enter your company name"
               />
             </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                 id="eventType"
                 name="eventType"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
               >
                 <option value="">Select an event type</option>
                 <option value="conference">Conference</option>
@@ -224,7 +224,7 @@ export default function Contact() {
                 type="date"
                 id="eventDate"
                 name="eventDate"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
               />
             </div>
 
@@ -238,7 +238,7 @@ export default function Contact() {
               <select
                 id="attendees"
                 name="attendees"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
               >
                 <option value="">Select range</option>
                 <option value="1-50">1 - 50</option>
@@ -262,8 +262,8 @@ export default function Contact() {
                 name="message"
                 rows={6}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
-                placeholder="Tell us about your event, requirements, and any specific needs..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-300"
+                placeholder="Tell us about your event, requirements, and specific needs..."
               ></textarea>
             </div>
 
