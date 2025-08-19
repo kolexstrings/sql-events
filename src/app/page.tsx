@@ -8,6 +8,10 @@ import {
   initHeroAnimations,
   cleanupHeroAnimations,
 } from "./lib/heroAnimations";
+import {
+  initHorizontalScrollSection,
+  cleanupHorizontalScroll,
+} from "./lib/horizontalScrollAnimations";
 
 export default function Home() {
   useEffect(() => {
@@ -16,9 +20,16 @@ export default function Home() {
     textReveal(".text-reveal");
     cardAnimations();
 
+    // Initialize horizontal scroll after a short delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      initHorizontalScrollSection();
+    }, 100);
+
     // Cleanup function
     return () => {
+      clearTimeout(timer);
       cleanupHeroAnimations();
+      cleanupHorizontalScroll();
     };
   }, []);
 
@@ -88,8 +99,7 @@ export default function Home() {
                 {/* Right side - Get Started Button */}
                 <button className="group relative px-12 py-6 bg-lime-400 text-black font-bold text-lg rounded-full hover:bg-lime-300 transition-all duration-300 shadow-2xl hover:shadow-lime-400/25 gsap-cta-button">
                   <span className="flex items-center space-x-2">
-                    <span>Get Started</span>
-                    <span className="gsap-arrow">↓</span>
+                    <span>Get Quote</span>
                   </span>
                 </button>
               </div>
@@ -105,7 +115,6 @@ export default function Home() {
           <div className="text-center">
             <div className="text-accent font-bold">SQL</div>
             <div className="text-xs">Events</div>
-            <div className="text-xs">Nigeria</div>
           </div>
         </div>
 
@@ -198,92 +207,1018 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-24 bg-background text-foreground">
+      {/* Why Choose Us Section - Static Title */}
+      <section className="py-32 bg-background text-foreground">
         <div className="container--wide">
-          <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Why Choose Us
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl">
-              We stand out in the events industry through our unique combination
-              of expertise, technology, and unwavering commitment to excellence.
-            </p>
-          </motion.div>
+          <div className="max-w-none mx-auto">
+            {/* Static Section Title */}
+            <div className="mb-20">
+              <div className="flex items-center mb-12">
+                <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+                <h2 className="text-lg font-medium text-muted-foreground">
+                  Why Choose SQL Events?
+                </h2>
+                <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-none mx-auto">
-            {[
-              {
-                icon: "🎯",
-                title: "Strategic Approach",
-                description:
-                  "Every event is planned with clear objectives and measurable outcomes in mind.",
-                color: "primary",
-              },
-              {
-                icon: "💡",
-                title: "Innovation First",
-                description:
-                  "We leverage cutting-edge technology to create memorable experiences.",
-                color: "secondary",
-              },
-              {
-                icon: "🤝",
-                title: "Partnership Focus",
-                description:
-                  "We work as an extension of your team, ensuring seamless collaboration.",
-                color: "accent",
-              },
-              {
-                icon: "📊",
-                title: "Data-Driven",
-                description:
-                  "Our decisions are backed by analytics and industry insights.",
-                color: "brand-orange",
-              },
-              {
-                icon: "🌍",
-                title: "Local Expertise",
-                description:
-                  "Deep understanding of Nigerian business culture and regulations.",
-                color: "brand-purple",
-              },
-              {
-                icon: "⚡",
-                title: "Agile Execution",
-                description:
-                  "Quick adaptation to changes while maintaining quality standards.",
-                color: "brand-green",
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                className="card group bg-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/40"
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8, scale: 1.02 }}
-              >
-                <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${feature.color}/20 to-${feature.color}/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <span className="text-3xl">{feature.icon}</span>
+      {/* Horizontal Scroll Section */}
+      <section className="horizontal-scroll-section relative bg-background text-foreground overflow-hidden">
+        {/* Background animated elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="horizontal-bg-element absolute top-1/4 left-1/4 w-20 h-20 bg-primary/10 rounded-full"></div>
+          <div className="horizontal-bg-element absolute top-3/4 right-1/3 w-16 h-16 bg-secondary/10 rotate-45"></div>
+          <div className="horizontal-bg-element absolute bottom-1/4 left-1/2 w-24 h-24 bg-accent/10 rounded-full"></div>
+        </div>
+
+        <div
+          className="horizontal-scroll-container flex items-center"
+          style={{ width: "300vw" }}
+        >
+          {/* Technology-Driven */}
+          <div className="horizontal-scroll-item flex-shrink-0 w-screen h-screen flex items-center justify-center px-8 relative overflow-hidden">
+            {/* Massive Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-2xl"></div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl w-full relative z-10">
+              <div className="item-content space-y-8">
+                {/* Oversized Typography */}
+                <div className="space-y-4">
+                  <div className="text-6xl md:text-8xl lg:text-9xl font-black leading-none">
+                    <span className="block text-primary drop-shadow-2xl">
+                      TECH
+                    </span>
+                    <span className="block text-primary/70 -mt-4">DRIVEN</span>
+                  </div>
+                  <div className="w-32 h-2 bg-gradient-to-r from-primary to-primary/50 rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
+
+                <p className="text-2xl md:text-3xl text-foreground/80 leading-relaxed font-light max-w-xl">
+                  <span className="text-primary font-semibold">
+                    Revolutionary
+                  </span>{" "}
+                  event technology that transforms ordinary gatherings into
+                  <span className="text-primary font-semibold">
+                    {" "}
+                    extraordinary experiences
+                  </span>
                 </p>
-              </motion.div>
-            ))}
+
+                <div className="flex flex-wrap gap-4 pt-6">
+                  <div className="px-8 py-4 bg-primary/20 border border-primary/30 rounded-2xl backdrop-blur-sm">
+                    <span className="text-primary font-bold text-lg">
+                      AI Integration
+                    </span>
+                  </div>
+                  <div className="px-8 py-4 bg-primary/20 border border-primary/30 rounded-2xl backdrop-blur-sm">
+                    <span className="text-primary font-bold text-lg">
+                      VR/AR Experiences
+                    </span>
+                  </div>
+                  <div className="px-8 py-4 bg-primary/20 border border-primary/30 rounded-2xl backdrop-blur-sm">
+                    <span className="text-primary font-bold text-lg">
+                      Smart Analytics
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-center">
+                <div className="relative w-[500px] h-[500px]">
+                  {/* Massive Tech Visualization SVG */}
+                  <svg
+                    width="500"
+                    height="500"
+                    viewBox="0 0 500 500"
+                    className="absolute inset-0 drop-shadow-2xl"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="techGradientLarge"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          className="text-primary"
+                          stopColor="currentColor"
+                          stopOpacity="1"
+                        />
+                        <stop
+                          offset="50%"
+                          className="text-primary"
+                          stopColor="currentColor"
+                          stopOpacity="0.6"
+                        />
+                        <stop
+                          offset="100%"
+                          className="text-primary"
+                          stopColor="currentColor"
+                          stopOpacity="0.2"
+                        />
+                      </linearGradient>
+                      <filter
+                        id="techGlow"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
+                        <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <g className="tech-svg-group">
+                      {/* Central Massive Core */}
+                      <circle
+                        cx="250"
+                        cy="250"
+                        r="60"
+                        fill="url(#techGradientLarge)"
+                        filter="url(#techGlow)"
+                        className="tech-core text-primary"
+                      />
+
+                      {/* Large Orbiting Ring 1 */}
+                      <g className="tech-orbit-1">
+                        <circle
+                          cx="250"
+                          cy="250"
+                          r="150"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          opacity="0.4"
+                          strokeDasharray="20,10"
+                          className="text-primary"
+                        />
+                        <circle
+                          cx="400"
+                          cy="250"
+                          r="20"
+                          fill="currentColor"
+                          className="tech-node text-primary"
+                        />
+                        <circle
+                          cx="100"
+                          cy="250"
+                          r="20"
+                          fill="currentColor"
+                          className="tech-node text-primary"
+                        />
+                        <circle
+                          cx="250"
+                          cy="100"
+                          r="20"
+                          fill="currentColor"
+                          className="tech-node text-primary"
+                        />
+                        <circle
+                          cx="250"
+                          cy="400"
+                          r="20"
+                          fill="currentColor"
+                          className="tech-node text-primary"
+                        />
+                      </g>
+
+                      {/* Large Orbiting Ring 2 */}
+                      <g className="tech-orbit-2">
+                        <circle
+                          cx="250"
+                          cy="250"
+                          r="220"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.3"
+                          strokeDasharray="30,15"
+                          className="text-primary"
+                        />
+                        <rect
+                          x="460"
+                          y="240"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          className="tech-cube text-primary"
+                        />
+                        <rect
+                          x="20"
+                          y="240"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          className="tech-cube text-primary"
+                        />
+                        <polygon
+                          points="250,30 260,50 240,50"
+                          fill="currentColor"
+                          className="tech-triangle text-primary"
+                        />
+                        <polygon
+                          points="250,470 260,450 240,450"
+                          fill="currentColor"
+                          className="tech-triangle text-primary"
+                        />
+                      </g>
+
+                      {/* Massive Data Streams */}
+                      <path
+                        d="M250 250 Q350 150 400 250"
+                        stroke="currentColor"
+                        strokeWidth="6"
+                        fill="none"
+                        opacity="0.7"
+                        className="tech-stream-1 text-primary"
+                      />
+                      <path
+                        d="M250 250 Q150 350 100 250"
+                        stroke="currentColor"
+                        strokeWidth="6"
+                        fill="none"
+                        opacity="0.7"
+                        className="tech-stream-2 text-primary"
+                      />
+                      <path
+                        d="M250 250 Q350 350 250 400"
+                        stroke="currentColor"
+                        strokeWidth="6"
+                        fill="none"
+                        opacity="0.7"
+                        className="tech-stream-3 text-primary"
+                      />
+                      <path
+                        d="M250 250 Q150 150 250 100"
+                        stroke="currentColor"
+                        strokeWidth="6"
+                        fill="none"
+                        opacity="0.7"
+                        className="tech-stream-4 text-primary"
+                      />
+                    </g>
+                  </svg>
+
+                  {/* Large Floating Particles */}
+                  <div className="absolute inset-0 tech-particles">
+                    <div className="tech-particle w-6 h-6 bg-primary rounded-full absolute top-1/4 left-1/3 opacity-80 shadow-lg shadow-primary/50"></div>
+                    <div className="tech-particle w-4 h-4 bg-primary rounded-full absolute top-3/4 right-1/4 opacity-60 shadow-lg shadow-primary/50"></div>
+                    <div className="tech-particle w-8 h-8 bg-primary rounded-full absolute bottom-1/3 left-1/4 opacity-90 shadow-xl shadow-primary/60"></div>
+                    <div className="tech-particle w-3 h-3 bg-primary rounded-full absolute top-1/2 right-1/3 opacity-70 shadow-lg shadow-primary/50"></div>
+                    <div className="tech-particle w-5 h-5 bg-primary rounded-full absolute top-1/6 right-1/2 opacity-75 shadow-lg shadow-primary/50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Experienced Team */}
+          <div className="horizontal-scroll-item flex-shrink-0 w-screen h-screen flex items-center justify-center px-8 relative overflow-hidden">
+            {/* Massive Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-secondary/20 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-2xl"></div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl w-full relative z-10">
+              <div className="flex justify-center items-center order-2 lg:order-1">
+                <div className="relative w-[500px] h-[500px]">
+                  <svg
+                    width="500"
+                    height="500"
+                    viewBox="0 0 500 500"
+                    className="absolute inset-0 drop-shadow-2xl"
+                  >
+                    <defs>
+                      <radialGradient
+                        id="teamGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="currentColor"
+                          stopOpacity="0.8"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="currentColor"
+                          stopOpacity="0.2"
+                        />
+                      </radialGradient>
+                    </defs>
+                    <g className="team-svg-group">
+                      {/* Team Network */}
+                      <g className="team-connections">
+                        <line
+                          x1="160"
+                          y1="100"
+                          x2="220"
+                          y2="140"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="220"
+                          y1="140"
+                          x2="220"
+                          y2="200"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="220"
+                          y1="200"
+                          x2="160"
+                          y2="240"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="240"
+                          x2="100"
+                          y2="200"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="100"
+                          y1="200"
+                          x2="100"
+                          y2="140"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="100"
+                          y1="140"
+                          x2="160"
+                          y2="100"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="170"
+                          x2="160"
+                          y2="100"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.6"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="170"
+                          x2="220"
+                          y2="140"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.6"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="170"
+                          x2="220"
+                          y2="200"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.6"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="170"
+                          x2="100"
+                          y2="200"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.6"
+                          className="team-line"
+                        />
+                        <line
+                          x1="160"
+                          y1="170"
+                          x2="100"
+                          y2="140"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          opacity="0.6"
+                          className="team-line"
+                        />
+                      </g>
+
+                      {/* Team Members */}
+                      <circle
+                        cx="160"
+                        cy="170"
+                        r="25"
+                        fill="url(#teamGradient)"
+                        className="team-leader"
+                      />
+                      <circle
+                        cx="160"
+                        cy="100"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+                      <circle
+                        cx="220"
+                        cy="140"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+                      <circle
+                        cx="220"
+                        cy="200"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+                      <circle
+                        cx="160"
+                        cy="240"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+                      <circle
+                        cx="100"
+                        cy="200"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+                      <circle
+                        cx="100"
+                        cy="140"
+                        r="18"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="team-member"
+                      />
+
+                      {/* Skill Indicators */}
+                      <g className="skill-indicators">
+                        <rect
+                          x="50"
+                          y="50"
+                          width="30"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.7"
+                          className="skill-bar"
+                        />
+                        <rect
+                          x="50"
+                          y="60"
+                          width="25"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.6"
+                          className="skill-bar"
+                        />
+                        <rect
+                          x="50"
+                          y="70"
+                          width="35"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.8"
+                          className="skill-bar"
+                        />
+
+                        <rect
+                          x="240"
+                          y="50"
+                          width="30"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.7"
+                          className="skill-bar"
+                        />
+                        <rect
+                          x="240"
+                          y="60"
+                          width="28"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.8"
+                          className="skill-bar"
+                        />
+                        <rect
+                          x="240"
+                          y="70"
+                          width="25"
+                          height="6"
+                          rx="3"
+                          fill="currentColor"
+                          opacity="0.6"
+                          className="skill-bar"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+
+                  {/* Achievement badges */}
+                  <div className="absolute inset-0 team-badges">
+                    <div className="team-badge absolute top-4 left-4 w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-secondary">
+                        5+
+                      </span>
+                    </div>
+                    <div className="team-badge absolute top-4 right-4 w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-secondary">
+                        ★
+                      </span>
+                    </div>
+                    <div className="team-badge absolute bottom-4 left-1/2 transform -translate-x-1/2 w-10 h-8 bg-secondary/20 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-secondary">
+                        PRO
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="item-content order-1 lg:order-2 space-y-8">
+                {/* Oversized Typography */}
+                <div className="space-y-4">
+                  <div className="text-6xl md:text-8xl lg:text-9xl font-black leading-none">
+                    <span className="block text-secondary drop-shadow-2xl">
+                      EXPERT
+                    </span>
+                    <span className="block text-secondary/70 -mt-4">TEAM</span>
+                  </div>
+                  <div className="w-32 h-2 bg-gradient-to-r from-secondary to-secondary/50 rounded-full"></div>
+                </div>
+
+                <p className="text-2xl md:text-3xl text-foreground/80 leading-relaxed font-light max-w-xl">
+                  A{" "}
+                  <span className="text-secondary font-semibold">
+                    powerhouse
+                  </span>{" "}
+                  of seasoned professionals with decades of combined experience
+                  in
+                  <span className="text-secondary font-semibold">
+                    corporate event excellence
+                  </span>
+                </p>
+
+                <div className="grid grid-cols-2 gap-6 pt-6">
+                  <div className="p-6 bg-secondary/20 border border-secondary/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-4xl font-black text-secondary mb-2">
+                      15+
+                    </div>
+                    <div className="text-secondary font-semibold">
+                      Years Avg Experience
+                    </div>
+                  </div>
+                  <div className="p-6 bg-secondary/20 border border-secondary/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-4xl font-black text-secondary mb-2">
+                      50+
+                    </div>
+                    <div className="text-secondary font-semibold">
+                      Certifications
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Large Clientele Base */}
+          <div className="horizontal-scroll-item flex-shrink-0 w-screen h-screen flex items-center justify-center px-8 relative overflow-hidden">
+            {/* Massive Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-accent/15 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-2xl"></div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl w-full relative z-10">
+              <div className="item-content space-y-8">
+                {/* Oversized Typography */}
+                <div className="space-y-4">
+                  <div className="text-6xl md:text-8xl lg:text-9xl font-black leading-none">
+                    <span className="block text-accent drop-shadow-2xl">
+                      GLOBAL
+                    </span>
+                    <span className="block text-accent/70 -mt-4">REACH</span>
+                  </div>
+                  <div className="w-32 h-2 bg-gradient-to-r from-accent to-accent/50 rounded-full"></div>
+                </div>
+
+                <p className="text-2xl md:text-3xl text-foreground/80 leading-relaxed font-light max-w-xl">
+                  Trusted by{" "}
+                  <span className="text-accent font-semibold">
+                    Nigeria's leading
+                  </span>{" "}
+                  corporations, government agencies, and international
+                  organizations spanning
+                  <span className="text-accent font-semibold">
+                    diverse industries
+                  </span>
+                </p>
+
+                <div className="grid grid-cols-2 gap-6 pt-6">
+                  <div className="p-6 bg-accent/20 border border-accent/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-5xl font-black text-accent mb-2">
+                      500+
+                    </div>
+                    <div className="text-accent font-semibold text-lg">
+                      Events Delivered
+                    </div>
+                  </div>
+                  <div className="p-6 bg-accent/20 border border-accent/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-5xl font-black text-accent mb-2">
+                      150+
+                    </div>
+                    <div className="text-accent font-semibold text-lg">
+                      Active Clients
+                    </div>
+                  </div>
+                  <div className="p-6 bg-accent/20 border border-accent/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-5xl font-black text-accent mb-2">
+                      98%
+                    </div>
+                    <div className="text-accent font-semibold text-lg">
+                      Retention Rate
+                    </div>
+                  </div>
+                  <div className="p-6 bg-accent/20 border border-accent/30 rounded-2xl backdrop-blur-sm text-center">
+                    <div className="text-5xl font-black text-accent mb-2">
+                      25+
+                    </div>
+                    <div className="text-accent font-semibold text-lg">
+                      Industries
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center items-center">
+                <div className="relative w-[500px] h-[500px]">
+                  <svg
+                    width="500"
+                    height="500"
+                    viewBox="0 0 500 500"
+                    className="absolute inset-0 drop-shadow-2xl"
+                  >
+                    <defs>
+                      <pattern
+                        id="clientPattern"
+                        patternUnits="userSpaceOnUse"
+                        width="20"
+                        height="20"
+                      >
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="2"
+                          fill="currentColor"
+                          opacity="0.3"
+                        />
+                      </pattern>
+                    </defs>
+                    <g className="client-svg-group">
+                      {/* Global Network */}
+                      <circle
+                        cx="160"
+                        cy="160"
+                        r="140"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        opacity="0.2"
+                      />
+                      <circle
+                        cx="160"
+                        cy="160"
+                        r="100"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        opacity="0.3"
+                      />
+                      <circle
+                        cx="160"
+                        cy="160"
+                        r="60"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.4"
+                      />
+
+                      {/* Client Clusters */}
+                      <g className="client-cluster-1">
+                        <circle
+                          cx="120"
+                          cy="120"
+                          r="25"
+                          fill="currentColor"
+                          opacity="0.2"
+                          className="client-zone"
+                        />
+                        <circle
+                          cx="115"
+                          cy="115"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="125"
+                          cy="115"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="120"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="115"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="125"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                      </g>
+
+                      <g className="client-cluster-2">
+                        <circle
+                          cx="200"
+                          cy="120"
+                          r="25"
+                          fill="currentColor"
+                          opacity="0.2"
+                          className="client-zone"
+                        />
+                        <circle
+                          cx="195"
+                          cy="115"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="205"
+                          cy="115"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="200"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="195"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="205"
+                          cy="125"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                      </g>
+
+                      <g className="client-cluster-3">
+                        <circle
+                          cx="200"
+                          cy="200"
+                          r="25"
+                          fill="currentColor"
+                          opacity="0.2"
+                          className="client-zone"
+                        />
+                        <circle
+                          cx="195"
+                          cy="195"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="205"
+                          cy="195"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="200"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="195"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="205"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                      </g>
+
+                      <g className="client-cluster-4">
+                        <circle
+                          cx="120"
+                          cy="200"
+                          r="25"
+                          fill="currentColor"
+                          opacity="0.2"
+                          className="client-zone"
+                        />
+                        <circle
+                          cx="115"
+                          cy="195"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="125"
+                          cy="195"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="120"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="115"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                        <circle
+                          cx="125"
+                          cy="205"
+                          r="4"
+                          fill="currentColor"
+                          className="client-dot"
+                        />
+                      </g>
+
+                      {/* Central Hub */}
+                      <circle
+                        cx="160"
+                        cy="160"
+                        r="20"
+                        fill="currentColor"
+                        opacity="0.8"
+                        className="client-hub"
+                      />
+                      <text
+                        x="160"
+                        y="165"
+                        textAnchor="middle"
+                        fill="white"
+                        fontSize="12"
+                        fontWeight="bold"
+                      >
+                        SQL
+                      </text>
+
+                      {/* Connection Lines */}
+                      <line
+                        x1="160"
+                        y1="160"
+                        x2="120"
+                        y2="120"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.4"
+                        className="client-connection"
+                      />
+                      <line
+                        x1="160"
+                        y1="160"
+                        x2="200"
+                        y2="120"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.4"
+                        className="client-connection"
+                      />
+                      <line
+                        x1="160"
+                        y1="160"
+                        x2="200"
+                        y2="200"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.4"
+                        className="client-connection"
+                      />
+                      <line
+                        x1="160"
+                        y1="160"
+                        x2="120"
+                        y2="200"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.4"
+                        className="client-connection"
+                      />
+                    </g>
+                  </svg>
+
+                  {/* Industry badges */}
+                  <div className="absolute inset-0 industry-badges">
+                    <div className="industry-badge absolute top-8 left-8 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      Banking
+                    </div>
+                    <div className="industry-badge absolute top-8 right-8 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      Tech
+                    </div>
+                    <div className="industry-badge absolute bottom-8 left-8 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      Oil & Gas
+                    </div>
+                    <div className="industry-badge absolute bottom-8 right-8 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      Telecom
+                    </div>
+                    <div className="industry-badge absolute top-1/2 left-4 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      Gov
+                    </div>
+                    <div className="industry-badge absolute top-1/2 right-4 px-2 py-1 bg-accent/20 rounded text-xs font-medium text-accent">
+                      NGO
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

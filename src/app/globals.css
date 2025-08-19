@@ -671,3 +671,233 @@ a:focus {
 .hero-headline:hover {
   text-shadow: 0 0 30px rgba(132, 204, 22, 0.6);
 }
+
+/* Horizontal Scroll Section Styles */
+.horizontal-scroll-section {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.horizontal-scroll-container {
+  height: 100vh;
+  will-change: transform;
+}
+
+.horizontal-scroll-item {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-bg-element {
+  will-change: transform;
+}
+
+/* SVG Animation Styles */
+.horizontal-scroll-item svg {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.horizontal-scroll-item svg path,
+.horizontal-scroll-item svg circle,
+.horizontal-scroll-item svg rect,
+.horizontal-scroll-item svg polygon {
+  will-change: transform, opacity;
+}
+
+/* Smooth transitions for content */
+.item-content {
+  will-change: transform, opacity;
+}
+
+/* Advanced Tech Animation Styles */
+.tech-svg-group {
+  will-change: transform;
+}
+
+.tech-core {
+  animation: tech-pulse 3s ease-in-out infinite;
+}
+
+.tech-node {
+  will-change: transform;
+  animation: tech-float 2s ease-in-out infinite;
+}
+
+.tech-cube,
+.tech-triangle {
+  will-change: transform;
+  animation: tech-rotate 4s linear infinite;
+}
+
+.tech-particle {
+  will-change: transform;
+}
+
+.tech-stream-1,
+.tech-stream-2,
+.tech-stream-3,
+.tech-stream-4 {
+  will-change: stroke-dasharray;
+}
+
+@keyframes tech-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes tech-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes tech-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Team Animation Styles */
+.team-svg-group {
+  will-change: transform;
+}
+
+.team-leader {
+  animation: team-pulse 2.5s ease-in-out infinite;
+}
+
+.team-member {
+  will-change: transform;
+  animation: team-bounce 3s ease-in-out infinite;
+}
+
+.team-line {
+  will-change: stroke-dasharray;
+  animation: team-connection 4s linear infinite;
+}
+
+.skill-bar {
+  will-change: transform;
+  animation: skill-grow 2s ease-out infinite alternate;
+}
+
+@keyframes team-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes team-bounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes team-connection {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  50% {
+    stroke-dasharray: 50, 50;
+  }
+  100% {
+    stroke-dasharray: 100, 0;
+  }
+}
+
+@keyframes skill-grow {
+  from {
+    transform: scaleX(0.8);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Client Animation Styles */
+.client-svg-group {
+  will-change: transform;
+}
+
+.client-hub {
+  animation: client-pulse 3s ease-in-out infinite;
+}
+
+.client-dot {
+  will-change: transform;
+  animation: client-float 2s ease-in-out infinite;
+}
+
+.client-connection {
+  will-change: stroke-dasharray;
+  animation: client-flow 3s linear infinite;
+}
+
+.client-zone {
+  animation: client-expand 4s ease-in-out infinite;
+}
+
+@keyframes client-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes client-float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.1);
+  }
+}
+
+@keyframes client-flow {
+  0% {
+    stroke-dasharray: 0, 50;
+  }
+  100% {
+    stroke-dasharray: 50, 0;
+  }
+}
+
+@keyframes client-expand {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+}
