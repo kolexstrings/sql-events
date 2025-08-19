@@ -78,7 +78,9 @@ export const initCaseStudiesCarousel = () => {
   });
 
   // Add floating animation to background elements
-  const backgroundElements = document.querySelectorAll(".case-study-bg-element");
+  const backgroundElements = document.querySelectorAll(
+    ".case-study-bg-element"
+  );
   backgroundElements.forEach((element, index) => {
     gsap.to(element, {
       y: -20 + Math.random() * 40,
@@ -129,10 +131,10 @@ export const initCaseStudiesCarousel = () => {
 
 export const cleanupCaseStudiesCarousel = () => {
   if (typeof window === "undefined") return;
-  
+
   // Kill all ScrollTrigger instances
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
   // Kill all GSAP animations
   gsap.killTweensOf("*");
 };

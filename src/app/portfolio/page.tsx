@@ -253,7 +253,8 @@ export default function Portfolio() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Testimonials from organizations we&apos;ve had the privilege to serve
+              Testimonials from organizations we&apos;ve had the privilege to
+              serve
             </p>
           </div>
 

@@ -245,8 +245,12 @@ export const initHorizontalScrollSection = () => {
 
 export const cleanupHorizontalScroll = () => {
   ScrollTrigger.getAll().forEach((trigger) => {
+    const triggerElement = trigger.vars.trigger;
     if (
-      trigger.vars.trigger?.classList?.contains("horizontal-scroll-section")
+      triggerElement &&
+      typeof triggerElement === "object" &&
+      "classList" in triggerElement &&
+      triggerElement.classList?.contains("horizontal-scroll-section")
     ) {
       trigger.kill();
     }
