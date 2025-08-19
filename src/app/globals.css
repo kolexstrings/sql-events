@@ -600,3 +600,74 @@ a:focus {
   );
   background-size: 50px 50px;
 }
+
+/* GSAP Hero Animation Classes */
+.gsap-text-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gsap-description-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gsap-curly-brace {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gsap-cta-button {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.gsap-side-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.gsap-floating-element {
+  opacity: 1;
+}
+
+.gsap-bg-shape-1,
+.gsap-bg-shape-2,
+.gsap-bg-shape-3 {
+  opacity: 1;
+}
+
+.gsap-bg-element-1,
+.gsap-bg-element-2 {
+  opacity: 1;
+}
+
+.gsap-arrow {
+  opacity: 1;
+}
+
+/* Ensure smooth transitions for GSAP animations */
+.gsap-text-line,
+.gsap-description-text,
+.gsap-curly-brace,
+.gsap-cta-button,
+.gsap-side-label,
+.gsap-floating-element,
+.gsap-bg-shape-1,
+.gsap-bg-shape-2,
+.gsap-bg-shape-3,
+.gsap-bg-element-1,
+.gsap-bg-element-2,
+.gsap-arrow {
+  will-change: transform, opacity;
+}
+
+/* Hero text glow effect */
+.hero-headline {
+  text-shadow: 0 0 20px rgba(132, 204, 22, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.hero-headline:hover {
+  text-shadow: 0 0 30px rgba(132, 204, 22, 0.6);
+}

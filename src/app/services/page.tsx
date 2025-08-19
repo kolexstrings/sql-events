@@ -2,14 +2,14 @@ import Navigation from "../components/Navigation";
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="max-w-6xl mx-auto text-center text-white">
+        <div className="max-w-6xl mx-auto text-center text-primary-foreground">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl opacity-90 max-w-4xl mx-auto leading-relaxed">
             Comprehensive event management solutions powered by cutting-edge
             technology
           </p>
@@ -17,13 +17,13 @@ export default function Services() {
       </section>
 
       {/* Corporate Events & Conference Management */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Corporate Events & Conference Management
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Professional event management for corporate Nigeria with
               technology-driven solutions
             </p>
@@ -106,20 +106,20 @@ export default function Services() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-background border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
-                      className="flex items-center text-sm text-gray-600"
+                      className="flex items-center text-sm text-muted-foreground"
                     >
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
                       {feature}
@@ -133,27 +133,27 @@ export default function Services() {
       </section>
 
       {/* Exhibition Management */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
                 Exhibition Management
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Comprehensive exhibition management solutions with online
                 booking systems, stand management, and attendee tracking.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">💻</span>
+                    <span className="text-primary text-lg">💻</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Online Exhibitor Booking
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Streamlined online registration and booking system for
                       exhibitors
                     </p>
@@ -161,26 +161,26 @@ export default function Services() {
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">💳</span>
+                    <span className="text-primary text-lg">💳</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Payment Management
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Secure payment processing and financial tracking
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">🏗️</span>
+                    <span className="text-primary text-lg">🏗️</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Stand Management
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Complete stand design, construction, and management
                       services
                     </p>
@@ -190,7 +190,7 @@ export default function Services() {
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-12 h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
+                <div className="text-center text-muted-foreground">
                   <div className="text-6xl mb-4">🎪</div>
                   <p className="text-xl font-semibold">Exhibition Solutions</p>
                   <p className="text-sm">Technology-driven management</p>
@@ -202,12 +202,12 @@ export default function Services() {
       </section>
 
       {/* Abstract/Paper Management */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
               <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-12 h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
+                <div className="text-center text-muted-foreground">
                   <div className="text-6xl mb-4">📝</div>
                   <p className="text-xl font-semibold">Abstract Management</p>
                   <p className="text-sm">Streamlined submission process</p>
@@ -218,46 +218,46 @@ export default function Services() {
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
                 Abstract/Paper Management
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Complete management of academic submissions with online
                 platforms for submission, reviewing, and publishing.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">📤</span>
+                    <span className="text-primary text-lg">📤</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Online Submission
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       User-friendly online submission platform for authors
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">👁️</span>
+                    <span className="text-primary text-lg">👁️</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Review Process
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Streamlined peer review and evaluation system
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">📚</span>
+                    <span className="text-primary text-lg">📚</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Publishing
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Professional publication and distribution services
                     </p>
                   </div>
@@ -269,53 +269,53 @@ export default function Services() {
       </section>
 
       {/* Access Control Management */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
                 Access Control Management
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Advanced access control solutions using RFID technology, barcode
                 systems, and comprehensive attendee data management.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">🔐</span>
+                    <span className="text-primary text-lg">🔐</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       RFID Technology
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Contactless access control for seamless entry
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">📊</span>
+                    <span className="text-primary text-lg">📊</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Barcode Systems
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Efficient scanning and verification processes
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-purple-100 rounded-full p-2 mr-4">
-                    <span className="text-purple-600 text-lg">👥</span>
+                    <span className="text-primary text-lg">👥</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       Attendee Data
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Comprehensive tracking and analytics
                     </p>
                   </div>
@@ -324,7 +324,7 @@ export default function Services() {
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-12 h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
+                <div className="text-center text-muted-foreground">
                   <div className="text-6xl mb-4">🔒</div>
                   <p className="text-xl font-semibold">Access Control</p>
                   <p className="text-sm">Secure & efficient entry</p>
@@ -336,13 +336,13 @@ export default function Services() {
       </section>
 
       {/* Other Services */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Additional Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive support services to ensure your event's success
             </p>
           </div>
@@ -388,13 +388,13 @@ export default function Services() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 text-center"
+                className="bg-card p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 text-center"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -405,7 +405,7 @@ export default function Services() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
+        <div className="max-w-4xl mx-auto text-center text-primary-foreground">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
@@ -413,10 +413,10 @@ export default function Services() {
             Let's discuss how our services can transform your next event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
+            <button className="bg-background text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary-foreground/90 transition-colors duration-300">
               Request Quote
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors duration-300">
+            <button className="border-2 border-primary-foreground text-primary-foreground px-10 py-4 rounded-full font-semibold text-lg hover:bg-background hover:text-primary transition-colors duration-300">
               Schedule Consultation
             </button>
           </div>
@@ -424,27 +424,36 @@ export default function Services() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 bg-black text-white">
+      <footer className="py-12 px-6 bg-card text-primary-foreground">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>
-          <p className="text-gray-400 mb-6">
+          <p className="text-muted-foreground mb-6">
             Passion. Innovation. Technology in Events Management.
           </p>
-          <div className="flex justify-center space-x-6 text-gray-400 mb-6">
-            <a href="#" className="hover:text-white transition-colors">
+          <div className="flex justify-center space-x-6 text-muted-foreground mb-6">
+            <a
+              href="#"
+              className="hover:text-card-foreground transition-colors"
+            >
               LinkedIn
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-card-foreground transition-colors"
+            >
               Twitter
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-card-foreground transition-colors"
+            >
               Instagram
             </a>
           </div>
-          <div className="text-gray-500 text-sm">
+          <div className="text-muted-foreground text-sm">
             <p>Lagos, Nigeria | +234 XXX XXX XXXX | hello@sqlevents.ng</p>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
+          <div className="mt-8 pt-8 border-t border-border text-muted-foreground">
             <p>&copy; 2024 SQL Events Nigeria. All rights reserved.</p>
           </div>
         </div>

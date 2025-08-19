@@ -3,19 +3,23 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navigation from "./components/Navigation";
+import { initSmoothScroll, textReveal, cardAnimations } from "./lib/animations";
 import {
-  initSmoothScroll,
-  heroAnimations,
-  textReveal,
-  cardAnimations,
-} from "./lib/animations";
+  initHeroAnimations,
+  cleanupHeroAnimations,
+} from "./lib/heroAnimations";
 
 export default function Home() {
   useEffect(() => {
     initSmoothScroll();
-    heroAnimations();
+    initHeroAnimations();
     textReveal(".text-reveal");
     cardAnimations();
+
+    // Cleanup function
+    return () => {
+      cleanupHeroAnimations();
+    };
   }, []);
 
   return (
@@ -23,102 +27,73 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section - GSAP Style */}
-      <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden">
         {/* Main Hero Content */}
         <div className="container--ultra-wide relative z-10 text-center py-20 mt-20">
           <div className="max-w-none mx-auto">
-            {/* Hero Headline */}
-            <motion.div
-              className="relative mb-12"
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            >
-              {/* Animated flower-like element above "Innovation" */}
-              <motion.div
-                className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-16 h-16"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
+            {/* Hero Headline with GSAP Animations */}
+            <div className="relative mb-12">
+              {/* Animated floating elements */}
+              <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-16 h-16 gsap-floating-element">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-80"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full opacity-60 transform rotate-45"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-orange-400 rounded-full opacity-40 transform rotate-90"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-20 transform rotate-135"></div>
                 </div>
-              </motion.div>
+              </div>
 
-              <h1 className="hero-headline text-8xl md:text-9xl lg:text-[12rem] font-black leading-none text-balance font-display">
-                <span className="block">Passion and</span>
-                <span className="block relative">
-                  <span className="block">Innovation</span>
-                  {/* Animated dot for the 'i' */}
-                  <motion.span
-                    className="absolute inline-block w-4 h-4 bg-pink-500 rounded-full"
-                    style={{ top: "0.1em", right: "-0.1em" }}
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.8, 1, 0.8],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  ></motion.span>
-                </span>
-              </h1>
-            </motion.div>
+              <div className="text-left">
+                <h1 className="hero-headline text-8xl md:text-9xl lg:text-[12rem] font-black leading-none text-balance font-display">
+                  <span className="block gsap-text-line" data-text="Passion">
+                    Passion
+                  </span>
+                  <span
+                    className="block gsap-text-line"
+                    data-text="and Innovation"
+                  >
+                    and Innovation
+                  </span>
+                </h1>
+              </div>
 
-            {/* Hero Description in Curly Braces */}
-            <motion.div
-              className="mb-16"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            >
+              {/* Animated background shapes */}
+              <div className="absolute -top-32 -right-32 w-64 h-64 border border-lime-400/20 rounded-full gsap-bg-shape-1"></div>
+              <div className="absolute -bottom-16 -left-16 w-32 h-32 border border-pink-500/20 rotate-45 gsap-bg-shape-2"></div>
+              <div className="absolute top-1/2 -right-20 w-40 h-40 border border-purple-500/20 rounded-full gsap-bg-shape-3"></div>
+            </div>
+
+            {/* Hero Description in Curly Braces with GSAP */}
+            <div className="mb-16 gsap-description-section">
               <div className="flex items-center justify-between">
                 {/* Left side - Description with Curly Braces */}
                 <div className="flex items-center">
                   {/* Left Curly Brace */}
-                  <div className="text-4xl text-lime-400 font-bold mr-4">
+                  <div className="text-4xl text-lime-400 font-bold mr-4 gsap-curly-brace">
                     {"{"}
                   </div>
 
                   {/* Description Text */}
-                  <p className="text-base md:text-lg max-w-3xl leading-relaxed text-gray-300 font-light">
+                  <p className="text-base md:text-lg max-w-l leading-relaxed text-muted-foreground font-light gsap-description-text">
                     SQL Events - A wildly innovative events management company
                     built for the modern Nigerian corporate world
                   </p>
 
                   {/* Right Curly Brace */}
-                  <div className="text-4xl text-lime-400 font-bold ml-4">
+                  <div className="text-4xl text-lime-400 font-bold ml-4 gsap-curly-brace">
                     {"}"}
                   </div>
                 </div>
 
                 {/* Right side - Get Started Button */}
-                <motion.button
-                  className="group relative px-12 py-6 bg-lime-400 text-black font-bold text-lg rounded-full hover:bg-lime-300 transition-all duration-300 shadow-2xl hover:shadow-lime-400/25"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="group relative px-12 py-6 bg-lime-400 text-black font-bold text-lg rounded-full hover:bg-lime-300 transition-all duration-300 shadow-2xl hover:shadow-lime-400/25 gsap-cta-button">
                   <span className="flex items-center space-x-2">
                     <span>Get Started</span>
-                    <motion.span
-                      animate={{ y: [0, 4, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      ↓
-                    </motion.span>
+                    <span className="gsap-arrow">↓</span>
                   </span>
-                </motion.button>
+                </button>
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA Button - Bottom Right Style */}
             {/* Removed - now integrated with description text */}
@@ -126,132 +101,99 @@ export default function Home() {
         </div>
 
         {/* Side Label - Site of the Day Style */}
-        <motion.div
-          className="absolute left-8 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-400 writing-mode-vertical"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
+        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-sm font-medium text-muted-foreground writing-mode-vertical gsap-side-label">
           <div className="text-center">
-            <div className="text-lime-400 font-bold">SQL</div>
+            <div className="text-accent font-bold">SQL</div>
             <div className="text-xs">Events</div>
             <div className="text-xs">Nigeria</div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            className="absolute top-1/4 right-1/4 w-32 h-32 border border-lime-400/20 rounded-full"
-            animate={{
-              rotate: 360,
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-pink-500/20 rotate-45"
-            animate={{
-              rotate: -360,
-              scale: [1, 1.3, 1],
-              opacity: [0.1, 0.4, 0.1],
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          />
+          <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-lime-400/20 rounded-full gsap-bg-element-1"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-pink-500/20 rotate-45 gsap-bg-element-2"></div>
         </div>
       </section>
 
-      {/* Who We Are Section */}
-      <section className="py-24 bg-card text-card-foreground">
+      {/* Who We Are Section - GSAP Style */}
+      <section className="py-32 bg-card text-card-foreground">
         <div className="container--wide">
           <div className="max-w-none mx-auto">
+            {/* Section Title with Curly Braces */}
             <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 50 }}
+              className="mb-20"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-                Who We Are
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-                SQL Events Nigeria is a leading corporate events and conference
-                management company, delivering exceptional experiences through
-                cutting-edge technology and innovative solutions.
+              <div className="flex items-center mb-12">
+                <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+                <h2 className="text-lg font-medium text-muted-foreground">
+                  Why SQL Events?
+                </h2>
+                <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+              </div>
+            </motion.div>
+
+            {/* Main Bold Statement */}
+            <motion.div
+              className="mb-20"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-card-foreground max-w-6xl">
+                SQL Events allows you to{" "}
+                <span className="text-primary">effortlessly manage</span>{" "}
+                anything corporate events can touch.{" "}
+                <span className="text-secondary">Delivering exceptional</span>{" "}
+                experiences and{" "}
+                <span className="text-accent">unmatched support</span> so you
+                can focus on the{" "}
+                <span className="text-primary">impactful moments</span>.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-2xl font-bold mb-4 text-foreground">
-                  Our Story
-                </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Founded with a vision to transform the events industry in
-                  Nigeria, we combine traditional hospitality excellence with
-                  modern technological innovation. Our team brings together
-                  decades of experience in corporate events, conferences, and
-                  exhibition management.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  We believe that every event should tell a story, create
-                  lasting impressions, and deliver measurable results for our
-                  clients.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="relative"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-primary mb-2">
-                        500+
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Events Managed
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-secondary mb-2">
-                        50+
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Corporate Clients
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-accent mb-2">
-                        98%
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Client Satisfaction
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-brand-orange mb-2">
-                        5+
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Years Experience
-                      </div>
-                    </div>
-                  </div>
+            {/* Supporting Stats */}
+            <motion.div
+              className="grid md:grid-cols-4 gap-8 pt-16 border-t border-border/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-center md:text-left">
+                <div className="text-3xl font-bold text-primary mb-2">500+</div>
+                <div className="text-sm text-muted-foreground">
+                  Events Delivered
                 </div>
-              </motion.div>
-            </div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-3xl font-bold text-secondary mb-2">
+                  50+
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Corporate Clients
+                </div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-3xl font-bold text-accent mb-2">98%</div>
+                <div className="text-sm text-muted-foreground">
+                  Client Satisfaction
+                </div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-3xl font-bold text-brand-orange mb-2">
+                  5+
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Years Experience
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -260,16 +202,16 @@ export default function Home() {
       <section className="py-24 bg-background text-foreground">
         <div className="container--wide">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+            className="mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Why Choose Us
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl">
               We stand out in the events industry through our unique combination
               of expertise, technology, and unwavering commitment to excellence.
             </p>
@@ -350,16 +292,14 @@ export default function Home() {
       <section className="py-24 bg-card text-card-foreground">
         <div className="container--wide">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+            className="mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-              What We Do
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">What We Do</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl">
               Comprehensive event management solutions designed for the modern
               corporate world
             </p>
@@ -441,10 +381,10 @@ export default function Home() {
         <div className="container--wide">
           <div className="flex justify-between items-end mb-16">
             <motion.h2
-              className="text-4xl md:text-5xl font-bold text-balance"
-              initial={{ opacity: 0, y: 50 }}
+              className="text-2xl md:text-3xl font-bold"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
               Case Studies
@@ -518,16 +458,16 @@ export default function Home() {
       <section className="py-24 bg-card text-card-foreground">
         <div className="container--wide">
           <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+            className="mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl">
               Don&apos;t just take our word for it. Here&apos;s what our clients
               have to say about their experience.
             </p>
@@ -588,172 +528,105 @@ export default function Home() {
 
       {/* Contact CTA/Form Section */}
       <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container px-8">
-          <div className="max-w-6xl mx-auto">
+        <div className="container--wide">
+          <div className="max-w-none mx-auto">
             <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 50 }}
+              className="mb-16"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-balance">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to Transform Your Event?
               </h2>
-              <p className="text-xl mb-12 opacity-90">
+              <p className="text-lg opacity-90 max-w-3xl">
                 Let&apos;s discuss how we can bring your vision to life with our
-                innovative approach to event management.
+                innovative events management solutions.
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Contact Form */}
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <motion.div
-                className="bg-background text-foreground p-8 rounded-2xl shadow-xl"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                        placeholder="Your first name"
-                      />
+                <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">
+                      📍
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                        placeholder="Your last name"
-                      />
+                      <div className="font-semibold">Address</div>
+                      <div className="text-sm opacity-80">
+                        Victoria Island, Lagos, Nigeria
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                      placeholder="your.email@company.com"
-                    />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">
+                      📞
+                    </div>
+                    <div>
+                      <div className="font-semibold">Phone</div>
+                      <div className="text-sm opacity-80">
+                        +234 XXX XXX XXXX
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                      placeholder="Your company name"
-                    />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary-foreground/20 rounded-full flex items-center justify-center">
+                      ✉️
+                    </div>
+                    <div>
+                      <div className="font-semibold">Email</div>
+                      <div className="text-sm opacity-80">
+                        hello@sqlevents.ng
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Event Type
-                    </label>
-                    <select className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
-                      <option>Select event type</option>
-                      <option>Conference</option>
-                      <option>Corporate Event</option>
-                      <option>Exhibition</option>
-                      <option>Team Building</option>
-                      <option>Training/Workshop</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      rows={4}
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                      placeholder="Tell us about your event requirements..."
-                    ></textarea>
-                  </div>
-                  <motion.button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Send Message
-                  </motion.button>
-                </form>
+                </div>
               </motion.div>
 
-              {/* Contact Information */}
-              <motion.div
-                className="space-y-8"
+              <motion.form
+                className="space-y-6"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div>
-                  <h3 className="text-2xl font-bold mb-6">
-                    Contact Information
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-xl">📍</span>
-                      </div>
-                      <div>
-                        <div className="font-semibold">Office Address</div>
-                        <div className="text-white/80">
-                          Victoria Island, Lagos, Nigeria
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-xl">📞</span>
-                      </div>
-                      <div>
-                        <div className="font-semibold">Phone</div>
-                        <div className="text-white/80">+234 XXX XXX XXXX</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-xl">✉️</span>
-                      </div>
-                      <div>
-                        <div className="font-semibold">Email</div>
-                        <div className="text-white/80">hello@sqlevents.ng</div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 focus:border-transparent text-primary-foreground placeholder-primary-foreground/60"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 focus:border-transparent text-primary-foreground placeholder-primary-foreground/60"
+                  />
                 </div>
-
-                <div>
-                  <h3 className="text-xl font-bold mb-4">Quick Response</h3>
-                  <p className="text-white/80 mb-6">
-                    We typically respond to all inquiries within 24 hours during
-                    business days.
-                  </p>
-                  <motion.button
-                    className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Schedule a Call
-                  </motion.button>
-                </div>
-              </motion.div>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 focus:border-transparent text-primary-foreground placeholder-primary-foreground/60"
+                />
+                <textarea
+                  placeholder="Tell us about your event..."
+                  rows={4}
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 focus:border-transparent text-primary-foreground placeholder-primary-foreground/60 resize-none"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="w-full px-8 py-4 bg-primary-foreground text-primary font-bold rounded-lg hover:bg-primary-foreground/90 transition-colors duration-300"
+                >
+                  Send Message
+                </button>
+              </motion.form>
             </div>
           </div>
         </div>
@@ -761,7 +634,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-16 bg-card text-card-foreground border-t border-border">
-        <div className="container px-8">
+        <div className="container--wide">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>

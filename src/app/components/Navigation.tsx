@@ -19,15 +19,9 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/98 dark:bg-gray-900/98 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container">
-        <div className="flex items-center justify-between h-28">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
+      <div className="container--wide">
+        <div className="flex items-center justify-between h-20">
           {/* Logo - Left Side */}
           <div className="flex items-center">
             <a className="flex items-center" href="/">
@@ -68,9 +62,7 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={`group relative font-bold text-xl tracking-wide transition-all duration-300 ${
-                    isScrolled
-                      ? "text-gray-800 dark:text-gray-200"
-                      : "text-white"
+                    isScrolled ? "text-foreground" : "text-foreground"
                   }`}
                 >
                   <span className="relative z-10">{item.name}</span>
@@ -88,11 +80,7 @@ export default function Navigation() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className={`group relative px-8 py-4 border-2 font-semibold text-lg transition-all duration-300 overflow-hidden ${
-                isScrolled
-                  ? "border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
-                  : "border-white text-white hover:bg-white hover:text-gray-900"
-              }`}
+              className={`group relative px-8 py-4 border-2 font-semibold text-lg transition-all duration-300 overflow-hidden border-foreground text-foreground hover:bg-foreground hover:text-background`}
             >
               <span className="relative z-10">Contact</span>
               {/* Button hover effect */}
@@ -114,7 +102,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white/98 dark:bg-gray-900/98 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+          <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border">
             <div className="px-6 py-12 space-y-8">
               <div className="flex justify-center mb-6">
                 <ThemeToggle />
@@ -130,7 +118,7 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-800 dark:text-gray-200 font-medium hover:opacity-70 transition-opacity text-2xl"
+                  className="block text-foreground font-medium hover:opacity-70 transition-opacity text-2xl"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
