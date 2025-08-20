@@ -45,109 +45,109 @@ export default function HorizontalScrollSection() {
         style={{ width: "600vw" }}
       >
         {/* Technology-Driven */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating tech elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
             <div className="absolute top-1/4 right-1/4 w-16 h-16 border border-primary/30 rounded-full animate-spin"></div>
             <div className="absolute bottom-1/4 left-1/4 w-12 h-12 border border-primary/20 rotate-45 animate-pulse"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-primary mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.1s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.3s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.5s" }}
               >
                 C
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block mr-4 animate-pulse"
                 style={{ animationDelay: "0.7s" }}
               >
                 H
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.9s" }}
               >
                 D
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.1s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.3s" }}
               >
                 I
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.5s" }}
               >
                 V
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.7s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 animate-pulse"
+                className="inline-block animate-pulse"
                 style={{ animationDelay: "1.9s" }}
               >
                 N
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-primary/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-blue-600"
                 style={{ animationDelay: "0.2s" }}
               >
                 Revolutionary
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.4s" }}
               >
                 event
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-purple-600"
                 style={{ animationDelay: "0.6s" }}
               >
                 technology
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.8s" }}
               >
                 for
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-cyan-500"
                 style={{ animationDelay: "1.0s" }}
               >
                 extraordinary
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "1.2s" }}
               >
                 experiences
@@ -157,121 +157,121 @@ export default function HorizontalScrollSection() {
         </div>
 
         {/* Experienced Team */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating team elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
             <div className="absolute top-1/3 left-1/3 w-20 h-20 border border-secondary/30 rounded-full animate-pulse"></div>
             <div className="absolute bottom-1/3 right-1/3 w-16 h-16 border border-secondary/20 rotate-45 animate-bounce"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-secondary mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-emerald-600 via-teal-600 to-green-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.2s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.4s" }}
               >
                 X
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.6s" }}
               >
                 P
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.8s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.0s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-4 animate-bounce"
+                className="inline-block mr-4 animate-bounce"
                 style={{ animationDelay: "1.2s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.4s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.6s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.8s" }}
               >
                 A
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 animate-bounce"
+                className="inline-block animate-bounce"
                 style={{ animationDelay: "2.0s" }}
               >
                 M
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-secondary/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-emerald-600"
                 style={{ animationDelay: "0.1s" }}
               >
                 Seasoned
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.3s" }}
               >
                 professionals
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.5s" }}
               >
                 with
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-teal-600"
                 style={{ animationDelay: "0.7s" }}
               >
                 decades
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.9s" }}
               >
                 of
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-green-500"
                 style={{ animationDelay: "1.1s" }}
               >
                 corporate
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "1.3s" }}
               >
                 event
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-emerald-600"
                 style={{ animationDelay: "1.5s" }}
               >
                 excellence
@@ -281,115 +281,115 @@ export default function HorizontalScrollSection() {
         </div>
 
         {/* Global Reach */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating global elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
             <div className="absolute top-1/4 right-1/4 w-24 h-24 border border-accent/30 rounded-full animate-spin"></div>
             <div className="absolute bottom-1/4 left-1/4 w-18 h-18 border border-accent/20 rotate-45 animate-pulse"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-accent mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.3s" }}
               >
                 G
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.5s" }}
               >
                 L
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.7s" }}
               >
                 O
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.9s" }}
               >
                 B
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.1s" }}
               >
                 A
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block mr-4 animate-pulse"
                 style={{ animationDelay: "1.3s" }}
               >
                 L
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.5s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.7s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.9s" }}
               >
                 A
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 animate-pulse"
+                className="inline-block animate-pulse"
                 style={{ animationDelay: "2.1s" }}
               >
                 H
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-accent/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-orange-600"
                 style={{ animationDelay: "0.2s" }}
               >
                 Trusted
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.4s" }}
               >
                 by
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-red-500"
                 style={{ animationDelay: "0.6s" }}
               >
                 Nigeria&apos;s
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.8s" }}
               >
                 leading
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-pink-500"
                 style={{ animationDelay: "1.0s" }}
               >
                 corporations
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "1.2s" }}
               >
                 and
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-orange-600"
                 style={{ animationDelay: "1.4s" }}
               >
                 organizations
@@ -399,15 +399,15 @@ export default function HorizontalScrollSection() {
         </div>
 
         {/* Innovation & Creativity */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating innovation elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
             <div className="absolute top-1/3 left-1/3 w-16 h-16 border border-secondary/30 rounded-full animate-bounce"></div>
             <div className="absolute bottom-1/3 right-1/3 w-20 h-20 border border-secondary/20 rotate-45 animate-pulse"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-secondary mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-500 bg-clip-text text-transparent">
               <span
                 className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
                 style={{ animationDelay: "0.1s" }}
@@ -511,7 +511,7 @@ export default function HorizontalScrollSection() {
                 I
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
                 style={{ animationDelay: "3.5s" }}
               >
                 V
@@ -529,45 +529,45 @@ export default function HorizontalScrollSection() {
                 Y
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-secondary/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-indigo-600"
                 style={{ animationDelay: "0.1s" }}
               >
                 Creative
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.3s" }}
               >
                 solutions
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.5s" }}
               >
                 that
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-violet-600"
                 style={{ animationDelay: "0.7s" }}
               >
                 transform
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.9s" }}
               >
                 ordinary
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "1.1s" }}
               >
                 into
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-purple-500"
                 style={{ animationDelay: "1.3s" }}
               >
                 extraordinary
@@ -577,15 +577,15 @@ export default function HorizontalScrollSection() {
         </div>
 
         {/* Quality & Excellence */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating quality elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/3 left-1/3 w-18 h-18 border border-accent/30 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 left-1/3 w-18 h-18 border border-accent/20 rounded-full animate-pulse"></div>
             <div className="absolute bottom-1/3 right-1/3 w-22 h-22 border border-accent/20 rotate-45 animate-bounce"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-accent mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
               <span
                 className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
                 style={{ animationDelay: "0.2s" }}
@@ -623,13 +623,13 @@ export default function HorizontalScrollSection() {
                 T
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-4 animate-bounce"
                 style={{ animationDelay: "1.4s" }}
               >
                 Y
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
                 style={{ animationDelay: "1.6s" }}
               >
                 &
@@ -695,33 +695,33 @@ export default function HorizontalScrollSection() {
                 E
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-accent/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-amber-600"
                 style={{ animationDelay: "0.2s" }}
               >
                 Uncompromising
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.4s" }}
               >
                 standards
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.6s" }}
               >
                 that
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-yellow-500"
                 style={{ animationDelay: "0.8s" }}
               >
                 exceed
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-orange-500"
                 style={{ animationDelay: "1.0s" }}
               >
                 expectations
@@ -731,15 +731,15 @@ export default function HorizontalScrollSection() {
         </div>
 
         {/* Customer Focus */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-center px-8 relative group">
+        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
           {/* Floating customer elements */}
           <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
             <div className="absolute top-1/4 right-1/4 w-20 h-20 border border-primary/30 rounded-full animate-spin"></div>
             <div className="absolute bottom-1/4 left-1/4 w-16 h-16 border border-primary/20 rotate-45 animate-pulse"></div>
           </div>
 
-          <div className="text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-primary mr-6 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="text-left relative z-10">
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-rose-600 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
               <span
                 className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
                 style={{ animationDelay: "0.1s" }}
@@ -801,7 +801,7 @@ export default function HorizontalScrollSection() {
                 I
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
                 style={{ animationDelay: "2.1s" }}
               >
                 R
@@ -819,51 +819,51 @@ export default function HorizontalScrollSection() {
                 T
               </span>
             </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl text-foreground/80 font-bold transform hover:scale-105 transition-all duration-300 hover:text-primary/60">
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-rose-600"
                 style={{ animationDelay: "0.1s" }}
               >
                 Your
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "0.3s" }}
               >
                 success
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-foreground/80"
                 style={{ animationDelay: "0.5s" }}
               >
                 is
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-pink-500"
                 style={{ animationDelay: "0.7s" }}
               >
                 our
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-fuchsia-500"
                 style={{ animationDelay: "0.9s" }}
               >
                 priority
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-foreground/80"
                 style={{ animationDelay: "1.1s" }}
               >
                 with
               </span>{" "}
               <span
-                className="inline-block animate-bounce"
+                className="inline-block animate-bounce text-rose-600"
                 style={{ animationDelay: "1.3s" }}
               >
                 dedicated
               </span>{" "}
               <span
-                className="inline-block animate-pulse"
+                className="inline-block animate-pulse text-pink-500"
                 style={{ animationDelay: "1.5s" }}
               >
                 support
