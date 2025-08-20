@@ -9,9 +9,10 @@ export default function CaseStudies() {
 
   const { sliderRef, instanceRef, next, prev, goToSlide, totalSlides } =
     useKeenSlider({
-      slidesPerView: 1.2,
+      slidesPerView: 1.5,
       spacing: 32,
       loop: true,
+      centered: true,
     });
 
   useEffect(() => {
@@ -120,7 +121,7 @@ export default function CaseStudies() {
             {projects.map((project, index) => (
               <div key={index} className="keen-slider__slide">
                 <motion.div
-                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-96 rounded-3xl p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
+                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-[600px] rounded-lg p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}

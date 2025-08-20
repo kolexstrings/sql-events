@@ -175,11 +175,11 @@ export default function WhatWeDo() {
           viewport={{ once: true }}
         >
           <div className="flex items-center mb-12">
-            <div className="text-2xl text-primary font-bold mr-4">{"{"}</div>
+            <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
             <h2 className="text-lg font-medium text-muted-foreground">
               What We Do
             </h2>
-            <div className="text-2xl text-primary font-bold ml-4">{"}"}</div>
+            <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
           </div>
         </motion.div>
 
@@ -194,30 +194,36 @@ export default function WhatWeDo() {
                 viewport={{ once: true }}
                 whileHover={{ x: 8 }}
               >
-              {/* Large abstract graphic */}
-              <div className="flex-shrink-0">
-                <div
-                  className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-2xl`}
-                >
-                  <div className="text-white scale-150">{service.svg}</div>
+                {/* Large abstract graphic */}
+                <div className="flex-shrink-0">
+                  <div
+                    className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-2xl`}
+                  >
+                    <div className="text-white scale-150">{service.svg}</div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="flex-1">
-                <h3
-                  className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
-                >
-                  {service.title}
-                </h3>
-                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground/80 leading-relaxed mb-8 max-w-3xl">
-                  {service.description}
-                </p>
-                <button className="px-8 py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-lg">
-                  Explore
-                </button>
-              </div>
-            </motion.div>
+                {/* Content */}
+                <div className="flex-1">
+                  <h3
+                    className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-relaxed mb-8 max-w-3xl">
+                    {service.description}
+                  </p>
+                  <button className="px-8 py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-lg">
+                    Learn more
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Horizontal separator line - don't show after the last item */}
+              {index < services.length - 1 && (
+                <div className="border-t border-border/30 my-8"></div>
+              )}
+            </div>
           ))}
         </div>
       </div>

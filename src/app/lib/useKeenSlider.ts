@@ -7,6 +7,7 @@ export interface UseKeenSliderOptions {
   loop?: boolean;
   autoplay?: boolean;
   autoplayInterval?: number;
+  centered?: boolean;
 }
 
 export const useKeenSlider = (options: UseKeenSliderOptions = {}) => {
@@ -26,6 +27,7 @@ export const useKeenSlider = (options: UseKeenSliderOptions = {}) => {
       slides: {
         perView: slidesPerView,
         spacing,
+        origin: options.centered ? "center" : "auto",
       },
       created() {
         if (autoplay) {
