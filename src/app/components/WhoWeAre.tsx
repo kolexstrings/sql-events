@@ -18,7 +18,7 @@ export default function WhoWeAre() {
             <div className="flex items-center mb-12">
               <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
               <h2 className="text-lg font-medium text-muted-foreground">
-                Why SQL Events?
+                Who We Are
               </h2>
               <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
             </div>

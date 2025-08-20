@@ -8,7 +8,7 @@ export default function WhatWeDo() {
       title: "Conference Management",
       description:
         "Professional conference planning and execution with cutting-edge technology",
-      gradient: "from-blue-400 to-purple-500",
+      gradient: "from-blue-500 to-purple-600",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <path
@@ -31,7 +31,7 @@ export default function WhatWeDo() {
       title: "Corporate Events",
       description:
         "AGMs, product launches, and corporate gatherings that make an impact",
-      gradient: "from-orange-400 to-yellow-400",
+      gradient: "from-orange-500 to-yellow-500",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <path
@@ -56,7 +56,7 @@ export default function WhatWeDo() {
       title: "Exhibition Management",
       description:
         "Trade shows and exhibitions that showcase your brand effectively",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-purple-600 to-pink-600",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <path
@@ -79,7 +79,7 @@ export default function WhatWeDo() {
       title: "Technology Integration",
       description:
         "State-of-the-art tech solutions for seamless event experiences",
-      gradient: "from-green-400 to-blue-500",
+      gradient: "from-green-500 to-blue-600",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <circle cx="50" cy="50" r="40" fill="currentColor" />
@@ -108,7 +108,7 @@ export default function WhatWeDo() {
       title: "Team Building",
       description:
         "Engaging team building activities that strengthen collaboration",
-      gradient: "from-red-400 to-pink-400",
+      gradient: "from-red-500 to-pink-500",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <circle cx="30" cy="35" r="15" fill="currentColor" />
@@ -137,7 +137,7 @@ export default function WhatWeDo() {
     {
       title: "Training & Workshops",
       description: "Professional development sessions that drive growth",
-      gradient: "from-indigo-400 to-purple-400",
+      gradient: "from-indigo-500 to-purple-500",
       svg: (
         <svg viewBox="0 0 100 100" className="w-24 h-24">
           <path
@@ -165,7 +165,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="py-24 bg-card text-card-foreground relative overflow-hidden">
+    <section className="py-24 bg-background text-foreground relative overflow-hidden">
       <div className="container--wide">
         <motion.div
           className="mb-20 text-center"
@@ -175,31 +175,31 @@ export default function WhatWeDo() {
           viewport={{ once: true }}
         >
           <div className="flex items-center mb-12">
-            <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+            <div className="text-2xl text-primary font-bold mr-4">{"{"}</div>
             <h2 className="text-lg font-medium text-muted-foreground">
               What We Do
             </h2>
-            <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+            <div className="text-2xl text-primary font-bold ml-4">{"}"}</div>
           </div>
         </motion.div>
 
-        <div className="space-y-10">
+        <div className="space-y-0">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="group flex items-center gap-20 p-12 rounded-3xl hover:bg-muted/50 transition-all duration-300"
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ x: 8 }}
-            >
+            <div key={index}>
+              <motion.div
+                className="group flex items-center gap-20 p-12 rounded-3xl hover:bg-muted/50 transition-all duration-300"
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ x: 8 }}
+              >
               {/* Large abstract graphic */}
               <div className="flex-shrink-0">
                 <div
                   className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-2xl`}
                 >
-                  <div className="text-white">{service.svg}</div>
+                  <div className="text-white scale-150">{service.svg}</div>
                 </div>
               </div>
 
@@ -210,7 +210,7 @@ export default function WhatWeDo() {
                 >
                   {service.title}
                 </h3>
-                <p className=" text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-relaxed mb-8 max-w-3xl">
+                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground/80 leading-relaxed mb-8 max-w-3xl">
                   {service.description}
                 </p>
                 <button className="px-8 py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-lg">

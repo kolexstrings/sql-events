@@ -1,6 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "keen-slider/keen-slider.css";
+
+/* KeenSlider Custom Styles */
+.keen-slider {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.keen-slider__slide {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Case Studies Carousel Styles */
+.case-studies-carousel {
+  cursor: grab;
+  overflow: hidden;
+}
+
+.case-studies-carousel:active {
+  cursor: grabbing;
+}
+
+.case-studies-track {
+  will-change: transform;
+  transform-style: preserve-3d;
+  display: flex;
+  gap: 0;
+}
+
+.case-study-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Enhanced carousel layout for center-focused display */
+.case-studies-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.case-studies-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-study-slide {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.case-study-bg-element {
+  will-change: transform;
+}
+
+/* KeenSlider Navigation Styles */
+.keen-slider__arrow {
+  width: 48px;
+  height: 48px;
+  background: hsl(var(--background) / 0.9);
+  border: 1px solid hsl(var(--border));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.keen-slider__arrow:hover {
+  background: hsl(var(--background));
+  border-color: hsl(var(--primary));
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.keen-slider__arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.keen-slider__dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.keen-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--muted-foreground) / 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.keen-slider__dot--active {
+  width: 32px;
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+.keen-slider__dot:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
 
 :root {
   /* Light theme variables - SQL Events Brand Colors */
@@ -376,34 +503,6 @@ a:focus {
 .writing-mode-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-}
-
-/* Case Studies Carousel Styles */
-.case-studies-carousel {
-  cursor: grab;
-  overflow: hidden;
-}
-
-.case-studies-carousel:active {
-  cursor: grabbing;
-}
-
-.case-studies-track {
-  will-change: transform;
-  transform-style: preserve-3d;
-  display: flex;
-  gap: 0;
-}
-
-.case-study-card {
-  will-change: transform;
-  backface-visibility: hidden;
-  flex-shrink: 0;
-  width: 100%;
-}
-
-.case-study-bg-element {
-  will-change: transform;
 }
 
 /* Smooth scrolling for the entire page */

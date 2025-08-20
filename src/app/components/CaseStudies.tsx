@@ -1,23 +1,37 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { initCaseStudiesCarousel, cleanupCaseStudiesCarousel } from "../lib/caseStudiesAnimations";
+import { useKeenSlider } from "../lib/useKeenSlider";
 
 export default function CaseStudies() {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const { sliderRef, instanceRef, next, prev, goToSlide, totalSlides } =
+    useKeenSlider({
+      slidesPerView: 1.2,
+      spacing: 32,
+      loop: true,
+    });
 
   useEffect(() => {
-    // Initialize GSAP carousel after a short delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      initCaseStudiesCarousel();
-    }, 100);
+    if (instanceRef.current) {
+      const updateCurrentSlide = () => {
+        setCurrentSlide(instanceRef.current?.track.details.rel || 0);
+      };
 
-    return () => {
-      clearTimeout(timer);
-      cleanupCaseStudiesCarousel();
-    };
-  }, []);
+      // Add event listener for slide changes
+      const slider = instanceRef.current;
+      slider.on("slideChanged", updateCurrentSlide);
+
+      return () => {
+        // Cleanup event listener
+        if (slider) {
+          slider.on("slideChanged", updateCurrentSlide);
+        }
+      };
+    }
+  }, [instanceRef]);
 
   const projects = [
     {
@@ -92,89 +106,128 @@ export default function CaseStudies() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-4">
-            {`{ Case Studies }`}
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            Success Stories
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real projects that showcase our expertise and deliver exceptional
-            results
-          </p>
+          <div className="flex items-center mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-8xl font-bold text-foreground">
+              Case Studies
+            </h2>
+          </div>
         </motion.div>
 
-        {/* GSAP Carousel Container */}
-        <div ref={carouselRef} className="case-studies-carousel relative">
-          {/* Carousel Track */}
-          <div className="case-studies-track overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-out">
-              {projects.map((project, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-4">
-                  <motion.div
-                    className={`case-study-card bg-gradient-to-br ${project.gradient} h-96 rounded-3xl p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                  >
-                    {/* Background Pattern Elements */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="case-study-bg-element absolute top-0 right-0 w-32 h-32 border border-current rounded-full"></div>
-                      <div className="case-study-bg-element absolute bottom-0 left-0 w-24 h-24 border border-current rounded-full"></div>
-                    </div>
+        {/* KeenSlider Carousel Container */}
+        <div className="relative">
+          {/* Carousel */}
+          <div ref={sliderRef} className="keen-slider">
+            {projects.map((project, index) => (
+              <div key={index} className="keen-slider__slide">
+                <motion.div
+                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-96 rounded-3xl p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  {/* Background Pattern Elements */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="case-study-bg-element absolute top-0 right-0 w-32 h-32 border border-current rounded-full"></div>
+                    <div className="case-study-bg-element absolute bottom-0 left-0 w-24 h-24 border border-current rounded-full"></div>
+                  </div>
 
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="flex items-start justify-between mb-6">
-                        <div className="text-6xl">{project.image}</div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-foreground">
-                            {project.year}
-                          </div>
-                          <div className="text-sm text-muted-foreground bg-background/20 px-3 py-1 rounded-full">
-                            {project.category}
-                          </div>
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="text-6xl">{project.image}</div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-foreground">
+                          {project.year}
+                        </div>
+                        <div className="text-sm text-muted-foreground bg-background/20 px-3 py-1 rounded-full">
+                          {project.category}
                         </div>
                       </div>
-
-                      <h3 className="text-3xl font-bold mb-4 text-foreground">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-lg text-foreground/80 leading-relaxed mb-6 max-w-2xl">
-                        {project.description}
-                      </p>
                     </div>
 
-                    {/* Highlights */}
-                    <div className="flex flex-wrap gap-3">
-                      {project.highlights.map((highlight, highlightIndex) => (
-                        <span
-                          key={highlightIndex}
-                          className="px-4 py-2 bg-background/20 text-foreground text-sm rounded-full font-medium"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
+                    <h3 className="text-3xl font-bold mb-4 text-foreground">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-lg text-foreground/80 leading-relaxed mb-6 max-w-2xl">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Highlights */}
+                  <div className="flex flex-wrap gap-3">
+                    {project.highlights.map((highlight, highlightIndex) => (
+                      <span
+                        key={highlightIndex}
+                        className="px-4 py-2 bg-background/20 text-foreground text-sm rounded-full font-medium"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            ))}
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div className="flex items-center space-x-2 text-muted-foreground">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          {/* Navigation Controls - Below to the Right */}
+          <div className="flex items-center justify-end mt-8 space-x-4">
+            {/* Previous Button */}
+            <button
+              onClick={prev}
+              className="keen-slider__arrow"
+              aria-label="Previous case study"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
-              <span className="text-sm">Scroll to explore</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={next}
+              className="keen-slider__arrow"
+              aria-label="Next case study"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="keen-slider__dots ml-4">
+              {Array.from({ length: totalSlides() }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`keen-slider__dot ${
+                    index === currentSlide ? "keen-slider__dot--active" : ""
+                  }`}
+                  aria-label={`Go to case study ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

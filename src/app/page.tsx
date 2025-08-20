@@ -28,8 +28,8 @@ export default function Home() {
       <WhatWeDo />
       <Clients />
       <CaseStudies />
-      <Testimonials />
-      <ContactCTA />
+      {/* <Testimonials />
+      <ContactCTA /> */}
       <Footer />
     </div>
   );
