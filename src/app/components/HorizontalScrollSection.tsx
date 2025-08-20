@@ -21,7 +21,7 @@ export default function HorizontalScrollSection() {
   }, []);
 
   return (
-    <section className="horizontal-scroll-section relative bg-background text-foreground overflow-hidden py-20">
+    <section className="horizontal-scroll-section relative bg-background text-foreground overflow-hidden py-8">
       {/* Enhanced background elements with animations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full animate-pulse blur-xl"></div>
@@ -409,91 +409,91 @@ export default function HorizontalScrollSection() {
           <div className="text-left relative z-10">
             <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.1s" }}
               >
                 I
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.3s" }}
               >
                 N
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.5s" }}
               >
                 N
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.7s" }}
               >
                 O
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.9s" }}
               >
                 V
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.1s" }}
               >
                 A
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.3s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.5s" }}
               >
                 I
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.7s" }}
               >
                 O
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.9s" }}
               >
                 N
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block mr-4 animate-pulse"
                 style={{ animationDelay: "2.1s" }}
               >
                 &
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.3s" }}
               >
                 C
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "2.5s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.7s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "2.9s" }}
               >
                 A
@@ -587,109 +587,109 @@ export default function HorizontalScrollSection() {
           <div className="text-left relative z-10">
             <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.2s" }}
               >
                 Q
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.4s" }}
               >
                 U
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.6s" }}
               >
                 A
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.8s" }}
               >
                 L
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.0s" }}
               >
                 I
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.2s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-4 animate-bounce"
+                className="inline-block mr-4 animate-bounce"
                 style={{ animationDelay: "1.4s" }}
               >
                 Y
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block mr-4 animate-pulse"
                 style={{ animationDelay: "1.6s" }}
               >
                 &
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.8s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "2.0s" }}
               >
                 X
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.2s" }}
               >
                 C
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "2.4s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.6s" }}
               >
                 L
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "2.8s" }}
               >
                 L
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "3.0s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "3.2s" }}
               >
                 N
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "3.4s" }}
               >
                 C
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 animate-pulse"
+                className="inline-block animate-pulse"
                 style={{ animationDelay: "3.6s" }}
               >
                 E
@@ -741,79 +741,79 @@ export default function HorizontalScrollSection() {
           <div className="text-left relative z-10">
             <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-rose-600 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.1s" }}
               >
                 C
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.3s" }}
               >
                 U
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.5s" }}
               >
                 S
               </span>
               <span
-                className="inline-block transform skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "0.7s" }}
               >
                 T
               </span>
               <span
-                className="inline-block transform -skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "0.9s" }}
               >
                 O
               </span>
               <span
-                className="inline-block transform skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.1s" }}
               >
                 M
               </span>
               <span
-                className="inline-block transform -skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
+                className="inline-block mr-2 animate-pulse"
                 style={{ animationDelay: "1.3s" }}
               >
                 E
               </span>
               <span
-                className="inline-block transform skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.5s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-4 animate-pulse"
+                className="inline-block mr-4 animate-pulse"
                 style={{ animationDelay: "1.7s" }}
               >
                 F
               </span>
               <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "1.9s" }}
               >
                 I
               </span>
               <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.1s" }}
               >
                 R
               </span>
               <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
+                className="inline-block mr-2 animate-bounce"
                 style={{ animationDelay: "2.3s" }}
               >
                 S
               </span>
               <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 animate-pulse"
+                className="inline-block animate-pulse"
                 style={{ animationDelay: "2.5s" }}
               >
                 T

@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 
 export default function WhoWeAre() {
   return (
-    <section className="py-24 bg-card text-card-foreground">
+    <section className="py-24 bg-card text-card-foreground relative overflow-hidden">
+      {/* Subtle Logo Watermark */}
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-none opacity-5">
+        <img
+          src="/logo.png"
+          alt="SQL Events Logo Watermark"
+          className="w-[800px] h-[800px] object-contain"
+        />
+      </div>
+
       <div className="container--wide">
         <div className="max-w-none mx-auto">
           {/* Section Title with Curly Braces */}
