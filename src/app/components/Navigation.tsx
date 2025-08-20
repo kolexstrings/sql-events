@@ -30,17 +30,13 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Left Side - Logo */}
           <div className="flex items-center">
-            <a className="flex items-center" href="/">
+            <Link className="flex items-center" href="/">
               <div className="w-14 h-14 mr-2 transition-all duration-300 opacity-90">
-                <img
+                <Image
                   alt="SQL Events Nigeria Logo"
-                  loading="lazy"
-                  width="56"
-                  height="56"
-                  decoding="async"
-                  data-nimg="1"
+                  width={56}
+                  height={56}
                   className="w-full h-full object-contain"
-                  style={{ color: "transparent" }}
                   src="/logo.png"
                 />
               </div>
@@ -51,7 +47,7 @@ export default function Navigation() {
               >
                 SQL Events
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Centralized Navigation Menu */}

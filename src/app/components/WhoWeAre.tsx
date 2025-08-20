@@ -53,25 +53,31 @@ export default function WhoWeAre() {
             viewport={{ once: true }}
           >
             <div className="text-center md:text-left">
-              <div className="text-3xl font-bold text-primary mb-2">500+</div>
+              <div className="text-3xl font-bold text-brand-orange mb-2">
+                500+
+              </div>
               <div className="text-sm text-muted-foreground">
                 Events Delivered
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl font-bold text-secondary mb-2">50+</div>
+              <div className="text-3xl font-bold text-brand-purple mb-2">
+                50+
+              </div>
               <div className="text-sm text-muted-foreground">
                 Corporate Clients
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl font-bold text-accent mb-2">98%</div>
+              <div className="text-3xl font-bold text-brand-green mb-2">
+                98%
+              </div>
               <div className="text-sm text-muted-foreground">
                 Client Satisfaction
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl font-bold text-brand-orange mb-2">
+              <div className="text-3xl font-bold text-brand-deepPurple mb-2">
                 5+
               </div>
               <div className="text-sm text-muted-foreground">

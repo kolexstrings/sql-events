@@ -130,7 +130,7 @@
 }
 
 :root {
-  /* Light theme variables - SQL Events Brand Colors */
+  /* Light theme variables - SQL Events Brand Colors (dup for robustness) */
   --background: #ffffff;
   --foreground: #171717;
   --card: #ffffff;
@@ -1049,5 +1049,14 @@ html {
   50% {
     transform: scale(1.05);
     opacity: 0.3;
+  }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *:not([data-allow-motion]) {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

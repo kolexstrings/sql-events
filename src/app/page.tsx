@@ -1,18 +1,27 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import WhoWeAre from "./components/WhoWeAre";
-import HorizontalScrollSection from "./components/HorizontalScrollSection";
 import WhatWeDo from "./components/WhatWeDo";
 import Clients from "./components/Clients";
-
 import CaseStudies from "./components/CaseStudies";
-import Testimonials from "./components/Testimonials";
-import ContactCTA from "./components/ContactCTA";
 import Footer from "./components/Footer";
 import { initSmoothScroll } from "./lib/animations";
+
+const HorizontalScrollSection = dynamic(
+  () => import("./components/HorizontalScrollSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-screen grid place-items-center text-muted-foreground">
+        Loading interactive section…
+      </div>
+    ),
+  }
+);
 
 export default function Home() {
   useEffect(() => {
@@ -20,7 +29,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <main
+      id="main-content"
+      role="main"
+      className="min-h-screen bg-background text-foreground"
+    >
       <Navigation />
       <Hero />
       <WhoWeAre />
@@ -28,9 +41,7 @@ export default function Home() {
       <WhatWeDo />
       <Clients />
       <CaseStudies />
-      {/* <Testimonials />
-      <ContactCTA /> */}
       <Footer />
-    </div>
+    </main>
   );
 }

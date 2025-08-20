@@ -31,6 +31,12 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-background text-foreground px-3 py-2 rounded-md border border-border"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>
           <SmoothScroll />
           {children}
