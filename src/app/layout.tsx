@@ -40,6 +40,15 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll />
           {children}
+          {/* Debug element to show current theme */}
+          <div className="theme-debug">
+            <div>
+              Theme: <span id="theme-display">light</span>
+            </div>
+            <div>
+              Background: <span id="bg-display">--</span>
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

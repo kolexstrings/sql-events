@@ -1,105 +1,219 @@
 "use client";
 
-import { useEffect } from "react";
-import {
-  initHeroAnimations,
-  cleanupHeroAnimations,
-} from "../lib/heroAnimations";
-import { textReveal, cardAnimations } from "../lib/animations";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLDivElement>(null);
+  const [isVideoExpanded, setIsVideoExpanded] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
+
   useEffect(() => {
-    initHeroAnimations();
-    textReveal(".text-reveal");
-    cardAnimations();
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVideoVisible(true);
+            // Auto-play video when it comes into view
+            const iframe = entry.target.querySelector("iframe");
+            if (iframe) {
+              const src = iframe.src;
+              iframe.src = src + "&autoplay=1&mute=1";
+            }
+          } else {
+            setIsVideoVisible(false);
+            // Stop video when it goes out of view
+            const iframe = entry.target.querySelector("iframe");
+            if (iframe) {
+              const src = iframe.src.replace("&autoplay=1&mute=1", "");
+              iframe.src = src;
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of video is visible
+        rootMargin: "-50px 0px -50px 0px",
+      }
+    );
+
+    observer.observe(videoElement);
 
     return () => {
-      cleanupHeroAnimations();
+      observer.disconnect();
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!videoRef.current) return;
+
+      const rect = videoRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const videoCenter = rect.top + rect.height / 2;
+      const windowCenter = windowHeight / 2;
+
+      // Calculate distance from center of viewport
+      const distanceFromCenter = Math.abs(videoCenter - windowCenter);
+      const maxDistance = windowHeight / 2;
+
+      // Video expands when it's near the center of the viewport
+      if (distanceFromCenter < maxDistance * 0.3) {
+        setIsVideoExpanded(true);
+      } else {
+        setIsVideoExpanded(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden">
-      {/* Main Hero Content */}
-      <div className="container--ultra-wide relative z-10 text-center py-20 mt-20">
-        <div className="max-w-none mx-auto">
-          {/* Hero Headline with GSAP Animations */}
-          <div className="relative mb-12">
-            {/* Animated floating elements */}
-            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-16 h-16 gsap-floating-element">
-              <div className="relative w-full h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-80"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full opacity-60 transform rotate-45"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-orange-400 rounded-full opacity-40 transform rotate-90"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-20 transform rotate-135"></div>
-              </div>
-            </div>
-
-            <div className="text-left">
-              <h1 className="hero-headline text-8xl md:text-9xl lg:text-[12rem] font-black leading-none text-balance font-display">
-                <span className="block gsap-text-line" data-text="Passion">
-                  Passion
-                </span>
-                <span
-                  className="block gsap-text-line"
-                  data-text="and Innovation"
-                >
-                  and Innovation
-                </span>
-              </h1>
-            </div>
-
-            {/* Animated background shapes */}
-            <div className="absolute -top-32 -right-32 w-64 h-64 border border-lime-400/20 rounded-full gsap-bg-shape-1"></div>
-            <div className="absolute -bottom-16 -left-16 w-32 h-32 border border-pink-500/20 rotate-45 gsap-bg-shape-2"></div>
-            <div className="absolute top-1/2 -right-20 w-40 h-40 border border-purple-500/20 rounded-full gsap-bg-shape-3"></div>
-          </div>
-
-          {/* Hero Description in Curly Braces with GSAP */}
-          <div className="mb-16 gsap-description-section">
-            <div className="flex items-center justify-between">
-              {/* Left side - Description with Curly Braces */}
-              <div className="flex items-center">
-                {/* Left Curly Brace */}
-                <div className="text-4xl text-lime-400 font-bold mr-4 gsap-curly-brace">
-                  {"{"}
-                </div>
-
-                {/* Description Text */}
-                <p className="text-base md:text-lg max-w-l leading-relaxed text-muted-foreground font-light gsap-description-text">
-                  SQL Events - A wildly innovative events management company
-                  built for the modern Nigerian corporate world
-                </p>
-
-                {/* Right Curly Brace */}
-                <div className="text-4xl text-lime-400 font-bold ml-4 gsap-curly-brace">
-                  {"}"}
-                </div>
-              </div>
-
-              {/* Right side - Get Started Button */}
-              <button className="group relative px-12 py-6 bg-lime-400 text-black font-bold text-lg rounded-full hover:bg-lime-300 transition-all duration-300 shadow-2xl hover:shadow-lime-400/25 gsap-cta-button">
-                <span className="flex items-center space-x-2">
-                  <span>Get Quote</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Side Label - Site of the Day Style */}
-      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-sm font-medium text-muted-foreground writing-mode-vertical gsap-side-label">
-        <div className="text-center">
-          <div className="text-accent font-bold">SQL</div>
-          <div className="text-xs">Events</div>
-        </div>
-      </div>
-
-      {/* Floating Background Elements */}
+    <section className="relative min-h-screen bg-gradient-to-br from-background via-card/50 to-background overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-lime-400/20 rounded-full gsap-bg-element-1"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-pink-500/20 rotate-45 gsap-bg-element-2"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Floating Logo Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 md:-top-22 lg:-top-24 left-1/4 w-32 h-32 opacity-20">
+          <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-xl"></div>
+        </div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 opacity-15">
+          <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full blur-lg"></div>
+        </div>
+        <div className="absolute bottom-1/4 left-1/6 w-28 h-28 opacity-20">
+          <div className="w-full h-full bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-xl"></div>
+        </div>
+      </div>
+
+      <div className="container--wide relative z-10">
+        {/* Hero Content */}
+        <div className="pt-24 md:pt-32 lg:pt-40">
+          {/* Headline Section */}
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-foreground mb-8 leading-tight tracking-tight">
+              <span className="block">Innovatively</span>
+              <span className="block">curating</span>
+              <span className="block">exceptional events</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto mb-8 leading-relaxed">
+              Experience the future of event management with cutting-edge
+              technology, seamless execution, and unforgettable moments.
+            </p>
+
+            {/* Value Proposition Badges */}
+            <div className="flex flex-wrap justify-center items-center gap-8 mb-12">
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-lg font-semibold text-foreground">
+                  500+ Events Delivered
+                </span>
+                <div className="w-8 h-px bg-border"></div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                <span className="text-lg font-semibold text-foreground">
+                  98% Client Satisfaction
+                </span>
+                <div className="w-8 h-px bg-border"></div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-lg font-semibold text-foreground">
+                  24/7 Support
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Description Section */}
+          <div className="mb-24 gsap-description-section">
+            {/* Video Scroll Animation Section */}
+            <div className="video-scroll-section">
+              <div
+                ref={videoRef}
+                className={`video-container ${
+                  isVideoVisible ? "animate-in" : "animate-out"
+                } ${isVideoExpanded ? "expanded" : ""}`}
+              >
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                  <iframe
+                    src="https://www.youtube.com/embed/d77TQupCENc"
+                    title="SQL Events Nigeria - Company Video"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="text-center mt-16">
+              <div className="space-y-6">
+                {/* Enhanced CTA Button */}
+                <div className="space-y-4">
+                  <button className="group relative px-16 py-6 cta-button text-xl rounded-full shadow-2xl hover:shadow-3xl gsap-cta-button">
+                    <span className="relative z-10 flex items-center space-x-3">
+                      <span>Get Quote</span>
+                      <svg
+                        className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+
+                  {/* Secondary CTA */}
+                  <button className="group relative px-12 py-4 btn-secondary font-semibold text-lg rounded-full">
+                    <span className="relative z-10 flex items-center space-x-3">
+                      <span>View Portfolio</span>
+                      <svg
+                        className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,876 +1,195 @@
 "use client";
 
-import { useEffect } from "react";
-import {
-  initHorizontalScrollSection,
-  cleanupHorizontalScroll,
-} from "../lib/horizontalScrollAnimations";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
+// Main Component
 export default function HorizontalScrollSection() {
-  useEffect(() => {
-    // Initialize horizontal scroll after a short delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      initHorizontalScrollSection();
-    }, 100);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    // Cleanup function
-    return () => {
-      clearTimeout(timer);
-      cleanupHorizontalScroll();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current) {
+        // Scroll handling logic can be added here if needed
+        // For now, we'll keep the ref for potential future use
+      }
     };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
-  return (
-    <section className="horizontal-scroll-section relative bg-background text-foreground overflow-hidden py-8">
-      {/* Enhanced background elements with animations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full animate-pulse blur-xl"></div>
-        <div className="absolute top-3/4 right-1/3 w-24 h-24 bg-secondary/10 rotate-45 animate-bounce blur-lg"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-28 h-28 bg-accent/10 rounded-full animate-spin blur-xl"></div>
+  const services = [
+    {
+      title: "TECHNOLOGY DRIVEN",
+      subtitle: "Revolutionary event technology for extraordinary experiences",
+      color: "#4f46e5",
+      icon: "🚀",
+    },
+    {
+      title: "EXPERT TEAM",
+      subtitle:
+        "Seasoned professionals with decades of corporate event excellence",
+      color: "#10b981",
+      icon: "👥",
+    },
+    {
+      title: "GLOBAL REACH",
+      subtitle: "Trusted by Nigeria's leading corporations and organizations",
+      color: "#f59e0b",
+      icon: "🌍",
+    },
+    {
+      title: "INNOVATION & CREATIVITY",
+      subtitle: "Creative solutions that transform ordinary into extraordinary",
+      color: "#8b5cf6",
+      icon: "💡",
+    },
+    {
+      title: "QUALITY & EXCELLENCE",
+      subtitle: "Uncompromising standards that exceed expectations",
+      color: "#f97316",
+      icon: "⭐",
+    },
+    {
+      title: "CUSTOMER FIRST",
+      subtitle: "Your success is our priority with dedicated support",
+      color: "#ec4899",
+      icon: "❤️",
+    },
+  ];
 
-        {/* Floating particles */}
-        <div className="absolute top-1/3 right-1/4 w-4 h-4 bg-primary/30 rounded-full animate-ping"></div>
-        <div
-          className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-secondary/40 rounded-full animate-ping"
-          style={{ animationDelay: "0.5s" }}
-        ></div>
-        <div
-          className="absolute top-2/3 right-1/3 w-5 h-5 bg-accent/35 rounded-full animate-ping"
-          style={{ animationDelay: "1s" }}
-        ></div>
+  return (
+    <section
+      ref={containerRef}
+      className="horizontal-scroll-section relative bg-background text-foreground overflow-hidden py-8 min-h-screen"
+    >
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating geometric shapes */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-32 h-32 border border-primary/20 rotate-45"
+          animate={{
+            rotate: [0, 360],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-24 h-24 border border-secondary/20 rounded-full"
+          animate={{
+            scale: [1, 1.2, 1],
+            y: [0, 15, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-28 h-28 border border-accent/20 rotate-12"
+          animate={{
+            rotate: [0, -360],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
       </div>
 
-      <div
-        className="horizontal-scroll-container flex items-center"
-        style={{ width: "600vw" }}
-      >
-        {/* Technology-Driven */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating tech elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/4 right-1/4 w-16 h-16 border border-primary/30 rounded-full animate-spin"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-12 h-12 border border-primary/20 rotate-45 animate-pulse"></div>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 container--wide">
+        <div className="text-center py-20">
+          <motion.h2
+            className="text-6xl md:text-8xl font-black mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            EXPERIENCE THE FUTURE
+          </motion.h2>
 
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.1s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.3s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.5s" }}
-              >
-                C
-              </span>
-              <span
-                className="inline-block mr-4 animate-pulse"
-                style={{ animationDelay: "0.7s" }}
-              >
-                H
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.9s" }}
-              >
-                D
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.1s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.3s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.5s" }}
-              >
-                V
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.7s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block animate-pulse"
-                style={{ animationDelay: "1.9s" }}
-              >
-                N
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-bounce text-blue-600"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Revolutionary
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.4s" }}
-              >
-                event
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-purple-600"
-                style={{ animationDelay: "0.6s" }}
-              >
-                technology
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.8s" }}
-              >
-                for
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-cyan-500"
-                style={{ animationDelay: "1.0s" }}
-              >
-                extraordinary
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "1.2s" }}
-              >
-                experiences
-              </span>
-            </p>
-          </div>
+          <motion.p
+            className="text-2xl md:text-4xl font-bold text-foreground/80 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Immerse yourself in our cutting-edge experience that showcases the
+            power of modern event technology
+          </motion.p>
         </div>
 
-        {/* Experienced Team */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating team elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/3 left-1/3 w-20 h-20 border border-secondary/30 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-1/3 right-1/3 w-16 h-16 border border-secondary/20 rotate-45 animate-bounce"></div>
-          </div>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="group relative p-8 rounded-2xl bg-muted/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
+            >
+              {/* Service Icon */}
+              <div className="text-6xl mb-6 text-center">{service.icon}</div>
 
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-emerald-600 via-teal-600 to-green-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.2s" }}
+              {/* Service Title */}
+              <h3
+                className="text-2xl font-bold mb-4 text-center"
+                style={{ color: service.color }}
               >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.4s" }}
-              >
-                X
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.6s" }}
-              >
-                P
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.8s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.0s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-4 animate-bounce"
-                style={{ animationDelay: "1.2s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.4s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.6s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.8s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block animate-bounce"
-                style={{ animationDelay: "2.0s" }}
-              >
-                M
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-pulse text-emerald-600"
-                style={{ animationDelay: "0.1s" }}
-              >
-                Seasoned
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.3s" }}
-              >
-                professionals
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.5s" }}
-              >
-                with
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-teal-600"
-                style={{ animationDelay: "0.7s" }}
-              >
-                decades
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.9s" }}
-              >
-                of
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-green-500"
-                style={{ animationDelay: "1.1s" }}
-              >
-                corporate
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "1.3s" }}
-              >
-                event
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-emerald-600"
-                style={{ animationDelay: "1.5s" }}
-              >
-                excellence
-              </span>
-            </p>
-          </div>
+                {service.title}
+              </h3>
+
+              {/* Service Subtitle */}
+              <p className="text-foreground/70 text-center leading-relaxed">
+                {service.subtitle}
+              </p>
+
+              {/* Hover Effect */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `linear-gradient(135deg, ${service.color}10, ${service.color}05)`,
+                }}
+              />
+            </motion.div>
+          ))}
         </div>
+      </div>
 
-        {/* Global Reach */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating global elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/4 right-1/4 w-24 h-24 border border-accent/30 rounded-full animate-spin"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-18 h-18 border border-accent/20 rotate-45 animate-pulse"></div>
-          </div>
-
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.3s" }}
-              >
-                G
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              >
-                L
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.7s" }}
-              >
-                O
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.9s" }}
-              >
-                B
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.1s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block mr-4 animate-pulse"
-                style={{ animationDelay: "1.3s" }}
-              >
-                L
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.5s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.7s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.9s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block animate-pulse"
-                style={{ animationDelay: "2.1s" }}
-              >
-                H
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-pulse text-orange-600"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Trusted
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.4s" }}
-              >
-                by
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-red-500"
-                style={{ animationDelay: "0.6s" }}
-              >
-                Nigeria&apos;s
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.8s" }}
-              >
-                leading
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-pink-500"
-                style={{ animationDelay: "1.0s" }}
-              >
-                corporations
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "1.2s" }}
-              >
-                and
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-orange-600"
-                style={{ animationDelay: "1.4s" }}
-              >
-                organizations
-              </span>
-            </p>
-          </div>
-        </div>
-
-        {/* Innovation & Creativity */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating innovation elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/3 left-1/3 w-16 h-16 border border-secondary/30 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-1/3 right-1/3 w-20 h-20 border border-secondary/20 rotate-45 animate-pulse"></div>
-          </div>
-
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.1s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.3s" }}
-              >
-                N
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              >
-                N
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.7s" }}
-              >
-                O
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.9s" }}
-              >
-                V
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.1s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.3s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.5s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.7s" }}
-              >
-                O
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.9s" }}
-              >
-                N
-              </span>
-              <span
-                className="inline-block mr-4 animate-pulse"
-                style={{ animationDelay: "2.1s" }}
-              >
-                &
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.3s" }}
-              >
-                C
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "2.5s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.7s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "2.9s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block transform skew-x-12 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
-                style={{ animationDelay: "3.1s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block transform -skew-x-8 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
-                style={{ animationDelay: "3.3s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block transform -skew-x-15 hover:skew-x-0 transition-transform duration-500 mr-2 animate-bounce"
-                style={{ animationDelay: "3.5s" }}
-              >
-                V
-              </span>
-              <span
-                className="inline-block transform -skew-x-10 hover:skew-x-0 transition-transform duration-500 mr-2 animate-pulse"
-                style={{ animationDelay: "3.7s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block transform skew-x-6 hover:skew-x-0 transition-transform duration-500 animate-bounce"
-                style={{ animationDelay: "3.9s" }}
-              >
-                Y
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-bounce text-indigo-600"
-                style={{ animationDelay: "0.1s" }}
-              >
-                Creative
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.3s" }}
-              >
-                solutions
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.5s" }}
-              >
-                that
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-violet-600"
-                style={{ animationDelay: "0.7s" }}
-              >
-                transform
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.9s" }}
-              >
-                ordinary
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "1.1s" }}
-              >
-                into
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-purple-500"
-                style={{ animationDelay: "1.3s" }}
-              >
-                extraordinary
-              </span>
-            </p>
-          </div>
-        </div>
-
-        {/* Quality & Excellence */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating quality elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/3 left-1/3 w-18 h-18 border border-accent/20 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-1/3 right-1/3 w-22 h-22 border border-accent/20 rotate-45 animate-bounce"></div>
-          </div>
-
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Q
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.4s" }}
-              >
-                U
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.6s" }}
-              >
-                A
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.8s" }}
-              >
-                L
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.0s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.2s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-4 animate-bounce"
-                style={{ animationDelay: "1.4s" }}
-              >
-                Y
-              </span>
-              <span
-                className="inline-block mr-4 animate-pulse"
-                style={{ animationDelay: "1.6s" }}
-              >
-                &
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.8s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "2.0s" }}
-              >
-                X
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.2s" }}
-              >
-                C
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "2.4s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.6s" }}
-              >
-                L
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "2.8s" }}
-              >
-                L
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "3.0s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "3.2s" }}
-              >
-                N
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "3.4s" }}
-              >
-                C
-              </span>
-              <span
-                className="inline-block animate-pulse"
-                style={{ animationDelay: "3.6s" }}
-              >
-                E
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-pulse text-amber-600"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Uncompromising
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.4s" }}
-              >
-                standards
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.6s" }}
-              >
-                that
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-yellow-500"
-                style={{ animationDelay: "0.8s" }}
-              >
-                exceed
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-orange-500"
-                style={{ animationDelay: "1.0s" }}
-              >
-                expectations
-              </span>
-            </p>
-          </div>
-        </div>
-
-        {/* Customer Focus */}
-        <div className="horizontal-scroll-item flex-shrink-0 w-screen flex items-center justify-start px-8 relative group">
-          {/* Floating customer elements */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-            <div className="absolute top-1/4 right-1/4 w-20 h-20 border border-primary/30 rounded-full animate-spin"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-16 h-16 border border-primary/20 rotate-45 animate-pulse"></div>
-          </div>
-
-          <div className="text-left relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black mr-6 mb-4 transform hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-rose-600 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.1s" }}
-              >
-                C
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.3s" }}
-              >
-                U
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              >
-                S
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "0.7s" }}
-              >
-                T
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "0.9s" }}
-              >
-                O
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.1s" }}
-              >
-                M
-              </span>
-              <span
-                className="inline-block mr-2 animate-pulse"
-                style={{ animationDelay: "1.3s" }}
-              >
-                E
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.5s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-4 animate-pulse"
-                style={{ animationDelay: "1.7s" }}
-              >
-                F
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "1.9s" }}
-              >
-                I
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.1s" }}
-              >
-                R
-              </span>
-              <span
-                className="inline-block mr-2 animate-bounce"
-                style={{ animationDelay: "2.3s" }}
-              >
-                S
-              </span>
-              <span
-                className="inline-block animate-pulse"
-                style={{ animationDelay: "2.5s" }}
-              >
-                T
-              </span>
-            </h2>
-            <p className="text-2xl md:text-4xl lg:text-6xl font-bold transform hover:scale-105 transition-all duration-300">
-              <span
-                className="inline-block animate-bounce text-rose-600"
-                style={{ animationDelay: "0.1s" }}
-              >
-                Your
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "0.3s" }}
-              >
-                success
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-foreground/80"
-                style={{ animationDelay: "0.5s" }}
-              >
-                is
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-pink-500"
-                style={{ animationDelay: "0.7s" }}
-              >
-                our
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-fuchsia-500"
-                style={{ animationDelay: "0.9s" }}
-              >
-                priority
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-foreground/80"
-                style={{ animationDelay: "1.1s" }}
-              >
-                with
-              </span>{" "}
-              <span
-                className="inline-block animate-bounce text-rose-600"
-                style={{ animationDelay: "1.3s" }}
-              >
-                dedicated
-              </span>{" "}
-              <span
-                className="inline-block animate-pulse text-pink-500"
-                style={{ animationDelay: "1.5s" }}
-              >
-                support
-              </span>
-            </p>
-          </div>
-        </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <motion.div
+          className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <motion.div
+            className="w-1 h-3 bg-foreground/60 rounded-full mt-2"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </motion.div>
       </div>
     </section>
   );
