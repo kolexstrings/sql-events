@@ -6,6 +6,10 @@ import { useRef, useEffect, useState } from "react";
 export default function WhatWeDo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -33,8 +37,18 @@ export default function WhatWeDo() {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    // Set initial window dimensions
+    if (typeof window !== "undefined") {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
   }, []);
 
   const services = [
@@ -341,9 +355,9 @@ export default function WhatWeDo() {
                   transformStyle: "preserve-3d",
                   perspective: "1000px",
                   transform: `rotateY(${
-                    (mousePosition.x - window.innerWidth / 2) * 0.01
+                    (mousePosition.x - windowDimensions.width / 2) * 0.01
                   }deg) rotateX(${
-                    (mousePosition.y - window.innerHeight / 2) * 0.01
+                    (mousePosition.y - windowDimensions.height / 2) * 0.01
                   }deg)`,
                 }}
               >

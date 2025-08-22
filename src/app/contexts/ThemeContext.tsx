@@ -17,19 +17,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
-      setThemeState(savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setThemeState("dark");
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") as Theme;
+      if (savedTheme) {
+        setThemeState(savedTheme);
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setThemeState("dark");
+      }
     }
   }, []);
 
   useEffect(() => {
     // Update document class and save preference
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    if (
+      typeof document !== "undefined" &&
+      typeof localStorage !== "undefined"
+    ) {
+      document.documentElement.classList.remove("light", "dark");
+      document.documentElement.classList.add(theme);
+      localStorage.setItem("theme", theme);
+    }
   }, [theme]);
 
   const toggleTheme = () => {
