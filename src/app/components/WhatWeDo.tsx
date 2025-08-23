@@ -9,6 +9,9 @@ import {
   Cpu,
   Handshake,
   GraduationCap,
+  FileText,
+  Shield,
+  Settings,
 } from "lucide-react";
 
 export default function WhatWeDo() {
@@ -61,51 +64,49 @@ export default function WhatWeDo() {
 
   const services = [
     {
-      title: "Conference Management",
+      title: "Corporate Events & Conference Management",
       description:
-        "Professional conference planning and execution with cutting-edge technology",
+        "Comprehensive event solutions including conferences, AGMs, training sessions, brand launches, team building, fundraisers, workshops, seminars, exhibitions, and staff retreats",
       gradient: "from-blue-500 to-purple-600",
       bgGradient: "from-blue-600/20 to-purple-700/20",
       icon: <Users className="w-24 h-24 text-white" />,
-    },
-    {
-      title: "Corporate Events",
-      description:
-        "AGMs, product launches, and corporate gatherings that make an impact",
-      gradient: "from-orange-500 to-yellow-500",
-      bgGradient: "from-orange-600/20 to-yellow-600/20",
-      icon: <Building2 className="w-24 h-24 text-white" />,
+      iconBg: "from-blue-500 to-purple-600",
     },
     {
       title: "Exhibition Management",
       description:
-        "Trade shows and exhibitions that showcase your brand effectively",
+        "Complete exhibition solutions with online exhibitor booking, payment processing, stand management, and comprehensive event coordination",
+      gradient: "from-orange-500 to-yellow-500",
+      bgGradient: "from-orange-600/20 to-yellow-600/20",
+      icon: <Presentation className="w-24 h-24 text-white" />,
+      iconBg: "from-orange-500 to-yellow-500",
+    },
+    {
+      title: "Abstract/Paper Management",
+      description:
+        "Streamlined academic and professional content management with online submission, peer reviewing, and publishing capabilities",
       gradient: "from-purple-600 to-pink-600",
       bgGradient: "from-purple-700/20 to-pink-700/20",
-      icon: <Presentation className="w-24 h-24 text-white" />,
+      icon: <FileText className="w-24 h-24 text-white" />,
+      iconBg: "from-purple-600 to-pink-600",
     },
     {
-      title: "Technology Integration",
+      title: "Access Control Management",
       description:
-        "State-of-the-art tech solutions for seamless event experiences",
+        "Advanced attendee management using RFID technology, barcode systems, and comprehensive data management solutions",
       gradient: "from-green-500 to-blue-600",
       bgGradient: "from-green-600/20 to-blue-700/20",
-      icon: <Cpu className="w-24 h-24 text-white" />,
+      icon: <Shield className="w-24 h-24 text-white" />,
+      iconBg: "from-green-500 to-blue-600",
     },
     {
-      title: "Team Building",
+      title: "Other Services",
       description:
-        "Engaging team building activities that strengthen collaboration",
+        "Complete event support including logistics, hostessing/ushering, sponsorship & marketing, entertainment, venue management, and consultancy services",
       gradient: "from-red-500 to-pink-500",
-      bgGradient: "from-red-600/20 to-pink-600/20",
-      icon: <Handshake className="w-24 h-24 text-white" />,
-    },
-    {
-      title: "Training & Workshops",
-      description: "Professional development sessions that drive growth",
-      gradient: "from-indigo-500 to-purple-500",
-      bgGradient: "from-indigo-600/20 to-purple-700/20",
-      icon: <GraduationCap className="w-24 h-24 text-white" />,
+      bgGradient: "from-red-600/20 to-pink-700/20",
+      icon: <Settings className="w-24 h-24 text-white" />,
+      iconBg: "from-red-500 to-pink-500",
     },
   ];
 
@@ -187,18 +188,13 @@ export default function WhatWeDo() {
               >
                 {/* Enhanced Background with Service-Specific Gradient */}
                 <div
-                  className="absolute inset-0 rounded-3xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `linear-gradient(to bottom right, var(--${
-                      service.bgGradient.split("-")[1]
-                    }-600), var(--${service.bgGradient.split("-")[3]}-700))`,
-                  }}
+                  className={`absolute inset-0 rounded-3xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${service.bgGradient}`}
                 ></div>
 
                 {/* Large abstract graphic with enhanced 3D effect */}
                 <div className="flex-shrink-0 relative z-10">
                   <motion.div
-                    className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl`}
+                    className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl`}
                     whileHover={{
                       rotateY: 15,
                       rotateX: 5,
@@ -209,7 +205,7 @@ export default function WhatWeDo() {
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <div className="text-white scale-150 group-hover:scale-175 transition-transform duration-500">
+                    <div className="scale-150 group-hover:scale-175 transition-transform duration-500">
                       {service.icon}
                     </div>
                   </motion.div>
@@ -218,14 +214,19 @@ export default function WhatWeDo() {
                 {/* Content with enhanced typography */}
                 <div className="flex-1 relative z-10">
                   <motion.h3
-                    className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
+                    className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-4`}
+                    style={{
+                      borderLeftColor: `hsl(var(--${
+                        service.gradient.split("-")[1]
+                      })`,
+                    }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     {service.title}
                   </motion.h3>
                   <motion.p
-                    className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-relaxed mb-8 max-w-3xl"
+                    className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-8 max-w-3xl"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >
