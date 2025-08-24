@@ -154,7 +154,7 @@ export default function WhatWeDo() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-left mb-12">
+          <div className="flex items-center justify-center md:justify-start mb-12">
             <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
             <h2 className="text-lg font-medium text-accent">What We Do</h2>
             <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>

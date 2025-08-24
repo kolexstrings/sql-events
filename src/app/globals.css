@@ -297,6 +297,28 @@
   color: hsl(var(--foreground));
 }
 
+/* Hide scrollbar for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Mobile responsive case studies slider */
+@media (max-width: 767px) {
+  .keen-slider__slide {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .keen-slider {
+    overflow: hidden;
+  }
+}
+
 .dark .bg-card {
   background-color: hsl(var(--card));
 }

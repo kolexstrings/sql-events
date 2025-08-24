@@ -127,7 +127,10 @@ export default function Navigation() {
           <button
             className="md:hidden p-2 sm:p-3 text-foreground hover:text-primary transition-all duration-300 rounded-xl hover:bg-muted/50 relative group border border-border/20 bg-muted/30"
             onClick={() => {
-              console.log('Mobile menu clicked, current state:', isMobileMenuOpen);
+              console.log(
+                "Mobile menu clicked, current state:",
+                isMobileMenuOpen
+              );
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
             aria-label="Toggle mobile menu"
@@ -163,7 +166,9 @@ export default function Navigation() {
         {/* Enhanced Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-500 ease-out overflow-hidden ${
-            isMobileMenuOpen ? "max-h-[800px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
+            isMobileMenuOpen
+              ? "max-h-[800px] opacity-100 visible"
+              : "max-h-0 opacity-0 invisible"
           }`}
         >
           <div className="py-6 sm:py-8 border-t border-border/20 bg-background/95 backdrop-blur-xl">
