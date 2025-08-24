@@ -28,7 +28,7 @@ export default function WhoWeAre() {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-              <div className="flex items-center justify-center md:justify-start">
+              <div className="flex items-center justify-start">
                 <div className="text-lg sm:text-xl md:text-2xl text-accent font-bold mr-2 sm:mr-3 md:mr-4">
                   {"{"}
                 </div>

@@ -90,7 +90,7 @@ export default function Clients() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-center md:justify-start mb-6 sm:mb-8 md:mb-12">
+          <div className="flex items-center justify-start mb-6 sm:mb-8 md:mb-12">
             <div className="text-lg sm:text-xl md:text-2xl text-accent font-bold mr-2 sm:mr-3 md:mr-4">
               {"{"}
             </div>

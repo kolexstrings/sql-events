@@ -125,7 +125,7 @@ export default function Navigation() {
 
           {/* Enhanced Mobile menu button */}
           <button
-            className="md:hidden p-2 sm:p-3 text-foreground hover:text-primary transition-all duration-300 rounded-xl hover:bg-muted/50 relative group border border-border/20 bg-muted/30"
+            className="lg:hidden p-2 sm:p-3 text-foreground hover:text-primary transition-all duration-300 rounded-xl hover:bg-muted/50 relative group border border-border/20 bg-muted/30"
             onClick={() => {
               console.log(
                 "Mobile menu clicked, current state:",
@@ -165,7 +165,7 @@ export default function Navigation() {
 
         {/* Enhanced Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-500 ease-out overflow-hidden ${
+          className={`lg:hidden transition-all duration-500 ease-out overflow-hidden ${
             isMobileMenuOpen
               ? "max-h-[800px] opacity-100 visible"
               : "max-h-0 opacity-0 invisible"
