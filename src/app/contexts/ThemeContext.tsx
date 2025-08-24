@@ -25,9 +25,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
         console.log("Loading saved theme:", savedTheme);
         setThemeState(savedTheme);
-      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        console.log("Setting theme to dark based on system preference");
-        setThemeState("dark");
+      } else {
+        // Default to light theme regardless of system preference
+        console.log("Setting theme to light (default)");
+        setThemeState("light");
       }
     }
   }, []);
@@ -57,13 +58,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         document.documentElement.className
       );
       localStorage.setItem("theme", theme);
-
-      // Update debug display
-      const themeDisplay = document.getElementById("theme-display");
-      const bgDisplay = document.getElementById("bg-display");
-      if (themeDisplay) themeDisplay.textContent = theme;
-      if (bgDisplay)
-        bgDisplay.textContent = theme === "dark" ? "dark" : "light";
 
       // Force a repaint to ensure CSS custom properties are applied
       document.documentElement.style.display = "none";

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function WhoWeAre() {
   return (
@@ -59,6 +61,18 @@ export default function WhoWeAre() {
               can focus on the{" "}
               <span className="text-primary">impactful moments</span>.
             </p>
+
+            {/* Learn More Button */}
+            <div className="mt-8 sm:mt-10 md:mt-12 flex justify-start">
+              <Link
+                href="/about"
+                className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-base sm:text-lg relative overflow-hidden"
+              >
+                <span className="relative z-10">Learn More</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Supporting Stats */}
