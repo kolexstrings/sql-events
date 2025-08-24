@@ -176,7 +176,7 @@ export default function Hero() {
         <div className="pt-28 sm:pt-32 md:pt-36 lg:pt-44 xl:pt-48">
           {/* Headline Section */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-foreground mb-6 sm:mb-8 leading-tight tracking-tight drop-shadow-[0_0_20px_rgba(74,222,128,0.6)]">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-foreground mb-6 sm:mb-8 leading-tight tracking-tight drop-shadow-[0_0_20px_rgba(74,222,128,0.6)]">
               <span className="block">Innovatively</span>
               <span className="block">curating</span>
               <span className="block">exceptional events</span>
