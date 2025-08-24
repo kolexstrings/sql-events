@@ -1,10 +1,21 @@
+import Image from "next/image";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-12 px-6 bg-card text-primary-foreground">
       <div className="max-w-6xl mx-auto text-center">
-        <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>
+        <div className="flex items-center justify-center mb-4">
+          <Image
+            src="/logo.png"
+            alt="SQL Events Nigeria Logo"
+            width={48}
+            height={48}
+            className="w-12 h-12 mr-3"
+          />
+          <div className="text-2xl font-bold">SQL Events Nigeria</div>
+        </div>
         <p className="text-muted-foreground mb-6">
           Passion. Innovation. Technology in Events Management.
         </p>

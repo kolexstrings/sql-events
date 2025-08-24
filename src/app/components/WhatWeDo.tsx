@@ -113,7 +113,7 @@ export default function WhatWeDo() {
   return (
     <section
       ref={containerRef}
-      className="py-24 bg-background text-foreground relative overflow-hidden min-h-screen"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background text-foreground relative overflow-hidden min-h-screen"
     >
       {/* Animated Background with Parallax */}
       <motion.div
@@ -121,27 +121,27 @@ export default function WhatWeDo() {
         style={{ y: smoothBackgroundY }}
       >
         {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-600/30 to-purple-700/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-br from-blue-600/30 to-purple-700/30 rounded-full blur-2xl sm:blur-3xl animate-pulse"></div>
         <div
-          className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-600/30 to-yellow-600/30 rounded-full blur-3xl animate-pulse"
+          className="absolute top-3/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-gradient-to-br from-orange-600/30 to-yellow-600/30 rounded-full blur-2xl sm:blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
         <div
-          className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-br from-green-600/30 to-blue-700/30 rounded-full blur-3xl animate-pulse"
+          className="absolute bottom-1/4 left-1/3 w-36 h-36 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-gradient-to-br from-green-600/30 to-blue-700/30 rounded-full blur-2xl sm:blur-3xl animate-pulse"
           style={{ animationDelay: "2s" }}
         ></div>
 
         {/* Floating Geometric Shapes */}
         <motion.div
-          className="absolute top-1/3 right-1/3 w-32 h-32 border border-primary/20 rotate-45 animate-spin"
+          className="absolute top-1/3 right-1/3 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 border border-primary/20 rotate-45 animate-spin"
           style={{ y: smoothFloatingY }}
         ></motion.div>
         <motion.div
-          className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-secondary/20 rounded-full animate-bounce"
+          className="absolute bottom-1/3 left-1/4 w-12 h-12 sm:w-18 sm:h-18 md:w-24 md:h-24 border border-secondary/20 rounded-full animate-bounce"
           style={{ y: smoothFloatingY, animationDelay: "0.5s" }}
         ></motion.div>
         <motion.div
-          className="absolute top-2/3 left-1/2 w-28 h-28 border border-accent/20 rotate-12 animate-pulse"
+          className="absolute top-2/3 left-1/2 w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 border border-accent/20 rotate-12 animate-pulse"
           style={{ y: smoothFloatingY, animationDelay: "1s" }}
         ></motion.div>
       </motion.div>
@@ -165,7 +165,7 @@ export default function WhatWeDo() {
           {services.map((service, index) => (
             <div key={index}>
               <motion.div
-                className="group flex items-center gap-20 p-12 rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
+                className="group flex flex-col lg:flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -60, rotateY: -15 }}
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
@@ -194,7 +194,7 @@ export default function WhatWeDo() {
                 {/* Large abstract graphic with enhanced 3D effect */}
                 <div className="flex-shrink-0 relative z-10">
                   <motion.div
-                    className={`w-48 h-48 rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl`}
+                    className={`w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl`}
                     whileHover={{
                       rotateY: 15,
                       rotateX: 5,
@@ -205,16 +205,16 @@ export default function WhatWeDo() {
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <div className="scale-150 group-hover:scale-175 transition-transform duration-500">
+                    <div className="scale-125 sm:scale-150 group-hover:scale-150 sm:group-hover:scale-175 transition-transform duration-500">
                       {service.icon}
                     </div>
                   </motion.div>
                 </div>
 
                 {/* Content with enhanced typography */}
-                <div className="flex-1 relative z-10">
+                <div className="flex-1 relative z-10 text-center lg:text-left">
                   <motion.h3
-                    className={`text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-4`}
+                    className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-4`}
                     style={{
                       borderLeftColor: `hsl(var(--${
                         service.gradient.split("-")[1]
@@ -226,14 +226,14 @@ export default function WhatWeDo() {
                     {service.title}
                   </motion.h3>
                   <motion.p
-                    className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-8 max-w-3xl"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto lg:mx-0"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >
                     {service.description}
                   </motion.p>
                   <motion.button
-                    className="px-8 py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-lg relative overflow-hidden group"
+                    className="px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-base sm:text-lg relative overflow-hidden group"
                     whileHover={{
                       scale: 1.05,
                       y: -2,
@@ -249,7 +249,7 @@ export default function WhatWeDo() {
               {/* Enhanced separator with animation */}
               {index < services.length - 1 && (
                 <motion.div
-                  className="border-t border-border/30 my-8 relative"
+                  className="border-t border-border/30 my-6 sm:my-8 relative"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}

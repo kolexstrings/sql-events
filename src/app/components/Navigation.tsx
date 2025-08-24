@@ -40,11 +40,11 @@ export default function Navigation() {
       }`}
     >
       <div className="container--wide">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
           {/* Left Side - Enhanced Logo */}
           <div className="flex items-center group">
             <Link className="flex items-center" href="/">
-              <div className="w-16 h-16 mr-3 transition-all duration-500 group-hover:scale-110 opacity-95 group-hover:opacity-100">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mr-2 sm:mr-3 transition-all duration-500 group-hover:scale-110 opacity-95 group-hover:opacity-100">
                 <Image
                   alt="SQL Events Nigeria Logo"
                   width={64}
@@ -54,7 +54,7 @@ export default function Navigation() {
                 />
               </div>
               <span
-                className={`text-3xl font-bold transition-all duration-500 font-display logo-text group-hover:scale-105 ${
+                className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold transition-all duration-500 font-display logo-text group-hover:scale-105 ${
                   isScrolled ? "brand-gradient-text" : "brand-gradient-text"
                 }`}
               >
@@ -125,68 +125,147 @@ export default function Navigation() {
 
           {/* Enhanced Mobile menu button */}
           <button
-            className="lg:hidden p-3 text-foreground hover:text-primary transition-colors duration-300 rounded-lg hover:bg-muted/50"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 sm:p-3 text-foreground hover:text-primary transition-all duration-300 rounded-xl hover:bg-muted/50 relative group border border-border/20 bg-muted/30"
+            onClick={() => {
+              console.log('Mobile menu clicked, current state:', isMobileMenuOpen);
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            aria-label="Toggle mobile menu"
           >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7">
+              {/* Animated hamburger lines */}
+              <span
+                className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "rotate-45 top-1/2 -translate-y-1/2"
+                    : "top-1"
+                }`}
+              ></span>
+              <span
+                className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 top-1/2 -translate-y-1/2 ${
+                  isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              ></span>
+              <span
+                className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "-rotate-45 top-1/2 -translate-y-1/2"
+                    : "bottom-1"
+                }`}
+              ></span>
+            </div>
+
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 bg-primary/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         </div>
 
         {/* Enhanced Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-500 ease-out overflow-hidden ${
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden transition-all duration-500 ease-out overflow-hidden ${
+            isMobileMenuOpen ? "max-h-[800px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
           }`}
         >
-          <div className="py-6 border-t border-border/20">
-            <div className="flex flex-col space-y-6">
-              {navigationItems.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`text-lg font-medium transition-all duration-300 px-4 py-3 rounded-lg ${
-                      isActive
-                        ? "text-primary bg-primary/10 border-l-4 border-primary"
-                        : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
+          <div className="py-6 sm:py-8 border-t border-border/20 bg-background/95 backdrop-blur-xl">
+            {/* Menu Header */}
+            <div className="px-4 sm:px-6 mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                  Navigation
+                </span>
+                <div className="w-8 h-px bg-border/50"></div>
+              </div>
+            </div>
 
-              {/* Mobile Contact Button */}
+            {/* Navigation Items */}
+            <div className="px-4 sm:px-6 mb-6">
+              <div className="flex flex-col space-y-2">
+                {navigationItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`group relative px-4 py-4 rounded-xl transition-all duration-300 ${
+                        isActive
+                          ? "text-primary bg-primary/10 border-l-4 border-primary shadow-sm"
+                          : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span
+                          className={`font-medium text-base sm:text-lg transition-colors duration-300 ${
+                            isActive
+                              ? "text-primary"
+                              : "group-hover:text-foreground"
+                          }`}
+                        >
+                          {item.name}
+                        </span>
+                        <div
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            isActive
+                              ? "bg-primary scale-100"
+                              : "bg-muted-foreground/30 scale-75 group-hover:scale-100 group-hover:bg-primary/50"
+                          }`}
+                        ></div>
+                      </div>
+
+                      {/* Subtle hover effect */}
+                      <div
+                        className={`absolute inset-0 rounded-xl transition-all duration-300 ${
+                          isActive
+                            ? "bg-primary/5"
+                            : "bg-transparent group-hover:bg-muted/20"
+                        }`}
+                      ></div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Theme Toggle Section */}
+            <div className="px-4 sm:px-6 mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                  Theme
+                </span>
+                <div className="w-8 h-px bg-border/50"></div>
+              </div>
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
+            </div>
+
+            {/* Enhanced Mobile Contact Button */}
+            <div className="px-4 sm:px-6">
               <div className="pt-4 border-t border-border/20">
                 <Link
                   href="/contact"
-                  className="block w-full text-center px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+                  className="group relative block w-full text-center px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 text-sm sm:text-base overflow-hidden"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Contact Us
+                  <span className="relative z-10 flex items-center justify-center space-x-2">
+                    <span>Contact Us</span>
+                    <svg
+                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
+
+                  {/* Button background animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-secondary/80 to-accent/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
               </div>
             </div>

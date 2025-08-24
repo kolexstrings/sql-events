@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Image from "next/image";
 import {
   Users,
   Presentation,
@@ -20,6 +21,7 @@ import {
   Theater,
   Building,
   Lightbulb,
+  CheckCircle,
 } from "lucide-react";
 
 export default function Services() {
@@ -142,22 +144,16 @@ export default function Services() {
               style={{ animationDelay: "0.2s" }}
             >
               <div className="flex items-center justify-center mb-8">
-                <div className="text-2xl text-muted-foreground font-bold mr-4">
-                  {"{"}
-                </div>
-                <h2 className="text-lg font-medium text-muted-foreground">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                   Corporate Events & Conference Management
                 </h2>
-                <div className="text-2xl text-muted-foreground font-bold ml-4">
-                  {"}"}
-                </div>
               </div>
             </div>
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Professional event management for corporate Nigeria with
                 technology-driven solutions
               </p>
@@ -247,31 +243,81 @@ export default function Services() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-background border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group hover:scale-105 animate-fade-in-up"
+                className={`relative border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group hover:scale-105 animate-fade-in-up overflow-hidden ${
+                  service.title === "Conferences"
+                    ? "text-white"
+                    : "bg-background"
+                }`}
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <div className="text-white">{service.icon}</div>
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center text-sm text-muted-foreground"
+                {/* Conference Background Image - Only for Conferences */}
+                {service.title === "Conferences" && (
+                  <>
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src="/conference.png"
+                        alt="Professional Conference Management"
+                        fill
+                        className="object-cover"
+                      />
+                      {/* Dark overlay for better text readability */}
+                      <div className="absolute inset-0 bg-black/60"></div>
+                    </div>
+                    {/* Content overlay */}
+                    <div className="relative z-10">
+                      <div
+                        className={`w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/30`}
+                      >
+                        <div className="text-white">{service.icon}</div>
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-white/90 mb-4 leading-relaxed">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, featureIndex) => (
+                          <li
+                            key={featureIndex}
+                            className="flex items-center text-white/90"
+                          >
+                            <CheckCircle className="w-5 h-5 text-white mr-3 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
+
+                {/* Standard Card Layout for Other Services */}
+                {service.title !== "Conferences" && (
+                  <>
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                      <div className="text-white">{service.icon}</div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-center text-base text-muted-foreground"
+                        >
+                          <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -293,13 +339,13 @@ export default function Services() {
               <div className="space-y-6">
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-primary to-secondary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Calendar className="w-6 h-6 text-white" />
+                    <Calendar className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Online Exhibitor Booking
                     </h3>
-                    <p className="text-base text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Streamlined online registration and booking system for
                       exhibitors
                     </p>
@@ -307,26 +353,26 @@ export default function Services() {
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-secondary to-accent rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-6 h-6 text-white" />
+                    <Shield className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Payment Management
                     </h3>
-                    <p className="text-base text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Secure payment processing and financial tracking
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-accent to-primary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Building className="w-6 h-6 text-white" />
+                    <Building className="w-6 h-6 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Stand Management
                     </h3>
-                    <p className="text-base text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Complete stand design, construction, and management
                       services
                     </p>
@@ -335,15 +381,24 @@ export default function Services() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-12 h-96 flex items-center justify-center border border-border/20 backdrop-blur-sm">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Presentation className="w-12 h-12 text-white" />
+              <div className="relative rounded-3xl overflow-hidden h-96 border border-border/20 shadow-lg">
+                <Image
+                  src="/exhibition.jpg"
+                  alt="Exhibition Management Solutions"
+                  fill
+                  className="object-cover"
+                />
+                {/* Subtle overlay for better visual appeal */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30">
+                    <Presentation className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-xl font-semibold text-foreground">
+                  <p className="text-xl font-semibold text-center">
                     Exhibition Solutions
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-center text-white/90">
                     Technology-driven management
                   </p>
                 </div>
@@ -358,15 +413,24 @@ export default function Services() {
         <div className="container--wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center animate-fade-in-up">
             <div className="order-2 lg:order-1 relative">
-              <div className="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-3xl p-12 h-96 flex items-center justify-center border border-border/20 backdrop-blur-sm">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-12 h-12 text-white" />
+              <div className="relative rounded-3xl overflow-hidden h-96 border border-border/20 shadow-lg">
+                <Image
+                  src="/abstract-paper.jpg"
+                  alt="Abstract and Paper Management Solutions"
+                  fill
+                  className="object-cover"
+                />
+                {/* Subtle overlay for better visual appeal */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30">
+                    <FileText className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-xl font-semibold text-foreground">
+                  <p className="text-xl font-semibold text-center">
                     Abstract Management
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-center text-white/90">
                     Streamlined submission process
                   </p>
                 </div>
@@ -383,39 +447,39 @@ export default function Services() {
               <div className="space-y-6">
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-accent to-primary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <FileText className="w-6 h-6 text-white" />
+                    <FileText className="w-6 h-6 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Online Submission
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       User-friendly online submission platform for authors
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-primary to-secondary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-6 h-6 text-white" />
+                    <Shield className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Review Process
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Streamlined peer review and evaluation system
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-secondary to-accent rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <UsersIcon className="w-6 h-6 text-white" />
+                    <UsersIcon className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Publishing
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Professional publication and distribution services
                     </p>
                   </div>
@@ -441,39 +505,39 @@ export default function Services() {
               <div className="space-y-6">
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-primary to-accent rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-6 h-6 text-white" />
+                    <Shield className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       RFID Technology
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Contactless access control for seamless entry
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-accent to-secondary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Settings className="w-6 h-6 text-white" />
+                    <Settings className="w-6 h-6 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Barcode Systems
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Efficient scanning and verification processes
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-br from-secondary to-primary rounded-full p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <UsersIcon className="w-6 h-6 text-white" />
+                    <UsersIcon className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">
                       Attendee Data
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-lg text-muted-foreground">
                       Comprehensive tracking and analytics
                     </p>
                   </div>
@@ -481,17 +545,26 @@ export default function Services() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-accent/10 to-primary/10 rounded-3xl p-12 h-96 flex items-center justify-center border border-border/20 backdrop-blur-sm">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Shield className="w-12 h-12 text-white" />
+              <div className="relative rounded-3xl overflow-hidden h-96 border border-border/20 shadow-lg bg-gradient-to-br from-accent/20 to-primary/20">
+                {/* Modern geometric pattern overlay */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute top-4 right-4 w-32 h-32 border border-accent/30 rounded-full animate-spin-slow"></div>
+                  <div className="absolute bottom-4 left-4 w-24 h-24 border border-primary/30 rounded-full animate-spin-slow-reverse"></div>
+                  <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-accent/20 rounded-full animate-pulse"></div>
+                </div>
+                {/* Content overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <Shield className="w-12 h-12 text-white" />
+                    </div>
+                    <p className="text-xl font-semibold text-foreground">
+                      Access Control
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Secure & efficient entry
+                    </p>
                   </div>
-                  <p className="text-xl font-semibold text-foreground">
-                    Access Control
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Secure & efficient entry
-                  </p>
                 </div>
               </div>
             </div>
@@ -568,7 +641,7 @@ export default function Services() {
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
               </div>
