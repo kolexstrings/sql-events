@@ -28,11 +28,11 @@ export default function WhoWeAre() {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-12">
-              <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
-              <h2 className="text-lg font-medium text-muted-foreground">
-                Who We Are
-              </h2>
-              <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+              <div className="flex items-center justify-left mb-12">
+                <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
+                <h2 className="text-lg font-medium text-accent">Who We Are</h2>
+                <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+              </div>
             </div>
           </motion.div>
 
@@ -47,11 +47,10 @@ export default function WhoWeAre() {
             <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-card-foreground max-w-6xl">
               SQL Events allows you to{" "}
               <span className="text-primary">effortlessly manage</span> anything
-              corporate events can touch.{" "}
-              <span className="text-secondary">Delivering exceptional</span>{" "}
-              experiences and{" "}
-              <span className="text-accent">unmatched support</span> so you can
-              focus on the{" "}
+              corporate events can touch. Delivering{" "}
+              <span className="text-brand-green">exceptional experiences</span>{" "}
+              and <span className="text-accent">unmatched support</span> so you
+              can focus on the{" "}
               <span className="text-primary">impactful moments</span>.
             </p>
           </motion.div>

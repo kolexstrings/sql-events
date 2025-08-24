@@ -8,6 +8,7 @@ import WhatWeDo from "./components/WhatWeDo";
 import HorizontalScrollSection from "./components/HorizontalScrollSection";
 import Clients from "./components/Clients";
 import CaseStudies from "./components/CaseStudies";
+
 import Footer from "./components/Footer";
 import { initSmoothScroll } from "./lib/animations";
 
@@ -29,6 +30,7 @@ export default function Home() {
       <WhatWeDo />
       <Clients />
       <CaseStudies />
+
       <Footer />
     </main>
   );

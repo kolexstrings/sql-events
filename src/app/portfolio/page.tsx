@@ -1,34 +1,68 @@
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Star,
+  Award,
+  TrendingUp,
+  Globe,
+  Building2,
+  GraduationCap,
+  Heart,
+  Rocket,
+  Lightbulb,
+  Briefcase,
+  Users as UsersIcon,
+} from "lucide-react";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="max-w-6xl mx-auto text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Showcasing successful events that have shaped Nigeria&apos;s
-            corporate landscape
-          </p>
+      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-primary via-secondary to-accent overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+          <div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl animate-pulse"
+            style={{ animationDelay: "2s" }}
+          ></div>
+        </div>
+
+        <div className="container--wide relative z-10">
+          <div className="text-center text-white animate-fade-in">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              Our Portfolio
+            </h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+              Showcasing successful events that have shaped Nigeria&apos;s
+              corporate landscape
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Featured Events */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container--wide">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Featured Events
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Highlighting some of our most prestigious and successful events
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 animate-fade-in-up">
             {[
               {
                 title: "NBA Annual Conference",
@@ -42,7 +76,8 @@ export default function Portfolio() {
                   "International Speakers",
                   "Technology Integration",
                 ],
-                image: "⚖️",
+                icon: <Award className="w-16 h-16" />,
+                color: "from-primary to-secondary",
               },
               {
                 title: "Rivers State Education Summit",
@@ -56,33 +91,38 @@ export default function Portfolio() {
                   "Policy Discussion",
                   "Innovation Showcase",
                 ],
-                image: "🌊",
+                icon: <GraduationCap className="w-16 h-16" />,
+                color: "from-secondary to-accent",
               },
             ].map((event, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-3xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="bg-card rounded-3xl p-8 hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="text-6xl">{event.image}</div>
+                  <div
+                    className={`w-24 h-24 bg-gradient-to-br ${event.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <div className="text-white">{event.icon}</div>
+                  </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-primary">
                       {event.year}
                     </div>
-                    <div className="text-gray-600">{event.city}</div>
+                    <div className="text-muted-foreground">{event.city}</div>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
                   {event.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {event.description}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {event.highlights.map((highlight, highlightIndex) => (
                     <div
                       key={highlightIndex}
-                      className="bg-white px-3 py-2 rounded-full text-sm text-gray-700 text-center"
+                      className="bg-background px-3 py-2 rounded-full text-sm text-foreground text-center border border-border/20"
                     >
                       {highlight}
                     </div>
@@ -95,19 +135,19 @@ export default function Portfolio() {
       </section>
 
       {/* Past Events Grid */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      <section className="py-24 bg-card relative overflow-hidden">
+        <div className="container--wide">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Past Events
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A comprehensive showcase of events we&apos;ve successfully managed
               across various sectors
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
             {[
               {
                 title: "COREN Engineering Assembly",
@@ -116,7 +156,8 @@ export default function Portfolio() {
                 category: "Engineering",
                 description:
                   "Annual assembly of the Council for Regulation of Engineering in Nigeria",
-                image: "🏗️",
+                icon: <Building2 className="w-12 h-12" />,
+                color: "from-blue-500 to-cyan-500",
               },
               {
                 title: "Tech Innovation Summit",
@@ -125,7 +166,8 @@ export default function Portfolio() {
                 category: "Technology",
                 description:
                   "Leading technology conference showcasing innovation in Nigeria",
-                image: "💻",
+                icon: <Rocket className="w-12 h-12" />,
+                color: "from-purple-500 to-pink-500",
               },
               {
                 title: "Healthcare Conference",
@@ -134,7 +176,8 @@ export default function Portfolio() {
                 category: "Healthcare",
                 description:
                   "National healthcare professionals conference and exhibition",
-                image: "🏥",
+                icon: <Heart className="w-12 h-12" />,
+                color: "from-red-500 to-pink-500",
               },
               {
                 title: "Banking & Finance Forum",
@@ -142,7 +185,8 @@ export default function Portfolio() {
                 city: "Lagos",
                 category: "Finance",
                 description: "Annual banking and finance industry forum",
-                image: "🏦",
+                icon: <TrendingUp className="w-12 h-12" />,
+                color: "from-green-500 to-blue-500",
               },
               {
                 title: "Education Technology Expo",
@@ -151,7 +195,8 @@ export default function Portfolio() {
                 category: "Education",
                 description:
                   "Showcasing latest educational technology solutions",
-                image: "📚",
+                icon: <Lightbulb className="w-12 h-12" />,
+                color: "from-yellow-500 to-orange-500",
               },
               {
                 title: "Oil & Gas Conference",
@@ -159,7 +204,8 @@ export default function Portfolio() {
                 city: "Warri",
                 category: "Energy",
                 description: "Annual oil and gas industry conference",
-                image: "⛽",
+                icon: <Globe className="w-12 h-12" />,
+                color: "from-indigo-500 to-purple-500",
               },
               {
                 title: "Legal Tech Conference",
@@ -167,7 +213,8 @@ export default function Portfolio() {
                 city: "Lagos",
                 category: "Legal",
                 description: "Technology in legal practice conference",
-                image: "⚖️",
+                icon: <Award className="w-12 h-12" />,
+                color: "from-orange-500 to-red-500",
               },
               {
                 title: "Startup Summit",
@@ -175,7 +222,8 @@ export default function Portfolio() {
                 city: "Abuja",
                 category: "Entrepreneurship",
                 description: "National startup and entrepreneurship summit",
-                image: "🚀",
+                icon: <Rocket className="w-12 h-12" />,
+                color: "from-pink-500 to-purple-500",
               },
               {
                 title: "Women in Business Forum",
@@ -183,28 +231,37 @@ export default function Portfolio() {
                 city: "Lagos",
                 category: "Business",
                 description: "Empowering women in business and leadership",
-                image: "👩‍💼",
+                icon: <Briefcase className="w-12 h-12" />,
+                color: "from-cyan-500 to-blue-500",
               },
             ].map((event, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105"
               >
-                <div className="h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
-                  <div className="text-6xl">{event.image}</div>
+                <div
+                  className={`h-48 bg-gradient-to-br ${event.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="text-white">{event.icon}</div>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
+                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">
                       {event.category}
                     </span>
-                    <span className="text-gray-500 text-sm">{event.year}</span>
+                    <span className="text-muted-foreground text-sm">
+                      {event.year}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {event.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-3">{event.city}</p>
-                  <p className="text-gray-600 text-sm">{event.description}</p>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    {event.city}
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    {event.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -213,32 +270,56 @@ export default function Portfolio() {
       </section>
 
       {/* Event Statistics */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container--wide">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Our Impact in Numbers
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Quantifying our success in the Nigerian events industry
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 animate-fade-in-up">
             {[
-              { number: "500+", label: "Events Managed", icon: "🎯" },
-              { number: "50+", label: "Cities Covered", icon: "🌍" },
-              { number: "100,000+", label: "Attendees Served", icon: "👥" },
-              { number: "98%", label: "Client Satisfaction", icon: "⭐" },
+              {
+                number: "500+",
+                label: "Events Managed",
+                icon: <Award className="w-8 h-8" />,
+                color: "from-primary to-secondary",
+              },
+              {
+                number: "50+",
+                label: "Cities Covered",
+                icon: <Globe className="w-8 h-8" />,
+                color: "from-secondary to-accent",
+              },
+              {
+                number: "100,000+",
+                label: "Attendees Served",
+                icon: <UsersIcon className="w-8 h-8" />,
+                color: "from-accent to-primary",
+              },
+              {
+                number: "98%",
+                label: "Client Satisfaction",
+                icon: <Star className="w-8 h-8" />,
+                color: "from-primary to-accent",
+              },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-8 mb-6">
-                  <div className="text-4xl mb-4">{stat.icon}</div>
+              <div key={index} className="text-center group">
+                <div
+                  className={`bg-gradient-to-br ${stat.color} rounded-3xl p-8 mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="text-white">{stat.icon}</div>
                 </div>
-                <div className="text-4xl font-bold text-purple-600 mb-2">
+                <div className="text-4xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -246,55 +327,64 @@ export default function Portfolio() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      <section className="py-24 bg-card relative overflow-hidden">
+        <div className="container--wide">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Testimonials from organizations we&apos;ve had the privilege to
               serve
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
             {[
               {
                 quote:
                   "SQL Events delivered an exceptional NBA conference that exceeded all expectations. Their technology-driven approach made the entire process seamless.",
                 author: "Nigerian Bar Association",
                 role: "Annual Conference 2024",
-                logo: "⚖️",
+                icon: <Award className="w-12 h-12" />,
+                color: "from-primary to-secondary",
               },
               {
                 quote:
                   "The Rivers State Education Summit was flawlessly executed with cutting-edge technology and professional coordination throughout.",
                 author: "Rivers State Government",
                 role: "Education Summit 2024",
-                logo: "🌊",
+                icon: <GraduationCap className="w-12 h-12" />,
+                color: "from-secondary to-accent",
               },
               {
                 quote:
                   "Professional, efficient, and technology-driven approach to event management. COREN Engineering Assembly was a huge success.",
                 author: "COREN",
                 role: "Engineering Assembly 2024",
-                logo: "🏗️",
+                icon: <Building2 className="w-12 h-12" />,
+                color: "from-accent to-primary",
               },
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-background p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105"
               >
-                <div className="text-4xl mb-4">{testimonial.logo}</div>
-                <p className="text-gray-600 mb-6 italic">
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${testimonial.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="text-white">{testimonial.icon}</div>
+                </div>
+                <p className="text-muted-foreground mb-6 italic text-center">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
-                <div>
-                  <p className="font-semibold text-slate-900">
+                <div className="text-center">
+                  <p className="font-semibold text-foreground">
                     {testimonial.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  <p className="text-muted-foreground text-sm">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             ))}
@@ -303,52 +393,29 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Join Our Success Stories?
-          </h2>
-          <p className="text-xl mb-8 text-purple-100">
-            Let&apos;s create the next remarkable event together and add it to
-            our growing portfolio.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
-              Start Planning
-            </button>
-            <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors duration-300">
-              View More Events
-            </button>
+      <section className="py-24 bg-gradient-to-r from-primary to-secondary relative overflow-hidden">
+        <div className="container--wide relative z-10">
+          <div className="text-center text-white animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Ready to Join Our Success Stories?
+            </h2>
+            <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+              Let&apos;s create the next remarkable event together and add it to
+              our growing portfolio.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button className="bg-white text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
+                Start Planning
+              </button>
+              <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-colors duration-300 hover:scale-105">
+                View More Events
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 bg-black text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="text-2xl font-bold mb-4">SQL Events Nigeria</div>
-          <p className="text-gray-400 mb-6">
-            Passion. Innovation. Technology in Events Management.
-          </p>
-          <div className="flex justify-center space-x-6 text-gray-400 mb-6">
-            <a href="#" className="hover:text-white transition-colors">
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Twitter
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Instagram
-            </a>
-          </div>
-          <div className="text-gray-500 text-sm">
-            <p>Lagos, Nigeria | +234 XXX XXX XXXX | hello@sqlevents.ng</p>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
-            <p>&copy; 2024 SQL Events Nigeria. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

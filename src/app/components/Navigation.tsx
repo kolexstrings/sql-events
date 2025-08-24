@@ -25,11 +25,10 @@ export default function Navigation() {
   }, []);
 
   const navigationItems = [
-    { name: "Services", href: "/services" },
-    { name: "Work", href: "/portfolio" },
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Team", href: "/team" },
-    { name: "Press", href: "/press" },
+    { name: "Services", href: "/services" },
+    { name: "Portfolio", href: "/portfolio" },
   ];
 
   return (
