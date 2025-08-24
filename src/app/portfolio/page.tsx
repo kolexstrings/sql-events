@@ -23,7 +23,13 @@ export default function Portfolio() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-primary via-secondary to-accent overflow-hidden">
+      <section className="relative pt-32 pb-20 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+        {/* Modern geometric background pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 dark:from-slate-950/50 dark:to-slate-900/50"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(74,222,128,0.08),transparent_50%)]"></div>
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.08),transparent_50%)]"></div>
+        </div>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
@@ -37,15 +43,87 @@ export default function Portfolio() {
           ></div>
         </div>
 
+        {/* Animated Geometric Shapes & Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Rotating Rings */}
+          <div className="absolute top-1/2 -right-20 w-40 h-40 border border-primary/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute top-1/3 -left-16 w-32 h-32 border border-secondary/20 rounded-full animate-spin-slow-reverse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-28 h-28 border border-accent/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute top-1/4 right-1/3 w-24 h-24 border border-primary/15 rounded-full animate-spin-slow-reverse"></div>
+          <div className="absolute bottom-1/4 -left-12 w-36 h-36 border border-secondary/15 rounded-full animate-spin-slow"></div>
+
+          {/* Floating Squares */}
+          <div className="absolute top-1/4 left-1/4 w-16 h-16 border border-primary/15 rotate-45 animate-float"></div>
+          <div className="absolute top-2/3 right-1/3 w-12 h-12 border border-secondary/15 rotate-45 animate-float-delayed"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-20 h-20 border border-accent/15 rotate-45 animate-float-slow"></div>
+          <div className="absolute top-1/2 left-1/3 w-14 h-14 border border-primary/20 rotate-45 animate-float-delayed"></div>
+          <div className="absolute bottom-1/3 right-1/6 w-18 h-18 border border-accent/20 rotate-45 animate-float-slow"></div>
+
+          {/* Triangles */}
+          <div className="absolute top-1/6 right-1/4 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[20px] border-b-primary/20 animate-float-slow"></div>
+          <div className="absolute bottom-1/6 left-1/6 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-secondary/20 animate-float-delayed"></div>
+          <div className="absolute top-3/4 right-1/6 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-accent/20 animate-float"></div>
+
+          {/* Hexagons */}
+          <div className="absolute top-1/3 left-1/8 w-8 h-8 bg-primary/10 clip-hexagon animate-float-slow"></div>
+          <div className="absolute bottom-1/3 right-1/8 w-6 h-6 bg-secondary/10 clip-hexagon animate-float-delayed"></div>
+
+          {/* Animated Dots */}
+          <div className="absolute top-1/3 left-1/6 w-2 h-2 bg-primary/40 rounded-full animate-bounce"></div>
+          <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-secondary/40 rounded-full animate-bounce-delayed"></div>
+          <div className="absolute bottom-1/3 left-2/3 w-1 h-1 bg-accent/40 rounded-full animate-bounce-slow"></div>
+          <div className="absolute top-1/6 right-1/6 w-1.5 h-1.5 bg-primary/30 rounded-full animate-bounce-delayed"></div>
+          <div className="absolute bottom-1/6 right-1/3 w-2.5 h-2.5 bg-secondary/30 rounded-full animate-bounce-slow"></div>
+          <div className="absolute top-1/2 left-1/8 w-1 h-1 bg-accent/50 rounded-full animate-bounce"></div>
+
+          {/* Floating Lines */}
+          <div className="absolute top-1/2 left-1/6 w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-float-horizontal"></div>
+          <div className="absolute top-1/3 right-1/6 w-20 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent animate-float-horizontal-delayed"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-12 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-float-horizontal-slow"></div>
+          <div className="absolute top-1/4 left-1/2 w-14 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent animate-float-horizontal"></div>
+          <div className="absolute bottom-1/4 right-1/2 w-18 h-px bg-gradient-to-r from-transparent via-secondary/25 to-transparent animate-float-horizontal-delayed"></div>
+
+          {/* Diagonal Lines */}
+          <div className="absolute top-1/4 right-1/4 w-20 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent transform rotate-45 animate-float-horizontal-slow"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-16 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -rotate-45 animate-float-horizontal"></div>
+
+          {/* Pulsing Circles */}
+          <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-primary/30 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-secondary/30 rounded-full animate-pulse-delayed"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-accent/30 rounded-full animate-pulse-slow"></div>
+
+          {/* Floating Arrows */}
+          <div className="absolute top-1/3 right-1/3 w-6 h-6 text-primary/20 animate-float-slow">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 17l9.2-9.2M17 17V7.8H7.8" />
+            </svg>
+          </div>
+          <div className="absolute bottom-1/3 left-1/4 w-5 h-5 text-secondary/20 animate-float-delayed">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 7l-9.2 9.2M7 7v9.2h9.2" />
+            </svg>
+          </div>
+        </div>
+
         <div className="container--wide relative z-10">
-          <div className="text-center text-white animate-fade-in">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Our Portfolio
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-              Showcasing successful events that have shaped Nigeria&apos;s
-              corporate landscape
-            </p>
+          <div className="text-center text-slate-900 dark:text-white">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                Our Portfolio
+              </h1>
+            </div>
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <p className="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+                Showcasing successful events that have shaped Nigeria&apos;s
+                corporate landscape
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -53,16 +131,26 @@ export default function Portfolio() {
       {/* Featured Events */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container--wide">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Featured Events
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Highlighting some of our most prestigious and successful events
-            </p>
+          <div className="text-center mb-16">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                Featured Events
+              </h2>
+            </div>
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Highlighting some of our most prestigious and successful events
+              </p>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 animate-fade-in-up">
+          <div className="grid lg:grid-cols-2 gap-12">
             {[
               {
                 title: "NBA Annual Conference",
@@ -97,7 +185,8 @@ export default function Portfolio() {
             ].map((event, index) => (
               <div
                 key={index}
-                className="bg-card rounded-3xl p-8 hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105"
+                className="bg-card rounded-3xl p-8 hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div className="flex items-center justify-between mb-6">
                   <div
@@ -115,7 +204,7 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-foreground mb-4">
                   {event.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                   {event.description}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
@@ -259,7 +348,7 @@ export default function Portfolio() {
                   <p className="text-muted-foreground text-sm mb-3">
                     {event.city}
                   </p>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-base text-muted-foreground">
                     {event.description}
                   </p>
                 </div>
@@ -329,17 +418,27 @@ export default function Portfolio() {
       {/* Client Testimonials */}
       <section className="py-24 bg-card relative overflow-hidden">
         <div className="container--wide">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Testimonials from organizations we&apos;ve had the privilege to
-              serve
-            </p>
+          <div className="text-center mb-16">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                What Our Clients Say
+              </h2>
+            </div>
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Testimonials from organizations we&apos;ve had the privilege to
+                serve
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 quote:
@@ -368,14 +467,15 @@ export default function Portfolio() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-background p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105"
+                className="bg-background p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div
                   className={`w-16 h-16 bg-gradient-to-br ${testimonial.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >
                   <div className="text-white">{testimonial.icon}</div>
                 </div>
-                <p className="text-muted-foreground mb-6 italic text-center">
+                <p className="text-lg text-muted-foreground mb-6 italic text-center">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="text-center">
@@ -393,23 +493,49 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-primary to-secondary relative overflow-hidden">
+      <section className="py-24 bg-slate-900 dark:bg-slate-950 relative overflow-hidden">
+        {/* Modern background pattern with brand accents */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 to-slate-800/80 dark:from-slate-950/80 dark:to-slate-900/80"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(74,222,128,0.15),transparent_60%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_50%,rgba(168,85,247,0.1),transparent_60%)]"></div>
+        </div>
         <div className="container--wide relative z-10">
-          <div className="text-center text-white animate-fade-in">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Ready to Join Our Success Stories?
-            </h2>
-            <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Let&apos;s create the next remarkable event together and add it to
-              our growing portfolio.
-            </p>
+          <div className="text-center text-white">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Ready to Join Our Success Stories?
+              </h2>
+            </div>
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+                Let&apos;s create the next remarkable event together and add it
+                to our growing portfolio.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="bg-white text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
-                Start Planning
-              </button>
-              <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-colors duration-300 hover:scale-105">
-                View More Events
-              </button>
+              <div
+                className="animate-fade-in-up"
+                style={{ animationDelay: "0.6s" }}
+              >
+                <button className="bg-white text-black px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
+                  Start Planning
+                </button>
+              </div>
+              <div
+                className="animate-fade-in-up"
+                style={{ animationDelay: "0.8s" }}
+              >
+                <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-300 hover:scale-105">
+                  View More Events
+                </button>
+              </div>
             </div>
           </div>
         </div>
