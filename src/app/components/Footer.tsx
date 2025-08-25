@@ -14,7 +14,9 @@ export default function Footer() {
             height={48}
             className="w-12 h-12 mr-3"
           />
-          <div className="text-2xl font-bold">SQL Events Nigeria</div>
+          <div className="text-lg sm:text-xl md:text-2xl font-bold">
+            SQL Events Nigeria
+          </div>
         </div>
         <p className="text-muted-foreground mb-6">
           Passion. Innovation. Technology in Events Management.

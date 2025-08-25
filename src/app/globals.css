@@ -297,7 +297,7 @@
   color: hsl(var(--foreground));
 }
 
-/* Hide scrollbar for mobile carousel */
+/* Hide scrollbar for mobile carousel and horizontal scroll */
 .scrollbar-hide {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -305,6 +305,30 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+/* Horizontal scroll section enhancements */
+.horizontal-scroll-section {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for horizontal scroll */
+.horizontal-scroll-section::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll-section::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.3);
+  border-radius: 4px;
+}
+
+.horizontal-scroll-section::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 4px;
+}
+
+.horizontal-scroll-section::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
 }
 
 /* Mobile responsive case studies slider */
