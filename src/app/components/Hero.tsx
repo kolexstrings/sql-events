@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Eye } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const videoRef = useRef<HTMLDivElement>(null);
@@ -291,20 +292,26 @@ export default function Hero() {
             <div className="text-center mt-12 sm:mt-16 px-4 sm:px-6">
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8">
                 {/* Enhanced CTA Button */}
-                <button className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 cta-button text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl gsap-cta-button">
+                <Link
+                  href="/contact"
+                  className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 cta-button text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl gsap-cta-button"
+                >
                   <span className="relative z-10 flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
                     <span>Get Quote</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
-                </button>
+                </Link>
 
                 {/* Secondary CTA */}
-                <button className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 btn-secondary font-semibold text-lg sm:text-xl rounded-full">
+                <Link
+                  href="/portfolio"
+                  className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 btn-secondary font-semibold text-lg sm:text-xl rounded-full"
+                >
                   <span className="relative z-10 flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
                     <span>View Portfolio</span>
                     <Eye className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

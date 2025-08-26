@@ -18,7 +18,7 @@ export default function About() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 bg-white dark:bg-slate-950 overflow-hidden">
         {/* Modern geometric background pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 dark:from-slate-950/50 dark:to-slate-900/50"></div>
         <div className="absolute inset-0 opacity-20">
@@ -120,15 +120,6 @@ export default function About() {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
                 About Us
               </h1>
-            </div>
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <p className="text-xl md:text-2xl lg:text-3xl opacity-95 max-w-4xl mx-auto leading-relaxed">
-                Leading the future of event management in Nigeria through
-                passion, innovation, and technology
-              </p>
             </div>
           </div>
         </div>

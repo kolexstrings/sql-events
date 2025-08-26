@@ -12,15 +12,12 @@ export default function HorizontalScrollSection() {
   });
 
   // Progressive reveal system - cards fall as you scroll down, return to sky as you scroll up
+  // Wider scroll ranges for more gradual reveal and better control over the entire section
   const card1Y = useTransform(scrollYProgress, [0, 0.25], [-800, 0]);
   const card1Z = useTransform(scrollYProgress, [0, 0.25], [0, 0]);
   const card1RotateZ = useTransform(scrollYProgress, [0, 0.25], [-90, -15]);
   const card1X = useTransform(scrollYProgress, [0, 0.25], [0, -40]);
-  const card1Opacity = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.25],
-    [0, 1, 1]
-  );
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.25], [0, 1, 1]);
   const card1Scale = useTransform(scrollYProgress, [0, 0.25], [0.3, 1]);
 
   const card2Y = useTransform(scrollYProgress, [0.15, 0.4], [-900, 0]);

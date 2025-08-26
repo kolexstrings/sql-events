@@ -30,7 +30,7 @@ export default function Services() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 bg-white dark:bg-slate-950 overflow-hidden">
         {/* Modern geometric background pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 dark:from-slate-950/50 dark:to-slate-900/50"></div>
         <div className="absolute inset-0 opacity-20">
@@ -122,21 +122,15 @@ export default function Services() {
                 Our Services
               </h1>
             </div>
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <p className="text-xl md:text-2xl lg:text-3xl opacity-95 max-w-4xl mx-auto leading-relaxed">
-                Comprehensive event management solutions powered by cutting-edge
-                technology
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Corporate Events & Conference Management */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section
+        id="corporate-events"
+        className="py-24 bg-background relative overflow-hidden"
+      >
         <div className="container--wide">
           <div className="text-center mb-16">
             <div
@@ -325,7 +319,10 @@ export default function Services() {
       </section>
 
       {/* Exhibition Management */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      <section
+        id="exhibition-management"
+        className="py-24 bg-card relative overflow-hidden"
+      >
         <div className="container--wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center animate-fade-in-up">
             <div>
@@ -409,7 +406,10 @@ export default function Services() {
       </section>
 
       {/* Abstract/Paper Management */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section
+        id="abstract-paper-management"
+        className="py-24 bg-background relative overflow-hidden"
+      >
         <div className="container--wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center animate-fade-in-up">
             <div className="order-2 lg:order-1 relative">
@@ -491,7 +491,10 @@ export default function Services() {
       </section>
 
       {/* Access Control Management */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      <section
+        id="access-control-management"
+        className="py-24 bg-card relative overflow-hidden"
+      >
         <div className="container--wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center animate-fade-in-up">
             <div>

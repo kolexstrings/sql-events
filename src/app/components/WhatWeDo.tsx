@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import {
   Users,
   Building2,
@@ -69,8 +70,11 @@ export default function WhatWeDo() {
         "Comprehensive event solutions including conferences, AGMs, training sessions, brand launches, team building, fundraisers, workshops, seminars, exhibitions, and staff retreats",
       gradient: "from-blue-500 to-purple-600",
       bgGradient: "from-blue-600/20 to-purple-700/20",
-      icon: <Users className="w-24 h-24 text-white" />,
+      icon: (
+        <Users className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-white" />
+      ),
       iconBg: "from-blue-500 to-purple-600",
+      sectionId: "corporate-events",
     },
     {
       title: "Exhibition Management",
@@ -78,8 +82,11 @@ export default function WhatWeDo() {
         "Complete exhibition solutions with online exhibitor booking, payment processing, stand management, and comprehensive event coordination",
       gradient: "from-orange-500 to-yellow-500",
       bgGradient: "from-orange-600/20 to-yellow-600/20",
-      icon: <Presentation className="w-24 h-24 text-white" />,
+      icon: (
+        <Presentation className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-white" />
+      ),
       iconBg: "from-orange-500 to-yellow-500",
+      sectionId: "exhibition-management",
     },
     {
       title: "Abstract/Paper Management",
@@ -87,8 +94,11 @@ export default function WhatWeDo() {
         "Streamlined academic and professional content management with online submission, peer reviewing, and publishing capabilities",
       gradient: "from-purple-600 to-pink-600",
       bgGradient: "from-purple-700/20 to-pink-700/20",
-      icon: <FileText className="w-24 h-24 text-white" />,
+      icon: (
+        <FileText className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-white" />
+      ),
       iconBg: "from-purple-600 to-pink-600",
+      sectionId: "abstract-paper-management",
     },
     {
       title: "Access Control Management",
@@ -96,8 +106,11 @@ export default function WhatWeDo() {
         "Advanced attendee management using RFID technology, barcode systems, and comprehensive data management solutions",
       gradient: "from-green-500 to-blue-600",
       bgGradient: "from-green-600/20 to-blue-700/20",
-      icon: <Shield className="w-24 h-24 text-white" />,
+      icon: (
+        <Shield className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-white" />
+      ),
       iconBg: "from-green-500 to-blue-600",
+      sectionId: "access-control-management",
     },
     {
       title: "Other Services",
@@ -105,7 +118,9 @@ export default function WhatWeDo() {
         "Complete event support including logistics, hostessing/ushering, sponsorship & marketing, entertainment, venue management, and consultancy services",
       gradient: "from-red-500 to-pink-500",
       bgGradient: "from-red-600/20 to-pink-700/20",
-      icon: <Settings className="w-24 h-24 text-white" />,
+      icon: (
+        <Settings className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-white" />
+      ),
       iconBg: "from-red-500 to-pink-500",
     },
   ];
@@ -165,7 +180,7 @@ export default function WhatWeDo() {
           {services.map((service, index) => (
             <div key={index}>
               <motion.div
-                className="group flex flex-col lg:flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
+                className="group flex flex-row items-center gap-4 sm:gap-6 md:gap-8 lg:gap-20 p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -60, rotateY: -15 }}
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
@@ -194,7 +209,7 @@ export default function WhatWeDo() {
                 {/* Large abstract graphic with enhanced 3D effect */}
                 <div className="flex-shrink-0 relative z-10">
                   <motion.div
-                    className={`w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl`}
+                    className={`w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-xl lg:shadow-2xl`}
                     whileHover={{
                       rotateY: 15,
                       rotateX: 5,
@@ -205,20 +220,20 @@ export default function WhatWeDo() {
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <div className="scale-125 sm:scale-150 group-hover:scale-150 sm:group-hover:scale-175 transition-transform duration-500">
+                    <div className="scale-100 sm:scale-110 md:scale-125 lg:scale-150 group-hover:scale-110 sm:group-hover:scale-125 lg:group-hover:scale-175 transition-transform duration-500">
                       {service.icon}
                     </div>
                   </motion.div>
                 </div>
 
                 {/* Content with enhanced typography */}
-                <div className="flex-1 relative z-10 text-center lg:text-left">
+                <div className="flex-1 relative z-10 text-left">
                   <motion.h3
-                    className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-4`}
+                    className={`text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-3 sm:pl-4`}
                     style={{
                       borderLeftColor: `hsl(var(--${
                         service.gradient.split("-")[1]
-                      })`,
+                      }))`,
                     }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
@@ -226,23 +241,28 @@ export default function WhatWeDo() {
                     {service.title}
                   </motion.h3>
                   <motion.p
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto lg:mx-0"
+                    className="text-sm sm:text-base md:text-lg lg:text-2xl text-muted-foreground leading-relaxed mb-4 sm:mb-6 md:mb-8 max-w-3xl"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >
                     {service.description}
                   </motion.p>
-                  <motion.button
-                    className="px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-base sm:text-lg relative overflow-hidden group"
-                    whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                    }}
-                    whileTap={{ scale: 0.95 }}
+                  <Link
+                    href={`/services#${service.sectionId}`}
+                    className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-sm sm:text-base md:text-lg relative overflow-hidden group"
                   >
-                    <span className="relative z-10">Learn more</span>
+                    <motion.span
+                      className="relative z-10"
+                      whileHover={{
+                        scale: 1.05,
+                        y: -2,
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Learn more
+                    </motion.span>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-                  </motion.button>
+                  </Link>
                 </div>
               </motion.div>
 

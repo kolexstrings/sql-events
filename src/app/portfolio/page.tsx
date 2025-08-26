@@ -115,15 +115,6 @@ export default function Portfolio() {
                 Our Portfolio
               </h1>
             </div>
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <p className="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-                Showcasing successful events that have shaped Nigeria&apos;s
-                corporate landscape
-              </p>
-            </div>
           </div>
         </div>
       </section>
