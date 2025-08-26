@@ -280,14 +280,14 @@ export default function About() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background relative overflow-hidden">
         <div className="container--wide">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
                 Our Approach
               </h2>
             </div>
@@ -295,21 +295,21 @@ export default function About() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 A systematic methodology that ensures every event is executed
                 flawlessly
               </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 animate-fade-in-up">
             {[
               {
                 step: "01",
                 title: "Full Event Management",
                 description:
                   "Complete end-to-end event planning and execution, from conceptualization through all planning stages to final delivery, managing events with 300+ to 8,000+ participants.",
-                icon: <TargetIcon className="w-12 h-12" />,
+                icon: <TargetIcon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
                 color: "from-primary to-secondary",
               },
               {
@@ -317,7 +317,7 @@ export default function About() {
                 title: "Technology Integration",
                 description:
                   "Professional event management software handling online registration, abstract management, membership management, RFID access control, and comprehensive event technology solutions.",
-                icon: <Cpu className="w-12 h-12" />,
+                icon: <Cpu className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
                 color: "from-secondary to-accent",
               },
               {
@@ -325,7 +325,7 @@ export default function About() {
                 title: "Comprehensive Support",
                 description:
                   "Conference materials supply, onsite registration management, and full event support services ensuring every aspect of your event is professionally managed.",
-                icon: <Wrench className="w-12 h-12" />,
+                icon: <Wrench className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
                 color: "from-accent to-primary",
               },
             ].map((phase, index) => (
@@ -335,17 +335,17 @@ export default function About() {
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div
-                  className={`bg-gradient-to-br ${phase.color} rounded-3xl p-8 mb-6 relative group-hover:scale-105 transition-transform duration-300`}
+                  className={`bg-gradient-to-br ${phase.color} rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-4 sm:mb-6 relative group-hover:scale-105 transition-transform duration-300`}
                 >
-                  <div className="absolute -top-4 -right-4 bg-foreground text-background text-sm font-bold px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 bg-foreground text-background text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full">
                     {phase.step}
                   </div>
-                  <div className="text-5xl mb-4">{phase.icon}</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">{phase.icon}</div>
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                   {phase.title}
                 </h3>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                   {phase.description}
                 </p>
               </div>
@@ -355,14 +355,14 @@ export default function About() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card relative overflow-hidden">
         <div className="container--wide">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
                 Our Core Values
               </h2>
             </div>
@@ -370,50 +370,50 @@ export default function About() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 The principles that guide everything we do
               </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 animate-fade-in-up">
             {[
               {
                 title: "Nigerian Excellence",
                 description:
                   "100% Nigerian-owned company with deep understanding of local business landscape, cultural nuances, and government relations across all regions.",
-                icon: <Flag className="w-10 h-10 text-white" />,
+                icon: <Flag className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
                 color: "from-green-500 to-blue-500",
               },
               {
                 title: "Technology Innovation",
                 description:
                   "Leading-edge event management software solutions including RFID access control, online registration, and comprehensive event technology platforms.",
-                icon: <Zap className="w-10 h-10 text-white" />,
+                icon: <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
                 color: "from-blue-500 to-purple-500",
               },
               {
                 title: "Strategic Growth",
                 description:
                   "Expanding strategically across Nigeria and West Africa, with offices in Abuja, Lagos, Port Harcourt, and plans for Ghana operations.",
-                icon: <Globe className="w-10 h-10 text-white" />,
+                icon: <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
                 color: "from-purple-500 to-pink-500",
               },
             ].map((value, index) => (
               <div
                 key={index}
-                className="bg-background p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 text-center group hover:scale-105 animate-fade-in-up"
+                className="bg-background p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 text-center group hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div
-                  className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                  className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-gradient-to-br ${value.color} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                 >
                   {value.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                   {value.title}
                 </h3>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -423,7 +423,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-900 dark:bg-slate-950 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-900 dark:bg-slate-950 relative overflow-hidden">
         {/* Modern background pattern with brand accents */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 to-slate-800/80 dark:from-slate-950/80 dark:to-slate-900/80"></div>
         <div className="absolute inset-0 opacity-20">
@@ -436,7 +436,7 @@ export default function About() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
                 Ready to Work With Us?
               </h2>
             </div>
@@ -444,17 +444,17 @@ export default function About() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto">
                 Let&apos;s discuss how we can bring your event vision to life
                 with our innovative approach.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <div
                 className="animate-fade-in-up"
                 style={{ animationDelay: "0.6s" }}
               >
-                <button className="bg-white text-black px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
+                <button className="bg-white text-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
                   Get Started
                 </button>
               </div>
@@ -462,7 +462,7 @@ export default function About() {
                 className="animate-fade-in-up"
                 style={{ animationDelay: "0.8s" }}
               >
-                <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-300 hover:scale-105">
+                <button className="border-2 border-white text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-colors duration-300 hover:scale-105">
                   Contact Us
                 </button>
               </div>

@@ -217,21 +217,21 @@ export default function Contact() {
       {/* Contact Form */}
       <section
         id="contact-form"
-        className="py-24 bg-background relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background relative overflow-hidden"
       >
-        <div className="bg-card border border-border/20 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto animate-fade-in-up">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+        <div className="bg-card border border-border/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-4xl mx-auto animate-fade-in-up">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
               Send Us a Message
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Fill out the form below and we&apos;ll get back to you within 24
               hours
             </p>
           </div>
 
-          <form className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6">
+          <form className="space-y-6 sm:space-y-8">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label
                   htmlFor="firstName"
@@ -244,7 +244,7 @@ export default function Contact() {
                   id="firstName"
                   name="firstName"
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
                   placeholder="Enter your first name"
                 />
               </div>
@@ -260,13 +260,13 @@ export default function Contact() {
                   id="lastName"
                   name="lastName"
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
                   placeholder="Enter your last name"
                 />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label
                   htmlFor="email"
@@ -279,7 +279,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -294,7 +294,7 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
                   placeholder="Enter your phone number"
                 />
               </div>
@@ -311,7 +311,7 @@ export default function Contact() {
                 id="eventType"
                 name="eventType"
                 required
-                className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
               >
                 <option value="">Select an event type</option>
                 <option value="conference">Conference</option>
@@ -333,7 +333,7 @@ export default function Contact() {
                 type="date"
                 id="eventDate"
                 name="eventDate"
-                className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
               />
             </div>
 
@@ -349,7 +349,7 @@ export default function Contact() {
                 id="attendees"
                 name="attendees"
                 min="1"
-                className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200"
                 placeholder="Enter expected number of attendees"
               />
             </div>
@@ -366,7 +366,7 @@ export default function Contact() {
                 name="message"
                 rows={6}
                 required
-                className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200 resize-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors duration-200 resize-none"
                 placeholder="Tell us about your event, requirements, and any specific questions you have..."
               ></textarea>
             </div>
@@ -374,9 +374,9 @@ export default function Contact() {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-primary hover:bg-primary/90 text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 inline-flex items-center"
+                className="bg-primary hover:bg-primary/90 text-white px-8 sm:px-10 md:px-12 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 inline-flex items-center"
               >
-                <Send className="w-5 h-5 mr-2" />
+                <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Send Message
               </button>
             </div>
@@ -385,14 +385,14 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card relative overflow-hidden">
         <div className="container--wide">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -400,59 +400,59 @@ export default function Contact() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Common questions about our services and process
               </p>
             </div>
           </div>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
+          <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto">
             {[
               {
                 question: "How far in advance should I book your services?",
                 answer:
                   "We recommend booking at least 3-6 months in advance for large events and conferences. For smaller events, 1-2 months notice is usually sufficient.",
-                icon: <Calendar className="w-6 h-6" />,
+                icon: <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />,
                 color: "from-primary to-secondary",
               },
               {
                 question: "Do you handle events outside of Abuja?",
                 answer:
                   "Yes, we provide services across Nigeria and can coordinate events in any city. We have experience managing events in Lagos, Port Harcourt, Kano, and other major cities.",
-                icon: <MapPin className="w-6 h-6" />,
+                icon: <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />,
                 color: "from-secondary to-accent",
               },
               {
                 question: "What technology platforms do you use?",
                 answer:
                   "We use cutting-edge event management platforms including advanced registration systems, RFID access control, and real-time analytics dashboards.",
-                icon: <MessageSquare className="w-6 h-6" />,
+                icon: <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6" />,
                 color: "from-accent to-primary",
               },
               {
                 question: "Can you handle international events?",
                 answer:
                   "Yes, we have experience coordinating international events and can work with international partners and attendees.",
-                icon: <Users className="w-6 h-6" />,
+                icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
                 color: "from-primary to-accent",
               },
             ].map((faq, index) => (
               <div
                 key={index}
-                className="bg-background p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105 animate-fade-in-up"
+                className="bg-background p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/20 group hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div className="flex items-start">
                   <div
-                    className={`w-12 h-12 bg-gradient-to-br ${faq.color} rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${faq.color} rounded-full flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <div className="text-white">{faq.icon}</div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">
                       {faq.question}
                     </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -464,7 +464,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-900 dark:bg-slate-950 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-900 dark:bg-slate-950 relative overflow-hidden">
         {/* Modern background pattern with brand accents */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 to-slate-800/80 dark:from-slate-950/80 dark:to-slate-900/80"></div>
         <div className="absolute inset-0 opacity-20">
@@ -477,7 +477,7 @@ export default function Contact() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
                 Ready to Get Started?
               </h2>
             </div>
@@ -485,17 +485,17 @@ export default function Contact() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto">
                 Don&apos;t wait - let&apos;s start planning your exceptional
                 event today
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <div
                 className="animate-fade-in-up"
                 style={{ animationDelay: "0.6s" }}
               >
-                <button className="bg-white text-black px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
+                <button className="bg-white text-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-gray-100 transition-colors duration-300 hover:scale-105">
                   Schedule Call
                 </button>
               </div>
@@ -503,7 +503,7 @@ export default function Contact() {
                 className="animate-fade-in-up"
                 style={{ animationDelay: "0.8s" }}
               >
-                <button className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-300 hover:scale-105">
+                <button className="border-2 border-white text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-colors duration-300 hover:scale-105">
                   Download Brochure
                 </button>
               </div>
