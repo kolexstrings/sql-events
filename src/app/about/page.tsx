@@ -18,7 +18,7 @@ export default function About() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 bg-white dark:bg-slate-950 overflow-hidden">
+      <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28 pb-6 sm:pb-8 md:pb-12 lg:pb-16 xl:pb-20 px-3 sm:px-4 md:px-6 bg-white dark:bg-slate-950 overflow-hidden">
         {/* Modern geometric background pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 dark:from-slate-950/50 dark:to-slate-900/50"></div>
         <div className="absolute inset-0 opacity-20">
@@ -27,13 +27,13 @@ export default function About() {
         </div>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 bg-white/10 rounded-full blur-2xl sm:blur-3xl animate-pulse"></div>
           <div
-            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"
+            className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-64 lg:w-80 h-40 sm:h-56 md:h-64 lg:h-80 bg-white/10 rounded-full blur-2xl sm:blur-3xl animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
-            className="absolute top-1/2 left-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl animate-pulse"
+            className="absolute top-1/2 left-1/2 w-32 sm:w-48 md:w-56 lg:w-64 h-32 sm:h-48 md:h-56 lg:h-64 bg-white/5 rounded-full blur-xl sm:blur-2xl animate-pulse"
             style={{ animationDelay: "2s" }}
           ></div>
         </div>
@@ -41,59 +41,59 @@ export default function About() {
         {/* Animated Geometric Shapes & Particles */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Rotating Rings */}
-          <div className="absolute top-1/2 -right-20 w-40 h-40 border border-primary/20 rounded-full gsap-bg-shape-1 animate-spin-slow"></div>
-          <div className="absolute top-1/3 -left-16 w-32 h-32 border border-secondary/20 rounded-full gsap-bg-shape-2 animate-spin-slow-reverse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-28 h-28 border border-accent/20 rounded-full gsap-bg-shape-3 animate-spin-slow"></div>
-          <div className="absolute top-1/4 right-1/3 w-24 h-24 border border-primary/15 rounded-full gsap-bg-shape-7 animate-spin-slow-reverse"></div>
-          <div className="absolute bottom-1/4 -left-12 w-36 h-36 border border-secondary/15 rounded-full gsap-bg-shape-8 animate-spin-slow"></div>
+          <div className="absolute top-1/2 -right-10 sm:-right-16 md:-right-20 w-20 sm:w-32 md:w-40 h-20 sm:h-32 md:h-40 border border-primary/20 rounded-full gsap-bg-shape-1 animate-spin-slow"></div>
+          <div className="absolute top-1/3 -left-8 sm:-left-12 md:-left-16 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 border border-secondary/20 rounded-full gsap-bg-shape-2 animate-spin-slow-reverse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-14 sm:w-20 md:w-28 h-14 sm:h-20 md:h-28 border border-accent/20 rounded-full gsap-bg-shape-3 animate-spin-slow"></div>
+          <div className="absolute top-1/4 right-1/3 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 border border-primary/15 rounded-full gsap-bg-shape-7 animate-spin-slow-reverse"></div>
+          <div className="absolute bottom-1/4 -left-6 sm:-left-8 md:-left-12 w-18 sm:w-24 md:w-36 h-18 sm:h-24 md:h-36 border border-secondary/15 rounded-full gsap-bg-shape-8 animate-spin-slow"></div>
 
           {/* Floating Squares */}
-          <div className="absolute top-1/4 left-1/4 w-16 h-16 border border-primary/15 rotate-45 gsap-bg-shape-4 animate-float"></div>
-          <div className="absolute top-2/3 right-1/3 w-12 h-12 border border-secondary/15 rotate-45 gsap-bg-shape-5 animate-float-delayed"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-20 h-20 border border-accent/15 rotate-45 gsap-bg-shape-6 animate-float-slow"></div>
-          <div className="absolute top-1/2 left-1/3 w-14 h-14 border border-primary/20 rotate-45 gsap-bg-shape-9 animate-float-delayed"></div>
-          <div className="absolute bottom-1/3 right-1/6 w-18 h-18 border border-accent/20 rotate-45 gsap-bg-shape-10 animate-float-slow"></div>
+          <div className="absolute top-1/4 left-1/4 w-8 sm:w-12 md:w-16 h-8 sm:h-12 md:h-16 border border-primary/15 rotate-45 gsap-bg-shape-4 animate-float"></div>
+          <div className="absolute top-2/3 right-1/3 w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 border border-secondary/15 rotate-45 gsap-bg-shape-5 animate-float-delayed"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-10 sm:w-14 md:w-20 h-10 sm:h-14 md:h-20 border border-accent/15 rotate-45 gsap-bg-shape-6 animate-float-slow"></div>
+          <div className="absolute top-1/2 left-1/3 w-7 sm:w-10 md:w-14 h-7 sm:h-10 md:h-14 border border-primary/20 rotate-45 gsap-bg-shape-9 animate-float-delayed"></div>
+          <div className="absolute bottom-1/3 right-1/6 w-9 sm:w-12 md:w-18 h-9 sm:h-12 md:h-18 border border-accent/20 rotate-45 gsap-bg-shape-10 animate-float-slow"></div>
 
           {/* Triangles */}
-          <div className="absolute top-1/6 right-1/4 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[20px] border-b-primary/20 gsap-triangle-1 animate-float-slow"></div>
-          <div className="absolute bottom-1/6 left-1/6 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-secondary/20 gsap-triangle-2 animate-float-delayed"></div>
-          <div className="absolute top-3/4 right-1/6 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-accent/20 gsap-triangle-3 animate-float"></div>
+          <div className="absolute top-1/6 right-1/4 w-0 h-0 border-l-[8px] sm:border-l-[10px] md:border-l-[12px] border-l-transparent border-r-[8px] sm:border-r-[10px] md:border-r-[12px] border-r-transparent border-b-[14px] sm:border-b-[16px] md:border-b-[20px] border-b-primary/20 gsap-triangle-1 animate-float-slow"></div>
+          <div className="absolute bottom-1/6 left-1/6 w-0 h-0 border-l-[12px] sm:border-l-[14px] md:border-l-[16px] border-l-transparent border-r-[12px] sm:border-r-[14px] md:border-r-[16px] border-r-transparent border-b-[20px] sm:border-b-[24px] md:border-b-[28px] border-b-secondary/20 gsap-triangle-2 animate-float-delayed"></div>
+          <div className="absolute top-3/4 right-1/6 w-0 h-0 border-l-[6px] sm:border-l-[8px] md:border-l-[10px] border-l-transparent border-r-[6px] sm:border-r-[8px] md:border-r-[10px] border-r-transparent border-b-[12px] sm:border-b-[14px] md:border-b-[18px] border-b-accent/20 gsap-triangle-3 animate-float"></div>
 
           {/* Hexagons */}
-          <div className="absolute top-1/3 left-1/8 w-8 h-8 bg-primary/10 clip-hexagon gsap-hexagon-1 animate-float-slow"></div>
-          <div className="absolute bottom-1/3 right-1/8 w-6 h-6 bg-secondary/10 clip-hexagon gsap-hexagon-2 animate-float-delayed"></div>
+          <div className="absolute top-1/3 left-1/8 w-4 sm:w-6 md:w-8 h-4 sm:h-6 md:h-8 bg-primary/10 clip-hexagon gsap-hexagon-1 animate-float-slow"></div>
+          <div className="absolute bottom-1/3 right-1/8 w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 bg-secondary/10 clip-hexagon gsap-hexagon-2 animate-float-delayed"></div>
 
           {/* Animated Dots */}
-          <div className="absolute top-1/3 left-1/6 w-2 h-2 bg-primary/40 rounded-full gsap-particle-1 animate-bounce"></div>
-          <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-secondary/40 rounded-full gsap-particle-2 animate-bounce-delayed"></div>
-          <div className="absolute bottom-1/3 left-2/3 w-1 h-1 bg-accent/40 rounded-full gsap-particle-3 animate-bounce-slow"></div>
-          <div className="absolute top-1/6 right-1/6 w-1.5 h-1.5 bg-primary/30 rounded-full gsap-particle-4 animate-bounce-delayed"></div>
-          <div className="absolute bottom-1/6 right-1/3 w-2.5 h-2.5 bg-secondary/30 rounded-full gsap-particle-5 animate-bounce-slow"></div>
-          <div className="absolute top-1/2 left-1/8 w-1 h-1 bg-accent/50 rounded-full gsap-particle-6 animate-bounce"></div>
+          <div className="absolute top-1/3 left-1/6 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-primary/40 rounded-full gsap-particle-1 animate-bounce"></div>
+          <div className="absolute top-2/3 right-1/4 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-secondary/40 rounded-full gsap-particle-2 animate-bounce-delayed"></div>
+          <div className="absolute bottom-1/3 left-2/3 w-0.5 sm:w-1 h-0.5 sm:h-1 bg-accent/40 rounded-full gsap-particle-3 animate-bounce-slow"></div>
+          <div className="absolute top-1/6 right-1/6 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-primary/30 rounded-full gsap-particle-4 animate-bounce-delayed"></div>
+          <div className="absolute bottom-1/6 right-1/3 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-secondary/30 rounded-full gsap-particle-5 animate-bounce-slow"></div>
+          <div className="absolute top-1/2 left-1/8 w-0.5 sm:w-1 h-0.5 sm:h-1 bg-accent/50 rounded-full gsap-particle-6 animate-bounce"></div>
 
           {/* Floating Lines */}
-          <div className="absolute top-1/2 left-1/6 w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent gsap-line-1 animate-float-horizontal"></div>
-          <div className="absolute top-1/3 right-1/6 w-20 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent gsap-line-2 animate-float-horizontal-delayed"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-12 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent gsap-line-3 animate-float-horizontal-slow"></div>
-          <div className="absolute top-1/4 left-1/2 w-14 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent gsap-line-4 animate-float-horizontal"></div>
-          <div className="absolute bottom-1/4 right-1/2 w-18 h-px bg-gradient-to-r from-transparent via-secondary/25 to-transparent gsap-line-5 animate-float-horizontal-delayed"></div>
+          <div className="absolute top-1/2 left-1/6 w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent gsap-line-1 animate-float-horizontal"></div>
+          <div className="absolute top-1/3 right-1/6 w-10 sm:w-14 md:w-20 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent gsap-line-2 animate-float-horizontal-delayed"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-6 sm:w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent gsap-line-3 animate-float-horizontal-slow"></div>
+          <div className="absolute top-1/4 left-1/2 w-7 sm:w-10 md:w-14 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent gsap-line-4 animate-float-horizontal"></div>
+          <div className="absolute bottom-1/4 right-1/2 w-9 sm:w-12 md:w-18 h-px bg-gradient-to-r from-transparent via-secondary/25 to-transparent gsap-line-5 animate-float-horizontal-delayed"></div>
 
           {/* Diagonal Lines */}
-          <div className="absolute top-1/4 right-1/4 w-20 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent transform rotate-45 gsap-diagonal-1 animate-float-horizontal-slow"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-16 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -rotate-45 gsap-diagonal-2 animate-float-horizontal"></div>
+          <div className="absolute top-1/4 right-1/4 w-10 sm:w-14 md:w-20 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent transform rotate-45 gsap-diagonal-1 animate-float-horizontal-slow"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-8 sm:w-10 md:w-16 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -rotate-45 gsap-diagonal-2 animate-float-horizontal"></div>
 
           {/* Pulsing Circles */}
-          <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-primary/30 rounded-full gsap-pulse-1 animate-pulse"></div>
-          <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-secondary/30 rounded-full gsap-pulse-2 animate-pulse-delayed"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-accent/30 rounded-full gsap-pulse-3 animate-pulse-slow"></div>
+          <div className="absolute top-1/2 left-1/4 w-2 sm:w-2.5 md:w-3 h-2 sm:h-2.5 md:h-3 bg-primary/30 rounded-full gsap-pulse-1 animate-pulse"></div>
+          <div className="absolute top-1/4 right-1/4 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-secondary/30 rounded-full gsap-pulse-2 animate-pulse-delayed"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-accent/30 rounded-full gsap-pulse-3 animate-pulse-slow"></div>
 
           {/* Floating Arrows */}
-          <div className="absolute top-1/3 right-1/3 w-6 h-6 text-primary/20 gsap-arrow-1 animate-float-slow">
+          <div className="absolute top-1/3 right-1/3 w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 text-primary/20 gsap-arrow-1 animate-float-slow">
             <svg fill="currentColor" viewBox="0 0 24 24">
               <path d="M7 17l9.2-9.2M17 17V7.8H7.8" />
             </svg>
           </div>
-          <div className="absolute bottom-1/3 left-1/4 w-5 h-5 text-secondary/20 gsap-arrow-2 animate-float-delayed">
+          <div className="absolute bottom-1/3 left-1/4 w-2.5 sm:w-3 md:w-5 h-2.5 sm:h-3 md:h-5 text-secondary/20 gsap-arrow-2 animate-float-delayed">
             <svg fill="currentColor" viewBox="0 0 24 24">
               <path d="M17 7l-9.2 9.2M7 7v9.2h9.2" />
             </svg>
@@ -107,7 +107,7 @@ export default function About() {
             alt="SQL Events Logo Watermark"
             width={800}
             height={800}
-            className="w-[800px] h-[800px] object-contain"
+            className="w-[400px] sm:w-[600px] md:w-[700px] lg:w-[800px] h-[400px] sm:h-[600px] md:h-[700px] lg:h-[800px] object-contain"
           />
         </div>
 
@@ -117,7 +117,7 @@ export default function About() {
               className="animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6">
                 About Us
               </h1>
             </div>
@@ -309,7 +309,9 @@ export default function About() {
                 title: "Full Event Management",
                 description:
                   "Complete end-to-end event planning and execution, from conceptualization through all planning stages to final delivery, managing events with 300+ to 8,000+ participants.",
-                icon: <TargetIcon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+                icon: (
+                  <TargetIcon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+                ),
                 color: "from-primary to-secondary",
               },
               {
@@ -317,7 +319,9 @@ export default function About() {
                 title: "Technology Integration",
                 description:
                   "Professional event management software handling online registration, abstract management, membership management, RFID access control, and comprehensive event technology solutions.",
-                icon: <Cpu className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+                icon: (
+                  <Cpu className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+                ),
                 color: "from-secondary to-accent",
               },
               {
@@ -325,7 +329,9 @@ export default function About() {
                 title: "Comprehensive Support",
                 description:
                   "Conference materials supply, onsite registration management, and full event support services ensuring every aspect of your event is professionally managed.",
-                icon: <Wrench className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+                icon: (
+                  <Wrench className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+                ),
                 color: "from-accent to-primary",
               },
             ].map((phase, index) => (
@@ -340,7 +346,9 @@ export default function About() {
                   <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 bg-foreground text-background text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full">
                     {phase.step}
                   </div>
-                  <div className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">{phase.icon}</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+                    {phase.icon}
+                  </div>
                 </div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                   {phase.title}
