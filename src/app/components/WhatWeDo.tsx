@@ -67,7 +67,7 @@ export default function WhatWeDo() {
     {
       title: "Corporate Events & Conference Management",
       description:
-        "Comprehensive event solutions including conferences, AGMs, training sessions, brand launches, team building, fundraisers, workshops, seminars, exhibitions, and staff retreats",
+        "Comprehensive event solutions from conferences and AGMs to brand launches and team building activities",
       gradient: "from-blue-500 to-purple-600",
       bgGradient: "from-blue-600/20 to-purple-700/20",
       icon: (
@@ -79,7 +79,7 @@ export default function WhatWeDo() {
     {
       title: "Exhibition Management",
       description:
-        "Complete exhibition solutions with online exhibitor booking, payment processing, stand management, and comprehensive event coordination",
+        "Complete exhibition solutions with online booking, payment processing, and comprehensive coordination",
       gradient: "from-orange-500 to-yellow-500",
       bgGradient: "from-orange-600/20 to-yellow-600/20",
       icon: (
@@ -91,7 +91,7 @@ export default function WhatWeDo() {
     {
       title: "Abstract/Paper Management",
       description:
-        "Streamlined academic and professional content management with online submission, peer reviewing, and publishing capabilities",
+        "Streamlined content management with online submission, peer reviewing, and publishing capabilities",
       gradient: "from-purple-600 to-pink-600",
       bgGradient: "from-purple-700/20 to-pink-700/20",
       icon: (
@@ -103,7 +103,7 @@ export default function WhatWeDo() {
     {
       title: "Access Control Management",
       description:
-        "Advanced attendee management using RFID technology, barcode systems, and comprehensive data management solutions",
+        "Advanced attendee management using RFID technology, barcode systems, and data management solutions",
       gradient: "from-green-500 to-blue-600",
       bgGradient: "from-green-600/20 to-blue-700/20",
       icon: (
@@ -115,7 +115,7 @@ export default function WhatWeDo() {
     {
       title: "Other Services",
       description:
-        "Complete event support including logistics, hostessing/ushering, sponsorship & marketing, entertainment, venue management, and consultancy services",
+        "Complete event support including logistics, marketing, entertainment, venue management, and consultancy services",
       gradient: "from-red-500 to-pink-500",
       bgGradient: "from-red-600/20 to-pink-700/20",
       icon: (
