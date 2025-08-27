@@ -1,75 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { useKeenSlider } from "../lib/useKeenSlider";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import type { SwiperRef } from "swiper/react";
+import type { Swiper as SwiperClass } from "swiper";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function CaseStudies() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplayActive, setIsAutoplayActive] = useState(true);
   const [autoplayProgress, setAutoplayProgress] = useState(0);
-
-  const {
-    sliderRef,
-    instanceRef,
-    next,
-    prev,
-    goToSlide,
-    totalSlides,
-    startAutoplay,
-    stopAutoplay,
-  } = useKeenSlider({
-    slidesPerView: 1.2,
-    spacing: 24,
-    loop: true,
-    centered: false,
-    autoplay: true,
-    autoplayInterval: 5000,
-    breakpoints: {
-      "(min-width: 640px)": {
-        slidesPerView: 1.3,
-        spacing: 32,
-      },
-      "(min-width: 768px)": {
-        slidesPerView: 1.5,
-        spacing: 40,
-      },
-      "(min-width: 1024px)": {
-        slidesPerView: 1.8,
-        spacing: 48,
-      },
-    },
-  });
-
-  useEffect(() => {
-    if (instanceRef.current) {
-      const updateCurrentSlide = () => {
-        setCurrentSlide(instanceRef.current?.track.details.rel || 0);
-        // Reset progress bar when slide changes
-        if (isAutoplayActive) {
-          setAutoplayProgress(0);
-        }
-      };
-
-      // Add event listener for slide changes
-      const slider = instanceRef.current;
-      slider.on("slideChanged", updateCurrentSlide);
-
-      return () => {
-        // Cleanup event listener - KeenSlider automatically handles cleanup on destroy
-      };
-    }
-  }, [instanceRef, isAutoplayActive]);
+  const swiperRef = useRef<SwiperRef>(null);
+  const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Autoplay progress bar effect
   useEffect(() => {
     if (!isAutoplayActive) {
       setAutoplayProgress(0);
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+      }
       return;
     }
 
-    const interval = setInterval(() => {
+    progressIntervalRef.current = setInterval(() => {
       setAutoplayProgress((prev) => {
         if (prev >= 100) {
           return 0;
@@ -78,8 +39,50 @@ export default function CaseStudies() {
       });
     }, 100);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+      }
+    };
   }, [isAutoplayActive]);
+
+  const handleSlideChange = (swiper: SwiperClass) => {
+    setCurrentSlide(swiper.realIndex);
+    // Reset progress bar when slide changes
+    if (isAutoplayActive) {
+      setAutoplayProgress(0);
+    }
+  };
+
+  const toggleAutoplay = () => {
+    if (swiperRef.current?.swiper) {
+      if (isAutoplayActive) {
+        swiperRef.current.swiper.autoplay.stop();
+        setIsAutoplayActive(false);
+      } else {
+        swiperRef.current.swiper.autoplay.start();
+        setIsAutoplayActive(true);
+      }
+    }
+  };
+
+  const goToPrevious = () => {
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const goToNext = () => {
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goToSlide = (index: number) => {
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slideTo(index);
+    }
+  };
 
   const projects = [
     {
@@ -161,21 +164,45 @@ export default function CaseStudies() {
           </div>
         </motion.div>
 
-        {/* KeenSlider Carousel Container - Optimized Spacing */}
-        <div className="relative -mx-2 sm:-mx-4 lg:-mx-6 xl:-mx-8">
-          {/* Carousel */}
-          <div
-            ref={sliderRef}
-            className="keen-slider px-2 sm:px-4 lg:px-6 xl:px-8 py-2"
-            onMouseEnter={stopAutoplay}
-            onMouseLeave={startAutoplay}
-            onTouchStart={stopAutoplay}
-            onTouchEnd={startAutoplay}
+        {/* Swiper Carousel Container */}
+        <div className="relative">
+          <Swiper
+            ref={swiperRef}
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1.1}
+            centeredSlides={false}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1.2,
+                spaceBetween: 24,
+              },
+              768: {
+                slidesPerView: 1.4,
+                spaceBetween: 32,
+              },
+              1024: {
+                slidesPerView: 1.6,
+                spaceBetween: 40,
+              },
+              1280: {
+                slidesPerView: 1.8,
+                spaceBetween: 48,
+              },
+            }}
+            onSlideChange={handleSlideChange}
+            className="case-studies-swiper"
           >
             {projects.map((project, index) => (
-              <div key={index} className="keen-slider__slide">
+              <SwiperSlide key={index}>
                 <motion.div
-                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden mx-2 sm:mx-0`}
+                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -225,15 +252,15 @@ export default function CaseStudies() {
                     ))}
                   </div>
                 </motion.div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
 
-          {/* Navigation Controls - Below to the Right */}
-          <div className="flex items-center justify-end mt-6 sm:mt-8 space-x-3 sm:space-x-4 px-2 sm:px-4 lg:px-6 xl:px-8">
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-end mt-6 sm:mt-8 space-x-3 sm:space-x-4">
             {/* Previous Button - Hidden on Mobile */}
             <button
-              onClick={prev}
+              onClick={goToPrevious}
               className="hidden md:flex w-12 h-12 rounded-full bg-background/80 hover:bg-background border border-border/50 hover:border-primary/60 items-center justify-center transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl backdrop-blur-sm"
               aria-label="Previous case study"
             >
@@ -242,78 +269,50 @@ export default function CaseStudies() {
 
             {/* Next Button - Hidden on Mobile */}
             <button
-              onClick={next}
+              onClick={goToNext}
               className="hidden md:flex w-12 h-12 rounded-full bg-background/80 hover:bg-background border border-border/50 hover:border-primary/60 items-center justify-center transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl backdrop-blur-sm"
               aria-label="Next case study"
             >
               <ChevronRight className="w-6 h-6 text-foreground" />
             </button>
 
-            {/* Dots Indicator - Centered on Mobile, Right-aligned on Desktop */}
-            <div className="keen-slider__dots flex-1 flex justify-center md:justify-end md:ml-4">
-              {Array.from({ length: totalSlides() }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`keen-slider__dot ${
-                    index === currentSlide ? "keen-slider__dot--active" : ""
-                  }`}
-                  aria-label={`Go to case study ${index + 1}`}
-                />
-              ))}
+            {/* Dots Indicator */}
+            <div className="flex-1 flex justify-center md:justify-end md:ml-4">
+              <div className="flex space-x-2">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "bg-primary w-6"
+                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    }`}
+                    aria-label={`Go to case study ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Autoplay Toggle Button */}
             <button
-              onClick={() => {
-                if (isAutoplayActive) {
-                  stopAutoplay();
-                  setIsAutoplayActive(false);
-                } else {
-                  startAutoplay();
-                  setIsAutoplayActive(true);
-                }
-              }}
+              onClick={toggleAutoplay}
               className="ml-4 p-2 rounded-full bg-muted/20 hover:bg-muted/40 transition-colors duration-200"
               aria-label={
                 isAutoplayActive ? "Pause autoplay" : "Resume autoplay"
               }
             >
               {isAutoplayActive ? (
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 9v6m4-6v6"
-                  />
-                </svg>
+                <Pause className="w-4 h-4" />
               ) : (
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 4v16l13-8z"
-                  />
-                </svg>
+                <Play className="w-4 h-4" />
               )}
             </button>
           </div>
 
           {/* Autoplay Progress Bar */}
           {isAutoplayActive && (
-            <div className="mt-3 sm:mt-4 mx-2 sm:mx-4 lg:mx-6 xl:mx-8 w-auto bg-muted/20 rounded-full h-1 overflow-hidden">
+            <div className="mt-3 sm:mt-4 w-full bg-muted/20 rounded-full h-1 overflow-hidden">
               <div
                 className="h-full bg-primary transition-all duration-100 ease-linear relative"
                 style={{ width: `${autoplayProgress}%` }}
@@ -353,6 +352,34 @@ export default function CaseStudies() {
           </a>
         </motion.div>
       </div>
+
+      {/* Custom Swiper Styles */}
+      <style jsx global>{`
+        .case-studies-swiper {
+          padding: 10px 0;
+        }
+
+        .case-studies-swiper .swiper-slide {
+          height: auto;
+          display: flex;
+          align-items: stretch;
+        }
+
+        .case-studies-swiper .swiper-slide-active {
+          z-index: 2;
+        }
+
+        .case-studies-swiper .swiper-slide-next,
+        .case-studies-swiper .swiper-slide-prev {
+          z-index: 1;
+        }
+
+        /* Ensure no overlap */
+        .case-studies-swiper .swiper-slide > div {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      `}</style>
     </section>
   );
 }
