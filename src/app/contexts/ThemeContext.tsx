@@ -16,19 +16,28 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
+  // Ensure light theme is applied immediately on client-side
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+  }, []);
+
   useEffect(() => {
     setMounted(true);
 
-    // Check for saved theme preference or default to light
+    // Always start with light theme as default, then check for saved preference
     if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
       const savedTheme = localStorage.getItem("theme") as Theme;
       if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
         console.log("Loading saved theme:", savedTheme);
         setThemeState(savedTheme);
       } else {
-        // Default to light theme regardless of system preference
+        // Explicitly set to light theme and save it
         console.log("Setting theme to light (default)");
         setThemeState("light");
+        localStorage.setItem("theme", "light");
       }
     }
   }, []);
