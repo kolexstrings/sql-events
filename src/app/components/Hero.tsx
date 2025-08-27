@@ -177,36 +177,36 @@ export default function Hero() {
         <div className="pt-28 sm:pt-32 md:pt-36 lg:pt-44 xl:pt-48">
           {/* Headline Section */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-foreground mb-6 sm:mb-8 leading-tight tracking-tight drop-shadow-[0_0_20px_rgba(74,222,128,0.6)]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8 leading-tight tracking-tight drop-shadow-[0_0_20px_rgba(74,222,128,0.6)]">
               <span className="block">Innovatively</span>
               <span className="block">curating</span>
               <span className="block">exceptional events</span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-4xl sm:max-w-5xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2 sm:px-4">
               Experience the future of event management with cutting-edge
               technology, seamless execution, and unforgettable moments.
             </p>
 
-            {/* Value Proposition Badges */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 px-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Value Proposition Badges - Mobile Optimized */}
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
+              <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-foreground">
                   500+ Events Delivered
                 </span>
-                <div className="hidden sm:block w-6 sm:w-8 h-px bg-border"></div>
+                <div className="hidden sm:block w-4 sm:w-6 md:w-8 h-px bg-border"></div>
               </div>
-              <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-foreground">
                   Across 30+ Cities
                 </span>
-                <div className="hidden sm:block w-6 sm:w-8 h-px bg-border"></div>
+                <div className="hidden sm:block w-4 sm:w-6 md:w-8 h-px bg-border"></div>
               </div>
-              <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-foreground">
                   98% Client Satisfaction
                 </span>
               </div>
@@ -288,15 +288,15 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="text-center mt-12 sm:mt-16 px-4 sm:px-6">
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8">
+            {/* CTA Section - Mobile Optimized */}
+            <div className="text-center mt-8 sm:mt-12 md:mt-16 px-3 sm:px-4 md:px-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6 lg:space-x-8">
                 {/* Enhanced CTA Button */}
                 <Link
                   href="/contact"
-                  className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 cta-button text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl gsap-cta-button"
+                  className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 lg:py-6 cta-button text-base sm:text-lg md:text-xl rounded-full shadow-2xl hover:shadow-3xl gsap-cta-button"
                 >
-                  <span className="relative z-10 flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
+                  <span className="relative z-10 flex items-center justify-center space-x-2">
                     <span>Get Quote</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
@@ -305,9 +305,9 @@ export default function Hero() {
                 {/* Secondary CTA */}
                 <Link
                   href="/portfolio"
-                  className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-4 sm:py-5 btn-secondary font-semibold text-lg sm:text-xl rounded-full"
+                  className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 btn-secondary font-semibold text-base sm:text-lg md:text-xl rounded-full"
                 >
-                  <span className="relative z-10 flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
+                  <span className="relative z-10 flex items-center justify-center space-x-2">
                     <span>View Portfolio</span>
                     <Eye className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>

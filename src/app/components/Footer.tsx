@@ -14,14 +14,14 @@ export default function Footer() {
             height={48}
             className="w-12 h-12 mr-3"
           />
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">
+          <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold">
             SQL Events Nigeria
           </div>
         </div>
-        <p className="text-muted-foreground mb-6">
+        <p className="text-sm sm:text-base text-muted-foreground mb-6">
           Passion. Innovation. Technology in Events Management.
         </p>
-        <div className="flex justify-center space-x-6 text-muted-foreground mb-6">
+        <div className="flex justify-center space-x-4 sm:space-x-6 text-sm sm:text-base text-muted-foreground mb-6">
           <a href="#" className="hover:text-card-foreground transition-colors">
             LinkedIn
           </a>
@@ -32,14 +32,14 @@ export default function Footer() {
             Instagram
           </a>
         </div>
-        <div className="text-muted-foreground text-sm">
+        <div className="text-muted-foreground text-xs sm:text-sm">
           <p>Flat 3, Block C8, 19th Street, Games Village, Abuja, Nigeria</p>
           <p>
             Tel: +234 (9) 6230272 | Mobile: +234 80 5050 1927 | Email:
             contactus@sql-events.com
           </p>
         </div>
-        <div className="mt-8 pt-8 border-t border-border text-muted-foreground">
+        <div className="mt-8 pt-8 border-t border-border text-muted-foreground text-xs sm:text-sm">
           <p>&copy; {currentYear} SQL Events Nigeria. All rights reserved.</p>
         </div>
       </div>
