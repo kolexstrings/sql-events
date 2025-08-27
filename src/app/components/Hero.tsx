@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { ArrowRight, Eye } from "lucide-react";
 import Link from "next/link";
+import OptimizedImage from "./OptimizedImage";
 
 export default function Hero() {
   const videoRef = useRef<HTMLDivElement>(null);

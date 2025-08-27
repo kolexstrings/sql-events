@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,12 +46,15 @@ export default function Navigation() {
           <div className="flex items-center group">
             <Link className="flex items-center" href="/">
               <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 mr-2 sm:mr-3 transition-all duration-500 group-hover:scale-110 opacity-95 group-hover:opacity-100">
-                <Image
+                <OptimizedImage
                   alt="SQL Events Nigeria Logo"
                   width={64}
                   height={64}
                   className="w-full h-full object-contain drop-shadow-lg"
                   src="/logo.png"
+                  priority={true}
+                  quality={95}
+                  sizes="(max-width: 640px) 32px, (max-width: 768px) 40px, (max-width: 1024px) 44px, 48px"
                 />
               </div>
               <span

@@ -1,21 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 export default function WhoWeAre() {
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-card text-card-foreground relative overflow-hidden">
       {/* Subtle Logo Watermark */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-none opacity-5">
-        <Image
+        <OptimizedImage
           src="/logo.png"
           alt="SQL Events Logo Watermark"
           width={800}
           height={800}
           className="w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] object-contain"
+          quality={60}
+          sizes="(max-width: 640px) 400px, (max-width: 768px) 600px, 800px"
         />
       </div>
 

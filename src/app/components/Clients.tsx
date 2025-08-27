@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import OptimizedImage from "./OptimizedImage";
 
 export default function Clients() {
   const mobileCarouselRef = useRef<HTMLDivElement>(null);
@@ -248,12 +248,14 @@ export default function Clients() {
                 >
                   <div className="text-foreground/80 hover:text-foreground transition-colors duration-300">
                     <div className="transform scale-90 sm:scale-100">
-                      <Image
+                      <OptimizedImage
                         src={partner.logo}
                         alt={`${partner.name} logo`}
                         width={120}
                         height={60}
                         className="h-12 w-auto object-contain"
+                        quality={90}
+                        sizes="(max-width: 640px) 100px, 120px"
                       />
                     </div>
                   </div>
@@ -285,12 +287,14 @@ export default function Clients() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="text-foreground/80 hover:text-foreground transition-colors duration-300">
-                    <Image
+                    <OptimizedImage
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       width={160}
                       height={80}
                       className="h-16 w-auto object-contain"
+                      quality={90}
+                      sizes="(max-width: 1024px) 140px, 160px"
                     />
                   </div>
                 </motion.div>

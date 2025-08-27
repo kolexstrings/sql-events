@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OptimizedImage from "./OptimizedImage";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,12 +7,14 @@ export default function Footer() {
     <footer className="py-12 px-6 bg-card text-primary-foreground">
       <div className="max-w-6xl mx-auto text-center">
         <div className="flex items-center justify-center mb-4">
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="SQL Events Nigeria Logo"
             width={48}
             height={48}
             className="w-12 h-12 mr-3"
+            quality={90}
+            sizes="48px"
           />
           <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold">
             SQL Events Nigeria
