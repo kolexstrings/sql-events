@@ -172,9 +172,7 @@ export default function Navigation() {
               : "max-h-0 opacity-0 invisible"
           }`}
         >
-          {/* Dark overlay for better contrast */}
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
-          <div className="py-6 sm:py-8 border-t border-border/30 bg-background/98 backdrop-blur-2xl shadow-2xl border-l border-r border-border/20">
+          <div className="py-6 sm:py-8 border-t border-border bg-background shadow-2xl border-l border-r border-border">
             {/* Menu Header */}
             <div className="px-4 sm:px-6 mb-6">
               <div className="flex items-center justify-between mb-4">
