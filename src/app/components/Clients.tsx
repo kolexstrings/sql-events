@@ -206,20 +206,20 @@ export default function Clients() {
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card text-card-foreground">
       <div className="container--wide px-4 sm:px-6">
         <motion.div
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-start mb-6 sm:mb-8 md:mb-12">
-            <div className="text-lg sm:text-xl md:text-2xl text-accent font-bold mr-2 sm:mr-3 md:mr-4">
+          <div className="flex items-center justify-start mb-4 sm:mb-6 md:mb-8 lg:mb-12">
+            <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent font-bold mr-2 sm:mr-3 md:mr-4">
               {"{"}
             </div>
-            <h2 className="text-base sm:text-lg font-medium text-muted-foreground">
+            <h2 className="text-sm sm:text-base md:text-lg font-medium text-muted-foreground">
               Trusted By
             </h2>
-            <div className="text-lg sm:text-xl md:text-2xl text-accent font-bold ml-2 sm:ml-3 md:ml-4">
+            <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent font-bold ml-2 sm:mr-3 md:ml-4">
               {"}"}
             </div>
           </div>

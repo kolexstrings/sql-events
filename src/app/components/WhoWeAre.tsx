@@ -52,7 +52,7 @@ export default function WhoWeAre() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight text-card-foreground max-w-4xl sm:max-w-5xl lg:max-w-6xl">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl font-bold leading-relaxed sm:leading-tight text-card-foreground max-w-3xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl">
               SQL Events allows you to{" "}
               <span className="text-primary">effortlessly manage</span> anything
               corporate events can touch. Delivering{" "}
@@ -63,10 +63,10 @@ export default function WhoWeAre() {
             </p>
 
             {/* Learn More Button */}
-            <div className="mt-8 sm:mt-10 md:mt-12 flex justify-start">
+            <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 flex justify-start">
               <Link
                 href="/about"
-                className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-base sm:text-lg relative overflow-hidden"
+                className="group inline-flex items-center px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-sm sm:text-base md:text-lg relative overflow-hidden"
               >
                 <span className="relative z-10">Learn More</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
@@ -77,41 +77,41 @@ export default function WhoWeAre() {
 
           {/* Supporting Stats */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-12 sm:pt-14 md:pt-16 border-t border-border/20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 pt-8 sm:pt-10 md:pt-12 lg:pt-16 border-t border-border/20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
             <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl font-bold text-brand-orange mb-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-orange mb-1 sm:mb-2">
                 500+
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Events Delivered
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl font-bold text-brand-purple mb-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-purple mb-1 sm:mb-2">
                 50+
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Corporate Clients
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl font-bold text-brand-green mb-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-green mb-1 sm:mb-2">
                 98%
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Client Satisfaction
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl font-bold text-brand-deepPurple mb-2">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-deepPurple mb-1 sm:mb-2">
                 5+
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Years Experience
               </div>
             </div>

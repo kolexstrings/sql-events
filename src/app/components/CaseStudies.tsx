@@ -197,17 +197,17 @@ export default function CaseStudies() {
                       {project.title}
                     </h3>
 
-                    <p className="text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed mb-4 sm:mb-6 max-w-2xl">
+                    <p className="text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed sm:leading-normal mb-3 sm:mb-4 md:mb-6 max-w-2xl">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Highlights */}
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3">
                     {project.highlights.map((highlight, highlightIndex) => (
                       <span
                         key={highlightIndex}
-                        className="px-2 sm:px-3 md:px-4 py-1 sm:py-2 bg-background/20 text-foreground text-xs sm:text-sm rounded-full font-medium"
+                        className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-background/20 text-foreground text-xs sm:text-sm rounded-full font-medium"
                       >
                         {highlight}
                       </span>

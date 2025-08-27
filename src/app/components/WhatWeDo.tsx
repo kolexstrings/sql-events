@@ -247,7 +247,7 @@ export default function WhatWeDo() {
                     {service.title}
                   </motion.h3>
                   <motion.p
-                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-3xl"
+                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground leading-relaxed sm:leading-normal mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-3xl"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >

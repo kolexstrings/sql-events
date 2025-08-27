@@ -201,7 +201,7 @@ export default function WhyChooseUs() {
                   {/* Content */}
                   <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col justify-between">
                     {/* Top Section */}
-                    <div className="mb-4 sm:mb-6">
+                    <div className="mb-3 sm:mb-4 md:mb-6">
                       <motion.h3
                         className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
                         whileHover={{ scale: 1.05 }}
@@ -210,7 +210,7 @@ export default function WhyChooseUs() {
                         {service.title}
                       </motion.h3>
                       <motion.p
-                        className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/80 leading-relaxed"
+                        className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/80 leading-relaxed sm:leading-normal"
                         whileHover={{ x: 5 }}
                         transition={{ duration: 0.3 }}
                       >
