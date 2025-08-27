@@ -36,8 +36,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/20 shadow-2xl shadow-black/5"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/20 shadow-2xl shadow-black/10"
+          : "bg-background/90 backdrop-blur-lg border-b border-border/10 shadow-lg shadow-black/5"
       }`}
     >
       <div className="container--wide">
@@ -172,7 +172,9 @@ export default function Navigation() {
               : "max-h-0 opacity-0 invisible"
           }`}
         >
-          <div className="py-6 sm:py-8 border-t border-border/20 bg-background/95 backdrop-blur-xl">
+          {/* Dark overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+          <div className="py-6 sm:py-8 border-t border-border/30 bg-background/98 backdrop-blur-2xl shadow-2xl border-l border-r border-border/20">
             {/* Menu Header */}
             <div className="px-4 sm:px-6 mb-6">
               <div className="flex items-center justify-between mb-4">
@@ -194,8 +196,8 @@ export default function Navigation() {
                       href={item.href}
                       className={`group relative px-4 py-4 rounded-xl transition-all duration-300 ${
                         isActive
-                          ? "text-primary bg-primary/10 border-l-4 border-primary shadow-sm"
-                          : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+                          ? "text-primary bg-primary/15 border-l-4 border-primary shadow-md"
+                          : "text-foreground/90 hover:text-foreground hover:bg-muted/60"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -218,12 +220,12 @@ export default function Navigation() {
                         ></div>
                       </div>
 
-                      {/* Subtle hover effect */}
+                      {/* Enhanced hover effect */}
                       <div
                         className={`absolute inset-0 rounded-xl transition-all duration-300 ${
                           isActive
-                            ? "bg-primary/5"
-                            : "bg-transparent group-hover:bg-muted/20"
+                            ? "bg-primary/10"
+                            : "bg-transparent group-hover:bg-muted/30"
                         }`}
                       ></div>
                     </Link>
