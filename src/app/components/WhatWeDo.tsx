@@ -128,7 +128,7 @@ export default function WhatWeDo() {
   return (
     <section
       ref={containerRef}
-      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background text-foreground relative overflow-hidden min-h-screen"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-background text-foreground relative overflow-hidden min-h-screen"
     >
       {/* Animated Background with Parallax */}
       <motion.div
@@ -163,18 +163,22 @@ export default function WhatWeDo() {
 
       <div className="container--wide relative z-10">
         <motion.div
-          className="mb-20 text-center"
+          className="mb-12 sm:mb-16 md:mb-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-start mb-12">
-            <div className="text-2xl text-accent font-bold mr-4">{"{"}</div>
-            <h2 className="text-base sm:text-lg font-medium text-accent">
+          <div className="flex items-center justify-start mb-8 sm:mb-10 md:mb-12">
+            <div className="text-xl sm:text-2xl text-accent font-bold mr-3 sm:mr-4">
+              {"{"}
+            </div>
+            <h2 className="text-sm sm:text-base md:text-lg font-medium text-accent">
               What We Do
             </h2>
-            <div className="text-2xl text-accent font-bold ml-4">{"}"}</div>
+            <div className="text-xl sm:text-2xl text-accent font-bold ml-3 sm:ml-4">
+              {"}"}
+            </div>
           </div>
         </motion.div>
 
@@ -182,7 +186,7 @@ export default function WhatWeDo() {
           {services.map((service, index) => (
             <div key={index}>
               <motion.div
-                className="group flex flex-col xs:flex-row items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-20 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
+                className="group flex flex-row items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-20 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl hover:bg-muted/50 transition-all duration-500 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -60, rotateY: -15 }}
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
@@ -209,7 +213,7 @@ export default function WhatWeDo() {
                 ></div>
 
                 {/* Large abstract graphic with enhanced 3D effect - improved mobile scaling */}
-                <div className="flex-shrink-0 relative z-10 mb-4 xs:mb-0">
+                <div className="flex-shrink-0 relative z-10">
                   <motion.div
                     className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-48 xl:h-48 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg sm:shadow-xl lg:shadow-2xl`}
                     whileHover={{
@@ -222,16 +226,16 @@ export default function WhatWeDo() {
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <div className="scale-75 sm:scale-100 md:scale-110 lg:scale-125 xl:scale-150 group-hover:scale-100 sm:group-hover:scale-110 md:group-hover:scale-125 lg:group-hover:scale-150 xl:group-hover:scale-175 transition-transform duration-500">
+                    <div className="scale-75 sm:scale-90 md:scale-100 lg:scale-110 xl:scale-125 group-hover:scale-100 sm:group-hover:scale-110 md:group-hover:scale-125 lg:group-hover:scale-150 xl:group-hover:scale-175 transition-transform duration-500">
                       {service.icon}
                     </div>
                   </motion.div>
                 </div>
 
                 {/* Content with enhanced typography - improved mobile scaling */}
-                <div className="flex-1 relative z-10 text-center xs:text-left">
+                <div className="flex-1 relative z-10 text-left">
                   <motion.h3
-                    className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-2 sm:pl-3 md:pl-4`}
+                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent border-l-4 pl-2 sm:pl-3 md:pl-4`}
                     style={{
                       borderLeftColor: `hsl(var(--${
                         service.gradient.split("-")[1]
@@ -243,7 +247,7 @@ export default function WhatWeDo() {
                     {service.title}
                   </motion.h3>
                   <motion.p
-                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-3xl"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-3xl"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -251,7 +255,7 @@ export default function WhatWeDo() {
                   </motion.p>
                   <Link
                     href={`/services#${service.sectionId}`}
-                    className="inline-block px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-xs sm:text-sm md:text-base lg:text-lg relative overflow-hidden group"
+                    className="inline-block px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 border border-border hover:border-primary/40 rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium text-sm sm:text-base md:text-lg lg:text-xl relative overflow-hidden group"
                   >
                     <motion.span
                       className="relative z-10"
@@ -271,7 +275,7 @@ export default function WhatWeDo() {
               {/* Enhanced separator with animation - improved mobile spacing */}
               {index < services.length - 1 && (
                 <motion.div
-                  className="border-t border-border/30 my-4 sm:my-6 md:my-8 relative"
+                  className="border-t border-border/30 my-3 sm:my-4 md:my-6 lg:my-8 relative"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -284,6 +288,23 @@ export default function WhatWeDo() {
           ))}
         </motion.div>
       </div>
+
+      {/* Custom CSS for mobile optimization */}
+      <style jsx>{`
+        /* Mobile touch optimization */
+        @media (max-width: 640px) {
+          .group {
+            min-height: auto;
+          }
+        }
+
+        /* Ensure proper spacing on very small screens */
+        @media (max-width: 480px) {
+          .group {
+            padding: 0.75rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }

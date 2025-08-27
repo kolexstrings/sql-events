@@ -112,9 +112,8 @@ export default function WhyChooseUs() {
     setIsDragging(false);
   };
 
-  // Touch functionality for mobile (disabled during auto-scroll)
+  // Enhanced touch functionality for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
-    // Only allow manual touch when not in auto-scroll mode
     setIsDragging(true);
     setStartX(e.touches[0].pageX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
@@ -122,8 +121,9 @@ export default function WhyChooseUs() {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
+    e.preventDefault(); // Prevent default to avoid conflicts
     const x = e.touches[0].pageX - (containerRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
+    const walk = (x - startX) * 1.5; // Reduced sensitivity for mobile
     if (containerRef.current) {
       containerRef.current.scrollLeft = scrollLeft - walk;
     }
@@ -165,14 +165,14 @@ export default function WhyChooseUs() {
 
         {/* Horizontal Carousel Container */}
         <div className="relative">
-          {/* Scroll Container - No right margin, extends beyond screen edge */}
+          {/* Scroll Container - Optimized for mobile horizontal scrolling */}
           <div
             ref={containerRef}
-            className="flex gap-6 sm:gap-8 md:gap-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-6 pr-0"
+            className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-6"
             style={{
               cursor: isDragging ? "grabbing" : "default",
-              marginRight: "-100vw",
-              paddingRight: "100vw",
+              WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
+              scrollBehavior: "smooth",
             }}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -185,7 +185,7 @@ export default function WhyChooseUs() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-80 sm:w-96 md:w-[420px] lg:w-[480px] snap-start"
+                className="flex-shrink-0 w-[280px] sm:w-80 md:w-[420px] lg:w-[480px] snap-start"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -199,18 +199,18 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-between">
+                  <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col justify-between">
                     {/* Top Section */}
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <motion.h3
-                        className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
+                        className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
                         {service.title}
                       </motion.h3>
                       <motion.p
-                        className="text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed"
+                        className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/80 leading-relaxed"
                         whileHover={{ x: 5 }}
                         transition={{ duration: 0.3 }}
                       >
@@ -221,7 +221,7 @@ export default function WhyChooseUs() {
                     {/* Bottom Section */}
                     <div className="mt-auto">
                       <div className="flex items-center justify-between">
-                        <div className="inline-block px-3 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full border border-primary/30">
+                        <div className="inline-block px-2 sm:px-3 py-1.5 sm:py-2 bg-primary/20 text-primary text-xs sm:text-sm font-semibold rounded-full border border-primary/30">
                           {service.stats}
                         </div>
                       </div>
@@ -263,7 +263,7 @@ export default function WhyChooseUs() {
         </div>
       </div>
 
-      {/* Custom CSS for hiding scrollbar */}
+      {/* Custom CSS for hiding scrollbar and mobile optimization */}
       <style jsx>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
@@ -271,6 +271,14 @@ export default function WhyChooseUs() {
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+
+        /* Mobile touch scrolling optimization */
+        @media (max-width: 768px) {
+          .scrollbar-hide {
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+          }
         }
       `}</style>
     </section>
