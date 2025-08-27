@@ -1,82 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Clients() {
   const partners = [
     {
-      name: "FOX",
-      logo: (
-        <svg viewBox="0 0 100 40" className="h-8 w-auto">
-          <text x="0" y="25" className="text-2xl font-bold fill-current">
-            FOX
-          </text>
-        </svg>
-      ),
+      name: "SOGON",
+      logo: "/clients/SOGON.png",
     },
     {
-      name: "Spotify",
-      logo: (
-        <svg viewBox="0 0 120 40" className="h-8 w-auto">
-          <circle cx="15" cy="20" r="8" fill="currentColor" />
-          <text x="30" y="25" className="text-xl font-bold fill-current">
-            Spotify
-          </text>
-        </svg>
-      ),
+      name: "CBN",
+      logo: "/clients/CBN-logo.png",
     },
     {
-      name: "Coca-Cola",
-      logo: (
-        <svg viewBox="0 0 140 40" className="h-8 w-auto">
-          <text
-            x="0"
-            y="25"
-            className="text-2xl font-bold fill-current font-serif"
-          >
-            Coca-Cola
-          </text>
-        </svg>
-      ),
+      name: "JTB",
+      logo: "/clients/jtb.png",
     },
     {
-      name: "moooi",
-      logo: (
-        <svg viewBox="0 0 100 40" className="h-8 w-auto">
-          <text x="0" y="25" className="text-2xl font-bold fill-current">
-            moooi
-          </text>
-        </svg>
-      ),
+      name: "Rivers State",
+      logo: "/clients/role-of-cbn-1-removebg-preview(1).png",
     },
     {
-      name: "Google",
-      logo: (
-        <svg viewBox="0 0 120 40" className="h-8 w-auto">
-          <text x="0" y="25" className="text-2xl font-bold fill-current">
-            Google
-          </text>
-        </svg>
-      ),
+      name: "NSE",
+      logo: "/clients/NSE.png",
     },
     {
-      name: "SAMSUNG",
-      logo: (
-        <svg viewBox="0 0 140 40" className="h-8 w-auto">
-          <ellipse
-            cx="70"
-            cy="20"
-            rx="35"
-            ry="15"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <text x="40" y="25" className="text-xl font-bold fill-current">
-            SAMSUNG
-          </text>
-        </svg>
-      ),
+      name: "NIOB",
+      logo: "/clients/NIOB.png",
+    },
+    {
+      name: "IAWJ",
+      logo: "/clients/IAWJ.png",
+    },
+    {
+      name: "ASO",
+      logo: "/clients/aso.png",
     },
   ];
 
@@ -95,7 +54,7 @@ export default function Clients() {
               {"{"}
             </div>
             <h2 className="text-base sm:text-lg font-medium text-muted-foreground">
-              Clients
+              Trusted By
             </h2>
             <div className="text-lg sm:text-xl md:text-2xl text-accent font-bold ml-2 sm:ml-3 md:ml-4">
               {"}"}
@@ -119,7 +78,7 @@ export default function Clients() {
             {partners.map((partner, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 min-w-[120px] text-center"
+                className="flex-shrink-0 min-w-[140px] text-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -128,11 +87,17 @@ export default function Clients() {
                 style={{ scrollSnapAlign: "center" }}
               >
                 <div className="text-foreground/80 hover:text-foreground transition-colors duration-300">
-                  <div className="transform scale-75 sm:scale-90">
-                    {partner.logo}
+                  <div className="transform scale-90 sm:scale-100">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={120}
+                      height={60}
+                      className="h-12 w-auto object-contain"
+                    />
                   </div>
                 </div>
-                <div className="text-xs text-muted-foreground mt-2 font-medium">
+                <div className="text-xs text-muted-foreground mt-3 font-medium">
                   {partner.name}
                 </div>
               </motion.div>
@@ -171,7 +136,13 @@ export default function Clients() {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-foreground/80 hover:text-foreground transition-colors duration-300">
-                {partner.logo}
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  width={160}
+                  height={80}
+                  className="h-16 w-auto object-contain"
+                />
               </div>
             </motion.div>
           ))}
