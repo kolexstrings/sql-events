@@ -3,17 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  Users,
-  Building2,
-  Presentation,
-  Cpu,
-  Handshake,
-  GraduationCap,
-  FileText,
-  Shield,
-  Settings,
-} from "lucide-react";
+import { Users, Presentation, FileText, Shield, Settings } from "lucide-react";
 
 export default function WhatWeDo() {
   const containerRef = useRef<HTMLDivElement>(null);

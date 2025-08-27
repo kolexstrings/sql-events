@@ -20,12 +20,26 @@ export default function CaseStudies() {
     startAutoplay,
     stopAutoplay,
   } = useKeenSlider({
-    slidesPerView: 1.5,
-    spacing: 32,
+    slidesPerView: 1.2,
+    spacing: 24,
     loop: true,
-    centered: true,
+    centered: false,
     autoplay: true,
     autoplayInterval: 5000,
+    breakpoints: {
+      "(min-width: 640px)": {
+        slidesPerView: 1.3,
+        spacing: 32,
+      },
+      "(min-width: 768px)": {
+        slidesPerView: 1.5,
+        spacing: 40,
+      },
+      "(min-width: 1024px)": {
+        slidesPerView: 1.8,
+        spacing: 48,
+      },
+    },
   });
 
   useEffect(() => {
@@ -43,13 +57,10 @@ export default function CaseStudies() {
       slider.on("slideChanged", updateCurrentSlide);
 
       return () => {
-        // Cleanup event listener
-        if (slider) {
-          slider.on("slideChanged", updateCurrentSlide);
-        }
+        // Cleanup event listener - KeenSlider automatically handles cleanup on destroy
       };
     }
-  }, [instanceRef]);
+  }, [instanceRef, isAutoplayActive]);
 
   // Autoplay progress bar effect
   useEffect(() => {
@@ -150,12 +161,12 @@ export default function CaseStudies() {
           </div>
         </motion.div>
 
-        {/* KeenSlider Carousel Container - Edge to Edge */}
-        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
+        {/* KeenSlider Carousel Container - Optimized Spacing */}
+        <div className="relative -mx-2 sm:-mx-4 lg:-mx-6 xl:-mx-8">
           {/* Carousel */}
           <div
             ref={sliderRef}
-            className="keen-slider px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16"
+            className="keen-slider px-2 sm:px-4 lg:px-6 xl:px-8 py-2"
             onMouseEnter={stopAutoplay}
             onMouseLeave={startAutoplay}
             onTouchStart={stopAutoplay}
@@ -164,12 +175,12 @@ export default function CaseStudies() {
             {projects.map((project, index) => (
               <div key={index} className="keen-slider__slide">
                 <motion.div
-                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-[500px] sm:h-[550px] md:h-[600px] rounded-lg p-6 sm:p-8 md:p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
+                  className={`case-study-card bg-gradient-to-br ${project.gradient} h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-between group cursor-pointer relative overflow-hidden mx-2 sm:mx-0`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
                 >
                   {/* Background Pattern Elements */}
                   <div className="absolute inset-0 opacity-10">
@@ -219,7 +230,7 @@ export default function CaseStudies() {
           </div>
 
           {/* Navigation Controls - Below to the Right */}
-          <div className="flex items-center justify-end mt-8 space-x-4 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+          <div className="flex items-center justify-end mt-6 sm:mt-8 space-x-3 sm:space-x-4 px-2 sm:px-4 lg:px-6 xl:px-8">
             {/* Previous Button - Hidden on Mobile */}
             <button
               onClick={prev}
@@ -302,7 +313,7 @@ export default function CaseStudies() {
 
           {/* Autoplay Progress Bar */}
           {isAutoplayActive && (
-            <div className="mt-4 mx-4 sm:mx-6 lg:mx-8 xl:mx-12 2xl:mx-16 w-auto bg-muted/20 rounded-full h-1 overflow-hidden">
+            <div className="mt-3 sm:mt-4 mx-2 sm:mx-4 lg:mx-6 xl:mx-8 w-auto bg-muted/20 rounded-full h-1 overflow-hidden">
               <div
                 className="h-full bg-primary transition-all duration-100 ease-linear relative"
                 style={{ width: `${autoplayProgress}%` }}

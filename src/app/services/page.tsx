@@ -8,7 +8,6 @@ import {
   Shield,
   Settings,
   Calendar,
-  MapPin,
   Users as UsersIcon,
   Building2,
   GraduationCap,

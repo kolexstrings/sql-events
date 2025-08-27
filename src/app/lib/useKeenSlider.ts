@@ -8,6 +8,12 @@ export interface UseKeenSliderOptions {
   autoplay?: boolean;
   autoplayInterval?: number;
   centered?: boolean;
+  breakpoints?: {
+    [key: string]: {
+      slidesPerView?: number;
+      spacing?: number;
+    };
+  };
 }
 
 export const useKeenSlider = (options: UseKeenSliderOptions = {}) => {
@@ -17,9 +23,27 @@ export const useKeenSlider = (options: UseKeenSliderOptions = {}) => {
     loop = true,
     autoplay = false,
     autoplayInterval = 3000,
+    breakpoints,
   } = options;
 
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Create breakpoints config for KeenSlider
+  const keenSliderBreakpoints: Record<
+    string,
+    { slides: { perView: number; spacing: number; origin: "auto" | "center" } }
+  > = {};
+  if (breakpoints) {
+    Object.keys(breakpoints).forEach((key) => {
+      keenSliderBreakpoints[key] = {
+        slides: {
+          perView: breakpoints[key].slidesPerView || slidesPerView,
+          spacing: breakpoints[key].spacing || spacing,
+          origin: options.centered ? "center" : "auto",
+        },
+      };
+    });
+  }
 
   const [sliderRef, instanceRef] = useKeenSliderBase(
     {
@@ -29,6 +53,7 @@ export const useKeenSlider = (options: UseKeenSliderOptions = {}) => {
         spacing,
         origin: options.centered ? "center" : "auto",
       },
+      breakpoints: keenSliderBreakpoints,
       created() {
         if (autoplay) {
           startAutoplay();

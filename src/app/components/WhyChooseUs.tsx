@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
         scrub: 1, // Smooth scrubbing with 1 second delay
         pin: false, // Don't pin the section
         anticipatePin: 1, // Optimize for smooth scrolling
-        onUpdate: (self) => {
+        onUpdate: () => {
           // Optional: Add any additional logic during scroll
         },
       },

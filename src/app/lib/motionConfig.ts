@@ -53,11 +53,16 @@ export function useMotionPreference() {
 
 // Get appropriate motion variant based on user preference
 export function getMotionVariant(
-  variantName: keyof typeof motionConfig.standardMotion
+  variantName: keyof typeof motionConfig.standardMotion,
+  prefersReducedMotion?: boolean
 ) {
-  const prefersReducedMotion = useMotionPreference();
+  // Allow passing the preference as parameter to avoid hook call in non-component function
+  const shouldReduceMotion =
+    prefersReducedMotion ??
+    (typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
-  if (prefersReducedMotion) {
+  if (shouldReduceMotion) {
     return motionConfig.reducedMotion;
   }
 
