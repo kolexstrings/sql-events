@@ -200,14 +200,14 @@ export default function Hero() {
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-pulse"></div>
                 <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
-                  98% Client Satisfaction
+                  Across 30+ Cities
                 </span>
                 <div className="hidden sm:block w-6 sm:w-8 h-px bg-border"></div>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse"></div>
                 <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
-                  24/7 Support
+                  98% Client Satisfaction
                 </span>
               </div>
             </div>

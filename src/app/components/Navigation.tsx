@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import { usePathname } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +45,7 @@ export default function Navigation() {
           {/* Left Side - Enhanced Logo */}
           <div className="flex items-center group">
             <Link className="flex items-center" href="/">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mr-2 sm:mr-3 transition-all duration-500 group-hover:scale-110 opacity-95 group-hover:opacity-100">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 mr-2 sm:mr-3 transition-all duration-500 group-hover:scale-110 opacity-95 group-hover:opacity-100">
                 <Image
                   alt="SQL Events Nigeria Logo"
                   width={64}
@@ -54,7 +55,7 @@ export default function Navigation() {
                 />
               </div>
               <span
-                className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold transition-all duration-500 font-display logo-text group-hover:scale-105 ${
+                className={`text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-bold transition-all duration-500 font-display logo-text group-hover:scale-105 ${
                   isScrolled ? "brand-gradient-text" : "brand-gradient-text"
                 }`}
               >
@@ -254,19 +255,7 @@ export default function Navigation() {
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
                     <span>Contact Us</span>
-                    <svg
-                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
+                    <ArrowRight className="w-4 h-6" />
                   </span>
 
                   {/* Button background animation */}
