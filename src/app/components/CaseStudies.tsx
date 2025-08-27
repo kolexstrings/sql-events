@@ -150,12 +150,12 @@ export default function CaseStudies() {
           </div>
         </motion.div>
 
-        {/* KeenSlider Carousel Container */}
-        <div className="relative">
+        {/* KeenSlider Carousel Container - Edge to Edge */}
+        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12">
           {/* Carousel */}
           <div
             ref={sliderRef}
-            className="keen-slider"
+            className="keen-slider px-4 sm:px-6 lg:px-8 xl:px-12"
             onMouseEnter={stopAutoplay}
             onMouseLeave={startAutoplay}
             onTouchStart={stopAutoplay}
@@ -219,7 +219,7 @@ export default function CaseStudies() {
           </div>
 
           {/* Navigation Controls - Below to the Right */}
-          <div className="flex items-center justify-end mt-8 space-x-4">
+          <div className="flex items-center justify-end mt-8 space-x-4 px-4 sm:px-6 lg:px-8 xl:px-12">
             {/* Previous Button - Hidden on Mobile */}
             <button
               onClick={prev}
@@ -302,7 +302,7 @@ export default function CaseStudies() {
 
           {/* Autoplay Progress Bar */}
           {isAutoplayActive && (
-            <div className="mt-4 w-full bg-muted/20 rounded-full h-1 overflow-hidden">
+            <div className="mt-4 mx-4 sm:mx-6 lg:mx-8 xl:mx-12 w-auto bg-muted/20 rounded-full h-1 overflow-hidden">
               <div
                 className="h-full bg-primary transition-all duration-100 ease-linear relative"
                 style={{ width: `${autoplayProgress}%` }}

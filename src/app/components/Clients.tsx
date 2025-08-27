@@ -26,7 +26,7 @@ export default function Clients() {
     },
     {
       name: "Rivers State",
-      logo: "/clients/rivers-state.png",
+      logo: "/clients/RiversState.png",
     },
     {
       name: "NSE",
@@ -257,24 +257,18 @@ export default function Clients() {
                       />
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-3 font-medium">
-                    {partner.name}
-                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
 
-        {/* Desktop Carousel - Left Margin Preserved, Right Edge-to-Edge */}
-        <div className="hidden md:block">
-          <div
-            ref={desktopCarouselRef}
-            className="overflow-hidden py-8 -mr-4 sm:-mr-6"
-          >
+        {/* Desktop Carousel - Edge to Edge with GSAP */}
+        <div className="hidden md:block -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12">
+          <div ref={desktopCarouselRef} className="overflow-hidden py-8">
             <motion.div
               ref={desktopCarouselContainerRef}
-              className="flex items-center space-x-16 lg:space-x-20"
+              className="flex items-center space-x-16 lg:space-x-20 px-4 sm:px-6 lg:px-8 xl:px-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
